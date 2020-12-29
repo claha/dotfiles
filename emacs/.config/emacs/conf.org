@@ -1,0 +1,504 @@
+#+TITLE: Emacs Configuration
+#+AUTHOR: Claes Hallstrom
+#+OPTIONS: toc:nil num:nil
+
+* Quelpa
+
+Build and install your Emacs Lisp packages on-the-fly and directly from source.
+
+#+BEGIN_SRC emacs-lisp
+(use-package quelpa
+  :ensure
+  :custom
+  (quelpa-update-melpa-p nil))
+
+(use-package quelpa-use-package
+  :ensure
+  :init
+  (setq quelpa-use-package-inhibit-loading-quelpa t))
+#+END_SRC
+* Customization and backup
+
+Save Emacs customization settings in a separate file.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (defun load-custom-file ()
+    (let ((file (symbol-value 'custom-file)))
+          (unless (file-exists-p file)
+            (make-empty-file file))
+          (load-file file)))
+  :hook
+  (after-init . load-custom-file))
+#+END_SRC
+
+Save Emacs backup files elsewhere.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq backup-directory-alist
+        `(("." . ,(expand-file-name ".backup" user-emacs-directory))))
+  (setq delete-old-versions t)
+  (setq kept-new-versions 6)
+  (setq kept-old-versions 2)
+  (setq version-control t)
+  (setq auto-save-file-name-transforms
+        `((".*" ,(expand-file-name ".backup" user-emacs-directory)))))
+#+END_SRC
+* Appearance
+
+Configure the appearance of Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :init
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tooltip-mode -1)
+  (global-hl-line-mode 1)
+  (show-paren-mode 1)
+  (global-display-line-numbers-mode t)
+  :config
+  (setq inhibit-startup-message t)
+  (setq initial-scratch-message nil)
+  (set-window-scroll-bars (minibuffer-window) nil nil)
+  (setq show-paren-delay 0.0)
+  (setq column-number-mode t))
+#+END_SRC
+
+An opinionated pack of modern color-themes.
+
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+  :ensure
+  :init (load-theme 'doom-material t))
+#+END_SRC
+
+Configure mode line without icon and showing minor modes and buffer name.
+
+#+BEGIN_SRC emacs-lisp
+(use-package diminish
+  :ensure
+  :after use-package)
+
+(use-package all-the-icons
+  :ensure)
+
+(use-package doom-modeline
+  :ensure
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-buffer-encoding nil)
+  (doom-modeline-minor-modes t)
+  (doom-modeline-buffer-file-name-style 'buffer-name))
+#+END_SRC
+* Completion
+
+Ivy - a generic completion frontend for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ivy
+  :ensure
+  :diminish ivy-mode
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "")
+  (setq ivy-display-style 'fancy)
+  (setq ivy-extra-directories ())
+  (setq ivy-sort-matches-functions-alist
+        '((t . ivy--prefix-sort)))
+  (setq ivy-initial-inputs-alist nil)
+  (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
+
+(use-package ivy-rich
+  :ensure
+  :after counsel
+  :config
+  (setcdr (assq t ivy-format-functions-alist)
+          #'ivy-format-function-line)
+  (ivy-rich-mode 1))
+
+(use-package ivy-posframe
+  :ensure
+  :diminish ivy-posframe-mode
+  :custom
+  (ivy-posframe-height-alist
+   '((t . 20)))
+  (ivy-posframe-display-functions-alist
+   '((counsel-find-file . ivy-display-function-fallback)
+     (ivy-completion-in-region . ivy-posframe-display-at-frame-center)
+     (t . ivy-posframe-display-at-frame-center)))
+  (ivy-posframe-parameters
+   '((left-fringe . 4)
+     (right-fringe . 4)))
+  :config
+  (ivy-posframe-mode 1))
+
+(use-package counsel
+  :ensure
+  :diminish counsel-mode
+  :bind (("C-c i" . counsel-imenu)
+         ("C-x C-r" . counsel-recentf))
+  :config
+  (counsel-mode 1)
+  (setq counsel-find-file-ignore-regexp
+          (concat
+           ;; file names beginning with #
+           "\\(?:\\`[#]\\)"
+           ;; file names ending with # or ~
+           "\\|\\(?:[#~]\\'\\)")))
+#+END_SRC
+
+Configure dabbrev.
+
+#+BEGIN_SRC emacs-lisp
+(use-package dabbrev
+  :custom
+  (dabbrev-abbrev-char-regexp nil)
+  (dabbrev-backward-only nil)
+  (dabbrev-case-distinction nil)
+  (dabbrev-case-fold-search t)
+  (dabbrev-case-replace nil)
+  (dabbrev-eliminate-newlines nil)
+  (dabbrev-upcase-means-case-search t)
+  :config
+  (global-set-key (kbd "C-.") 'dabbrev-expand)
+  (global-set-key (kbd "C-:")
+                  '(lambda()
+                     (interactive)
+                     (let ((current-prefix-arg '(16)))  ;; C-u C-u
+                       (call-interactively 'dabbrev-completion)))))
+#+END_SRC
+* Project
+
+Project Interaction Library for Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :ensure
+  :diminish projectile-mode
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :config
+  (projectile-mode)
+  (setq frame-title-format '((:eval (projectile-project-name)))))
+
+(use-package counsel-projectile
+  :ensure
+  :config (counsel-projectile-mode))
+#+END_SRC
+* Buffers and windows
+
+Use ibuffer instead.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+#+END_SRC
+
+Do not ask for confirmation to delete marked buffers.
+
+#+BEGIN_SRC emacs-lisp
+(setq ibuffer-expert t)
+#+END_SRC
+
+Keep the buffer list up to date.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'buffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)))
+#+END_SRC
+
+Assume that I always want to kill the current buffer.
+
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x k")
+                '(lambda()
+                   (interactive)
+                   (kill-buffer (current-buffer))))
+#+END_SRC
+
+Quickly switch windows in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ace-window
+  :ensure
+  :bind ("C-x o" . ace-window))
+#+END_SRC
+
+Dired, the Directory Editor.
+
+#+BEGIN_SRC emacs-lisp
+(use-package dired
+  :commands (dired dired-jump)
+  :bind (("C-x C-j" . dired-jump))
+  :custom ((dired-listing-switches "-aghov --group-directories-first")))
+#+END_SRC
+* Searching and jumping
+
+Jump to things in Emacs tree-style.
+
+#+BEGIN_SRC emacs-lisp
+(use-package avy
+  :ensure
+  :init
+  (avy-setup-default))
+#+END_SRC
+
+An Emacs frontend to The Silver Searcher.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ag
+  :ensure)
+#+END_SRC
+
+An Emacs "jump to definition" package for 40+ languages.
+
+#+BEGIN_SRC emacs-lisp
+(use-package dumb-jump
+  :ensure
+  :config
+  (setq dumb-jump-selector 'ivy)
+  (setq dumb-jump-force-searcher 'ag)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+#+END_SRC
+* Version control
+
+It's Magit! A Git porcelain inside Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+  :ensure
+  :custom
+  (magit-display-buffer-function
+   #'magit-display-buffer-fullframe-status-v1)
+  :bind (("C-c g" . magit-status)))
+
+(use-package forge
+  :after magit
+  :ensure)
+
+(use-package git-commit
+  :ensure
+  :config
+  (setq git-commit-summary-max-length 50)
+  (add-hook 'git-commit-mode-hook
+            '(lambda ()
+               (setq fill-column 72)
+               (setq-local comment-auto-fill-only-comments nil))))
+#+END_SRC
+
+Example of ~/.authinfo for github.
+
+#+BEGIN_EXAMPLE conf
+machine api.github.com login claha^forge password TOKEN
+#+END_EXAMPLE
+
+Emacs package for highlighting uncommitted changes
+
+#+BEGIN_SRC emacs-lisp
+(use-package diff-hl
+  :ensure
+  :hook ((prog-mode . diff-hl-mode)
+         (org-mode . diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
+  :custom
+  (diff-hl-side 'right))
+#+END_SRC
+* Org-mode
+
+Configure org-mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :config
+  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0))))
+#+END_SRC
+
+Configure org source code blocks.
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-src
+   :config
+  (setq org-src-window-setup 'current-window)
+  (setq org-src-fontify-natively t)
+  (setq org-src-preserve-indentation t)
+  (setq org-src-tab-acts-natively t))
+#+END_SRC
+
+* Help
+
+Emacs package that displays available keybindings in popup.
+
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :ensure
+  :diminish which-key-mode
+  :custom
+  (which-key-idle-delay 0.25)
+  :init (which-key-mode))
+#+END_SRC
+
+A better Emacs *help* buffer.
+
+#+BEGIN_SRC emacs-lisp
+(use-package helpful
+  :ensure
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-key] . helpful-key))
+#+END_SRC
+* Miscellaneous
+
+Emacs client/library for the Language Server Protocol.
+
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :ensure
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+#+END_SRC
+
+Miscellaneous packages.
+
+#+BEGIN_SRC emacs-lisp
+(use-package hungry-delete
+  :ensure
+  :diminish hungry-delete-mode
+  :config
+  (global-hungry-delete-mode))
+
+(use-package cmake-mode
+  :ensure
+  :defer t)
+
+(use-package hydra
+  :ensure
+  :defer t)
+
+(use-package flycheck
+  :ensure
+  :diminish flycheck-mode
+  :init
+  (global-flycheck-mode))
+#+END_SRC
+
+Use eww to browse.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq browse-url-browser-function 'eww-browse-url))
+#+END_SRC
+
+Tabs are evil, use 4 spaces as default.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4))
+#+END_SRC
+
+Writing 'yes/no' takes to much time...
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  (setq large-file-warning-threshold nil)
+  (setq vc-follow-symlinks t)
+  (setq visible-bell t))
+#+END_SRC
+
+Allow to change case of region and narrowing.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil))
+#+END_SRC
+
+Setup how compilation should behave.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq-default compilation-ask-about-save nil)
+  (setq-default compilation-always-kill t)
+  (setq-default compilation-scroll-output 'first-error))
+#+END_SRC
+
+# Colorize compilation buffer.
+
+# #+BEGIN_SRC emacs-lisp
+#   (use-package ansi-color
+#     :ensure
+#     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
+
+#   (defun colorize-compilation-buffer ()
+#     (ansi-color-apply-on-region compilation-filter-start (point)))
+# #+END_SRC
+
+Configure c/c++ indentation.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq c-default-style "linux" c-basic-offset 2)
+  (c-set-offset 'case-label '+))
+#+END_SRC
+
+Save and restore frames and windows with their buffers in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package burly
+  :quelpa (burly :fetcher github :repo "alphapapa/burly.el"))
+#+END_SRC
+
+Diminish eldoc-mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package eldoc
+  :diminish eldoc-mode)
+#+END_SRC
+
+Hide line numbers in terminals and shells.
+
+#+BEGIN_SRC emacs-lisp
+(use-package shell
+  :config
+  (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
+
+(use-package eshell
+  :config
+  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
+
+(use-package term
+  :config
+  (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
+#+END_SRC
+* Private
+
+Load private file if it exists and is readable.
+
+#+BEGIN_SRC emacs-lisp
+  (if (file-readable-p (expand-file-name "private.el" user-emacs-directory))
+      (load-file (expand-file-name "private.el" user-emacs-directory)))
+#+END_SRC
