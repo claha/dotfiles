@@ -41,6 +41,7 @@
 [user]
     email = hallstrom.claes@gmail.com
     name = Claes Hallström
+    signingkey = 957A412F3C40DFCA
 
 [github]
     user = claha
