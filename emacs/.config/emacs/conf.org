@@ -94,7 +94,9 @@ Configure mode line without icon and showing minor modes and buffer name.
   :custom
   (doom-modeline-buffer-encoding nil)
   (doom-modeline-minor-modes t)
-  (doom-modeline-buffer-file-name-style 'buffer-name))
+  (doom-modeline-buffer-file-name-style 'buffer-name)
+  :config
+  (setq doom-modeline-icon t))
 #+END_SRC
 * Completion
 
