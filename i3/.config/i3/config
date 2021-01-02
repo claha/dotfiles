@@ -140,6 +140,9 @@ exec setxkbmap -option ctrl:nocaps &
 # Hide the mouse cursor after a second
 exec unclutter -idle 1 -noevents &
 
+# Start emacs daemon
+exec emacs --daemon &
+
 # Start i3bar to display a workspace bar and i3status
 bar {
     status_command i3status
