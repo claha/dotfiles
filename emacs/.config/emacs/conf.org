@@ -320,7 +320,11 @@ Configure org-mode.
 #+BEGIN_SRC emacs-lisp
 (use-package org
   :config
-  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0))))
+  (defun org-mode-setup ()
+    (display-line-numbers-mode 0)
+    (visual-line-mode 1)
+    (org-indent-mode))
+  :hook (org-mode . org-mode-setup))
 #+END_SRC
 
 Configure org source code blocks.
