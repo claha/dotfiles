@@ -388,6 +388,9 @@ Miscellaneous packages.
   :config
   (global-hungry-delete-mode))
 
+(use-package yaml-mode
+  :ensure)
+
 (use-package cmake-mode
   :ensure
   :defer t)
