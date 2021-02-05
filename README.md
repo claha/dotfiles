@@ -12,6 +12,7 @@ these can be installed using apt, pacman etc.
 - emacs
 - git
 - i3
+- ripgrep
 - stow
 - the silver searcher
 - unclutter

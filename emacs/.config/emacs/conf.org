@@ -260,6 +260,13 @@ An Emacs frontend to The Silver Searcher.
   :ensure)
 #+END_SRC
 
+Emacs search tool based on ripgrep.
+
+#+BEGIN_SRC emacs-lisp
+(use-package rg
+  :ensure)
+#+END_SRC
+
 An Emacs "jump to definition" package for 40+ languages.
 
 #+BEGIN_SRC emacs-lisp
