@@ -32,7 +32,6 @@
   (require 'use-package))
 
 ;; Load configuration
-(use-package org)
 (org-babel-load-file (expand-file-name "conf.org" user-emacs-directory))
 
 ;; Make gc pauses faster by decreasing the threshold.

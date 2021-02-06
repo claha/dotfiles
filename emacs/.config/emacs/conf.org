@@ -105,6 +105,7 @@ Ivy - a generic completion frontend for Emacs.
 #+BEGIN_SRC emacs-lisp
 (use-package ivy
   :ensure
+  :defer 0.1
   :diminish ivy-mode
   :config
   (ivy-mode 1)
@@ -119,7 +120,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package ivy-rich
   :ensure
-  :after counsel
+  :after (ivy counsel)
   :config
   (setcdr (assq t ivy-format-functions-alist)
           #'ivy-format-function-line)
@@ -127,6 +128,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package ivy-posframe
   :ensure
+  :after (ivy counsel)
   :diminish ivy-posframe-mode
   :custom
   (ivy-posframe-height-alist
@@ -143,6 +145,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package counsel
   :ensure
+  :after ivy
   :diminish counsel-mode
   :bind (("C-c i" . counsel-imenu)
          ("C-x C-r" . counsel-recentf))
@@ -183,6 +186,7 @@ Project Interaction Library for Emacs.
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :ensure
+  :after ivy
   :diminish projectile-mode
   :custom ((projectile-completion-system 'ivy))
   :bind-keymap
@@ -193,6 +197,7 @@ Project Interaction Library for Emacs.
 
 (use-package counsel-projectile
   :ensure
+  :after (counsel projectile)
   :config (counsel-projectile-mode))
 #+END_SRC
 * Buffers and windows
@@ -249,6 +254,7 @@ Jump to things in Emacs tree-style.
 #+BEGIN_SRC emacs-lisp
 (use-package avy
   :ensure
+  :defer
   :init
   (avy-setup-default))
 #+END_SRC
@@ -257,14 +263,16 @@ An Emacs frontend to The Silver Searcher.
 
 #+BEGIN_SRC emacs-lisp
 (use-package ag
-  :ensure)
+  :ensure
+  :commands ag)
 #+END_SRC
 
 Emacs search tool based on ripgrep.
 
 #+BEGIN_SRC emacs-lisp
 (use-package rg
-  :ensure)
+  :ensure
+  :commands rg)
 #+END_SRC
 
 An Emacs "jump to definition" package for 40+ languages.
@@ -272,6 +280,7 @@ An Emacs "jump to definition" package for 40+ languages.
 #+BEGIN_SRC emacs-lisp
 (use-package dumb-jump
   :ensure
+  :defer
   :config
   (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-force-searcher 'ag)
@@ -295,6 +304,7 @@ It's Magit! A Git porcelain inside Emacs.
 
 (use-package git-commit
   :ensure
+  :after magit
   :config
   (setq git-commit-summary-max-length 50)
   (add-hook 'git-commit-mode-hook
@@ -338,7 +348,8 @@ Configure org source code blocks.
 
 #+BEGIN_SRC emacs-lisp
 (use-package org-src
-   :config
+  :after org
+  :config
   (setq org-src-window-setup 'current-window)
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
@@ -363,6 +374,7 @@ A better Emacs *help* buffer.
 #+BEGIN_SRC emacs-lisp
 (use-package helpful
   :ensure
+  :after counsel
   :custom
   (counsel-describe-function-function #'helpful-callable)
   (counsel-describe-variable-function #'helpful-variable)
@@ -396,7 +408,8 @@ Miscellaneous packages.
   (global-hungry-delete-mode))
 
 (use-package yaml-mode
-  :ensure)
+  :ensure
+  :defer t)
 
 (use-package cmake-mode
   :ensure
@@ -485,6 +498,7 @@ Save and restore frames and windows with their buffers in Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package burly
+  :defer
   :quelpa (burly :fetcher github :repo "alphapapa/burly.el"))
 #+END_SRC
 
@@ -499,14 +513,17 @@ Hide line numbers in terminals and shells.
 
 #+BEGIN_SRC emacs-lisp
 (use-package shell
+  :commands shell
   :config
   (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 (use-package eshell
+  :commands eshell
   :config
   (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 (use-package term
+  :commands term
   :config
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
 #+END_SRC
