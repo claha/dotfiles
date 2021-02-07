@@ -2,21 +2,6 @@
 #+AUTHOR: Claes Hallstrom
 #+OPTIONS: toc:nil num:nil
 
-* Quelpa
-
-Build and install your Emacs Lisp packages on-the-fly and directly from source.
-
-#+BEGIN_SRC emacs-lisp
-(use-package quelpa
-  :ensure
-  :custom
-  (quelpa-update-melpa-p nil))
-
-(use-package quelpa-use-package
-  :ensure
-  :init
-  (setq quelpa-use-package-inhibit-loading-quelpa t))
-#+END_SRC
 * Cleaning
 
 Help keeping emacs-user-directory clean.
@@ -473,14 +458,6 @@ Configure c/c++ indentation.
   :config
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+))
-#+END_SRC
-
-Save and restore frames and windows with their buffers in Emacs.
-
-#+BEGIN_SRC emacs-lisp
-(use-package burly
-  :defer
-  :quelpa (burly :fetcher github :repo "alphapapa/burly.el"))
 #+END_SRC
 
 Diminish eldoc-mode.
