@@ -17,36 +17,17 @@ Build and install your Emacs Lisp packages on-the-fly and directly from source.
   :init
   (setq quelpa-use-package-inhibit-loading-quelpa t))
 #+END_SRC
-* Customization and backup
+* Cleaning
 
-Save Emacs customization settings in a separate file.
-
-#+BEGIN_SRC emacs-lisp
-(use-package emacs
-  :config
-  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-  (defun load-custom-file ()
-    (let ((file (symbol-value 'custom-file)))
-          (unless (file-exists-p file)
-            (make-empty-file file))
-          (load-file file)))
-  :hook
-  (after-init . load-custom-file))
-#+END_SRC
-
-Save Emacs backup files elsewhere.
+Help keeping emacs-user-directory clean.
 
 #+BEGIN_SRC emacs-lisp
-(use-package emacs
+(use-package no-littering
+  :ensure
   :config
-  (setq backup-directory-alist
-        `(("." . ,(expand-file-name ".backup" user-emacs-directory))))
-  (setq delete-old-versions t)
-  (setq kept-new-versions 6)
-  (setq kept-old-versions 2)
-  (setq version-control t)
   (setq auto-save-file-name-transforms
-        `((".*" ,(expand-file-name ".backup" user-emacs-directory)))))
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
 #+END_SRC
 * Appearance
 
