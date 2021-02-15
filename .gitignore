@@ -2,3 +2,6 @@ emacs/.config/emacs/*
 !emacs/.config/emacs/conf.org
 !emacs/.config/emacs/early-init.el
 !emacs/.config/emacs/init.el
+
+qutebrowser/.config/qutebrowser/autoconfig.yml
+qutebrowser/.config/qutebrowser/bookmarks
