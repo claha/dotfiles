@@ -3,5 +3,7 @@ emacs/.config/emacs/*
 !emacs/.config/emacs/early-init.el
 !emacs/.config/emacs/init.el
 
+mpv/.config/mpv/watch_later
+
 qutebrowser/.config/qutebrowser/autoconfig.yml
 qutebrowser/.config/qutebrowser/bookmarks

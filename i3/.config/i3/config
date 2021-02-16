@@ -134,6 +134,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Startup applications
 ########################################
 
+# Window rules
+for_window [class="mpv$"] floating enable
+
 # Use Caps Lock as an additional Control key
 exec setxkbmap -option ctrl:nocaps &
 
