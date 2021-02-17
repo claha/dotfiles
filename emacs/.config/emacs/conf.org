@@ -392,12 +392,13 @@ Miscellaneous packages.
   (global-flycheck-mode))
 #+END_SRC
 
-Use eww to browse.
+Use qutebrowser to browse.
 
 #+BEGIN_SRC emacs-lisp
 (use-package emacs
   :config
-  (setq browse-url-browser-function 'eww-browse-url))
+  (setq browse-url-browser-function 'browse-url-generic)
+  (setq browse-url-generic-program "qutebrowser"))
 #+END_SRC
 
 Tabs are evil, use 4 spaces as default.
