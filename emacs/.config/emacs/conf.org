@@ -296,6 +296,81 @@ Emacs package for highlighting uncommitted changes
   :custom
   (diff-hl-side 'right))
 #+END_SRC
+* Programming
+
+Tabs are evil, use 4 spaces as default.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4))
+#+END_SRC
+
+Emacs client/library for the Language Server Protocol.
+
+#+BEGIN_SRC emacs-lisp
+(use-package lsp-mode
+  :ensure
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(use-package yaml-mode
+  :ensure
+  :defer t)
+
+(use-package cmake-mode
+  :ensure
+  :defer t)
+
+(use-package flycheck
+  :ensure
+  :diminish flycheck-mode
+  :init
+  (global-flycheck-mode))
+#+END_SRC
+
+Setup how compilation should behave.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq-default compilation-ask-about-save nil)
+  (setq-default compilation-always-kill t)
+  (setq-default compilation-scroll-output 'first-error))
+#+END_SRC
+
+# Colorize compilation buffer.
+
+# #+BEGIN_SRC emacs-lisp
+#   (use-package ansi-color
+#     :ensure
+#     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
+
+#   (defun colorize-compilation-buffer ()
+#     (ansi-color-apply-on-region compilation-filter-start (point)))
+# #+END_SRC
+
+Configure c/c++ indentation.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (setq c-default-style "linux" c-basic-offset 2)
+  (c-set-offset 'case-label '+))
+#+END_SRC
+
+Diminish eldoc-mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package eldoc
+  :diminish eldoc-mode)
+#+END_SRC
 * Org-mode
 
 Configure org-mode.
@@ -352,18 +427,6 @@ A better Emacs *help* buffer.
 #+END_SRC
 * Miscellaneous
 
-Emacs client/library for the Language Server Protocol.
-
-#+BEGIN_SRC emacs-lisp
-(use-package lsp-mode
-  :ensure
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (lsp-enable-which-key-integration t))
-#+END_SRC
-
 Miscellaneous packages.
 
 #+BEGIN_SRC emacs-lisp
@@ -373,23 +436,9 @@ Miscellaneous packages.
   :config
   (global-hungry-delete-mode))
 
-(use-package yaml-mode
-  :ensure
-  :defer t)
-
-(use-package cmake-mode
-  :ensure
-  :defer t)
-
 (use-package hydra
   :ensure
   :defer t)
-
-(use-package flycheck
-  :ensure
-  :diminish flycheck-mode
-  :init
-  (global-flycheck-mode))
 #+END_SRC
 
 Use qutebrowser to browse.
@@ -399,15 +448,6 @@ Use qutebrowser to browse.
   :config
   (setq browse-url-browser-function 'browse-url-generic)
   (setq browse-url-generic-program "qutebrowser"))
-#+END_SRC
-
-Tabs are evil, use 4 spaces as default.
-
-#+BEGIN_SRC emacs-lisp
-(use-package emacs
-  :config
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4))
 #+END_SRC
 
 Writing 'yes/no' takes to much time...
@@ -429,43 +469,6 @@ Allow to change case of region and narrowing.
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil))
-#+END_SRC
-
-Setup how compilation should behave.
-
-#+BEGIN_SRC emacs-lisp
-(use-package emacs
-  :config
-  (setq-default compilation-ask-about-save nil)
-  (setq-default compilation-always-kill t)
-  (setq-default compilation-scroll-output 'first-error))
-#+END_SRC
-
-# Colorize compilation buffer.
-
-# #+BEGIN_SRC emacs-lisp
-#   (use-package ansi-color
-#     :ensure
-#     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
-
-#   (defun colorize-compilation-buffer ()
-#     (ansi-color-apply-on-region compilation-filter-start (point)))
-# #+END_SRC
-
-Configure c/c++ indentation.
-
-#+BEGIN_SRC emacs-lisp
-(use-package emacs
-  :config
-  (setq c-default-style "linux" c-basic-offset 2)
-  (c-set-offset 'case-label '+))
-#+END_SRC
-
-Diminish eldoc-mode.
-
-#+BEGIN_SRC emacs-lisp
-(use-package eldoc
-  :diminish eldoc-mode)
 #+END_SRC
 
 Hide line numbers in terminals and shells.
