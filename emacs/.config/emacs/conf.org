@@ -371,6 +371,25 @@ Diminish eldoc-mode.
 (use-package eldoc
   :diminish eldoc-mode)
 #+END_SRC
+* Shell/Terminal
+Hide line numbers in terminals and shells.
+
+#+BEGIN_SRC emacs-lisp
+(use-package shell
+  :commands shell
+  :config
+  (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
+
+(use-package eshell
+  :commands eshell
+  :config
+  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
+
+(use-package term
+  :commands term
+  :config
+  (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
+#+END_SRC
 * Org-mode
 
 Configure org-mode.
@@ -469,25 +488,6 @@ Allow to change case of region and narrowing.
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil))
-#+END_SRC
-
-Hide line numbers in terminals and shells.
-
-#+BEGIN_SRC emacs-lisp
-(use-package shell
-  :commands shell
-  :config
-  (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
-
-(use-package eshell
-  :commands eshell
-  :config
-  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0))))
-
-(use-package term
-  :commands term
-  :config
-  (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
 #+END_SRC
 * Private
 
