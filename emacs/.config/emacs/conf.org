@@ -166,44 +166,7 @@ Project Interaction Library for Emacs.
   :after (counsel projectile)
   :config (counsel-projectile-mode))
 #+END_SRC
-* Buffers and windows
-
-Use ibuffer instead.
-
-#+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-#+END_SRC
-
-Do not ask for confirmation to delete marked buffers.
-
-#+BEGIN_SRC emacs-lisp
-(setq ibuffer-expert t)
-#+END_SRC
-
-Keep the buffer list up to date.
-
-#+BEGIN_SRC emacs-lisp
-(add-hook 'buffer-mode-hook
-          '(lambda ()
-             (ibuffer-auto-mode 1)))
-#+END_SRC
-
-Assume that I always want to kill the current buffer.
-
-#+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x k")
-                '(lambda()
-                   (interactive)
-                   (kill-buffer (current-buffer))))
-#+END_SRC
-
-Quickly switch windows in Emacs.
-
-#+BEGIN_SRC emacs-lisp
-(use-package ace-window
-  :ensure
-  :bind ("C-x o" . ace-window))
-#+END_SRC
+* Buffers
 
 Dired, the Directory Editor.
 
@@ -212,6 +175,26 @@ Dired, the Directory Editor.
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
+#+END_SRC
+
+Operate on buffers liked dired.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ibuffer
+  :bind
+  (("C-x C-b" . ibuffer)
+   ("C-x k" . kill-this-buffer)))
+#+END_SRC
+* Windows
+
+Quickly switch windows in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package ace-window
+  :ensure
+  :bind ("C-x o" . ace-window)
+  :custom
+  (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 #+END_SRC
 * Searching and jumping
 
