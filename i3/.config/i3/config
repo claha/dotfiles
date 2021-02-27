@@ -36,7 +36,7 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
-bindsym $mod+odiaeresi focus right
+bindsym $mod+odiaeresis focus right
 
 # Change focus alternatives
 bindsym $mod+Left focus left
@@ -48,7 +48,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresi move right
+bindsym $mod+Shift+odiaeresis move right
 
 # Move focused window alternatives
 bindsym $mod+Shift+Left move left
