@@ -10,6 +10,7 @@ For everything to work correctly a few packages are needed. Depending on distro
 these can be installed using apt, pacman etc.
 
 - emacs
+- feh
 - git
 - i3
 - mpv

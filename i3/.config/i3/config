@@ -155,6 +155,9 @@ exec setxkbmap -option ctrl:nocaps &
 # Hide the mouse cursor after a second
 exec unclutter -idle 1 -noevents &
 
+# Set background
+exec feh --bg-fill ~/.background
+
 # Start emacs daemon
 exec emacs --daemon &
 
