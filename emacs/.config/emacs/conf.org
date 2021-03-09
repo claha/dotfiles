@@ -170,7 +170,7 @@ Ivy UI for Projectile.
   :after (counsel projectile)
   :config (counsel-projectile-mode))
 #+END_SRC
-* Buffers
+* Files
 
 Dired, the Directory Editor.
 
@@ -180,8 +180,9 @@ Dired, the Directory Editor.
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
 #+END_SRC
+* Buffers
 
-Operate on buffers liked dired.
+Operate on buffers like dired.
 
 #+BEGIN_SRC emacs-lisp
 (use-package ibuffer
