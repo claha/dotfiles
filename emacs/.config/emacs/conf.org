@@ -201,7 +201,7 @@ Quickly switch windows in Emacs.
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 #+END_SRC
-* Searching and jumping
+* Searching/Jumping
 
 Jump to things in Emacs tree-style.
 
