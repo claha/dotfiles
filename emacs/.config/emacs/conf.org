@@ -160,7 +160,11 @@ Project Interaction Library for Emacs.
   :config
   (projectile-mode)
   (setq frame-title-format '((:eval (projectile-project-name)))))
+#+END_SRC
 
+Ivy UI for Projectile.
+
+#+BEGIN_SRC emacs-lisp
 (use-package counsel-projectile
   :ensure
   :after (counsel projectile)
