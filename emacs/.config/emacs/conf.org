@@ -14,6 +14,7 @@ Help keeping emacs-user-directory clean.
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
 #+END_SRC
+
 * Appearance
 
 Configure the appearance of Emacs.
@@ -64,6 +65,7 @@ Configure mode line without icon and showing minor modes and buffer name.
   :config
   (setq doom-modeline-icon t))
 #+END_SRC
+
 * Completion
 
 Ivy - a generic completion frontend for Emacs.
@@ -145,6 +147,7 @@ Configure dabbrev.
                      (let ((current-prefix-arg '(16)))  ;; C-u C-u
                        (call-interactively 'dabbrev-completion)))))
 #+END_SRC
+
 * Project
 
 Project Interaction Library for Emacs.
@@ -170,6 +173,7 @@ Ivy UI for Projectile.
   :after (counsel projectile)
   :config (counsel-projectile-mode))
 #+END_SRC
+
 * Files
 
 Dired, the Directory Editor.
@@ -180,6 +184,7 @@ Dired, the Directory Editor.
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
 #+END_SRC
+
 * Buffers
 
 Operate on buffers like dired.
@@ -190,6 +195,7 @@ Operate on buffers like dired.
   (("C-x C-b" . ibuffer)
    ("C-x k" . kill-this-buffer)))
 #+END_SRC
+
 * Windows
 
 Quickly switch windows in Emacs.
@@ -201,6 +207,7 @@ Quickly switch windows in Emacs.
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 #+END_SRC
+
 * Searching/Jumping
 
 Jump to things in Emacs tree-style.
@@ -240,6 +247,7 @@ An Emacs "jump to definition" package for 40+ languages.
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
+
 * Version Control
 
 It's Magit! A Git porcelain inside Emacs.
@@ -288,6 +296,7 @@ Emacs package for highlighting uncommitted changes
   :custom
   (diff-hl-side 'right))
 #+END_SRC
+
 * Programming
 
 Tabs are evil, use 4 spaces as default.
@@ -363,7 +372,9 @@ Diminish eldoc-mode.
 (use-package eldoc
   :diminish eldoc-mode)
 #+END_SRC
+
 * Shell/Terminal
+
 Hide line numbers in terminals and shells.
 
 #+BEGIN_SRC emacs-lisp
@@ -382,6 +393,7 @@ Hide line numbers in terminals and shells.
   :config
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
 #+END_SRC
+
 * Org-mode
 
 Configure org-mode.
@@ -436,6 +448,7 @@ A better Emacs *help* buffer.
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 #+END_SRC
+
 * Miscellaneous
 
 Miscellaneous packages.
@@ -481,6 +494,7 @@ Allow to change case of region and narrowing.
   (put 'upcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil))
 #+END_SRC
+
 * Private
 
 Load private file if it exists and is readable.
