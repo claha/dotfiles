@@ -235,7 +235,7 @@ An Emacs "jump to definition" package for 40+ languages.
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
-* Version control
+* Version Control
 
 It's Magit! A Git porcelain inside Emacs.
 
@@ -247,10 +247,6 @@ It's Magit! A Git porcelain inside Emacs.
    #'magit-display-buffer-fullframe-status-v1)
   :bind (("C-c g" . magit-status)))
 
-(use-package forge
-  :after magit
-  :ensure)
-
 (use-package git-commit
   :ensure
   :after magit
@@ -260,6 +256,14 @@ It's Magit! A Git porcelain inside Emacs.
             '(lambda ()
                (setq fill-column 72)
                (setq-local comment-auto-fill-only-comments nil))))
+#+END_SRC
+
+Work with Git forges from the comfort of Magit.
+
+#+BEGIN_SRC emacs-lisp
+(use-package forge
+  :after magit
+  :ensure)
 #+END_SRC
 
 Example of ~/.authinfo for github.
