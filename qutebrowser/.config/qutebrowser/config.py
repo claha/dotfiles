@@ -50,3 +50,6 @@ c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
 
 # Page(s) to open at the start.
 c.url.start_pages = ["https://start.duckduckgo.com"]
+
+# Do not load the autoconfig file
+config.load_autoconfig(False)
