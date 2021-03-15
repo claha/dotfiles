@@ -24,7 +24,7 @@ set $exec exec --no-startup-id
 ########################################
 
 # Start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # Kill focused window
 bindsym $mod+Shift+q kill

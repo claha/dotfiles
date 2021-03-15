@@ -16,6 +16,7 @@ these can be installed using apt, pacman etc.
 - mpv
 - qutebrowser
 - ripgrep
+- rxvt-unicode
 - stow
 - the silver searcher
 - unclutter
