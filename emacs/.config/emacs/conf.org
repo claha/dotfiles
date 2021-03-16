@@ -397,9 +397,9 @@ Hide line numbers in terminals and shells.
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
 #+END_SRC
 
-* Org-mode
+* Org mode
 
-Configure org-mode.
+Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
 #+BEGIN_SRC emacs-lisp
 (use-package org
@@ -408,7 +408,20 @@ Configure org-mode.
     (display-line-numbers-mode 0)
     (visual-line-mode 1)
     (org-indent-mode))
+  (setq org-ellipsis " ▾")
+  (setq org-hide-emphasis-markers t)
   :hook (org-mode . org-mode-setup))
+#+END_SRC
+
+UTF-8 bullets for org-mode.
+
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+  :ensure
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 #+END_SRC
 
 Configure org source code blocks.
