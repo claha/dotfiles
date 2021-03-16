@@ -33,7 +33,7 @@ bindsym $mod+Shift+q kill
 bindsym Scroll_Lock exec i3lock --color 000000
 
 # Start a program launcher
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run
 
 # Change focus
 bindsym $mod+j focus left
