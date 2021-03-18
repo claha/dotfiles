@@ -300,6 +300,36 @@ Emacs package for highlighting uncommitted changes
   (diff-hl-side 'right))
 #+END_SRC
 
+* Editing
+
+Convert the region to lower or upper case.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil))
+#+END_SRC
+
+Restrict editing in this buffer to the current region.
+
+#+BEGIN_SRC emacs-lisp
+(use-package emacs
+  :config
+  (put 'narrow-to-region 'disabled nil))
+#+END_SRC
+
+Enables hungry deletion in all modes.
+
+#+BEGIN_SRC emacs-lisp
+(use-package hungry-delete
+  :ensure
+  :diminish hungry-delete-mode
+  :config
+  (global-hungry-delete-mode)
+  (setq hungry-delete-join-reluctantly t))
+#+END_SRC
+
 * Programming
 
 Tabs are evil, use 4 spaces as default.
@@ -470,12 +500,6 @@ A better Emacs *help* buffer.
 Miscellaneous packages.
 
 #+BEGIN_SRC emacs-lisp
-(use-package hungry-delete
-  :ensure
-  :diminish hungry-delete-mode
-  :config
-  (global-hungry-delete-mode))
-
 (use-package hydra
   :ensure
   :defer t)
@@ -499,16 +523,6 @@ Writing 'yes/no' takes to much time...
   (setq large-file-warning-threshold nil)
   (setq vc-follow-symlinks t)
   (setq visible-bell t))
-#+END_SRC
-
-Allow to change case of region and narrowing.
-
-#+BEGIN_SRC emacs-lisp
-(use-package emacs
-  :config
-  (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled nil)
-  (put 'narrow-to-region 'disabled nil))
 #+END_SRC
 
 * Private
