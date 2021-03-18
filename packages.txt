@@ -1,0 +1,13 @@
+emacs
+feh
+git
+i3-wm
+mpv
+qutebrowser
+ripgrep
+rofi
+rxvt-unicode
+stow
+the_silver_searcher
+unclutter
+youtube-dl
