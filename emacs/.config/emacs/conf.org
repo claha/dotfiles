@@ -73,6 +73,7 @@ Ivy - a generic completion frontend for Emacs.
 
 #+BEGIN_SRC emacs-lisp
 (use-package ivy
+  :disabled
   :ensure
   :defer 0.1
   :diminish ivy-mode
@@ -88,6 +89,7 @@ Ivy - a generic completion frontend for Emacs.
   (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
 
 (use-package ivy-rich
+  :disabled
   :ensure
   :after (ivy counsel)
   :config
@@ -96,6 +98,7 @@ Ivy - a generic completion frontend for Emacs.
   (ivy-rich-mode 1))
 
 (use-package ivy-posframe
+  :disabled
   :ensure
   :after (ivy counsel)
   :diminish ivy-posframe-mode
@@ -113,6 +116,7 @@ Ivy - a generic completion frontend for Emacs.
   (ivy-posframe-mode 1))
 
 (use-package counsel
+  :disabled
   :ensure
   :after ivy
   :diminish counsel-mode
@@ -159,9 +163,7 @@ Project Interaction Library for Emacs.
 #+BEGIN_SRC emacs-lisp
 (use-package projectile
   :ensure
-  :after ivy
   :diminish projectile-mode
-  :custom ((projectile-completion-system 'ivy))
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :config
@@ -173,6 +175,7 @@ Ivy UI for Projectile.
 
 #+BEGIN_SRC emacs-lisp
 (use-package counsel-projectile
+  :disabled
   :ensure
   :after (counsel projectile)
   :config (counsel-projectile-mode))
@@ -245,9 +248,7 @@ An Emacs "jump to definition" package for 40+ languages.
 #+BEGIN_SRC emacs-lisp
 (use-package dumb-jump
   :ensure
-  :defer
   :config
-  (setq dumb-jump-selector 'ivy)
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
