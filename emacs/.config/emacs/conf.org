@@ -69,6 +69,20 @@ Configure mode line without icon and showing minor modes and buffer name.
 
 * Completion
 
+Better solution for incremental narrowing in Emacs.
+
+#+BEGIN_SRC emacs-lisp
+(use-package selectrum
+  :ensure
+  :custom
+  (selectrum-fix-vertical-window-height t)
+  (selectrum-max-window-height 9)
+  (selectrum-show-indices t)
+  (selectrum-extend-current-candidate-highlight t)
+  :init
+  (selectrum-mode 1))
+#+END_SRC
+
 Ivy - a generic completion frontend for Emacs.
 
 #+BEGIN_SRC emacs-lisp
