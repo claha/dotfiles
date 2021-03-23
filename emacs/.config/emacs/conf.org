@@ -110,6 +110,39 @@ Marginalia in the minibuffer.
   (marginalia-mode))
 #+END_SRC
 
+Consulting completing-read.
+
+#+BEGIN_SRC emacs-lisp
+(use-package consult
+  :ensure
+  :bind (("C-x b" . consult-buffer)
+         ("C-x 4 b" . consult-buffer-other-window)
+         ("C-x 5 b" . consult-buffer-other-frame)
+         ("M-g M-g" . consult-goto-line)
+         ("M-g o" . consult-outline)
+         ("M-g i" . consult-imenu)
+         ("M-g I" . consult-project-imenu)
+         ("M-s f" . consult-find)
+         ("M-s L" . consult-locate)
+         ("M-s g" . consult-grep)
+         ("M-s G" . consult-git-grep)
+         ("M-s r" . consult-ripgrep)
+         ("M-s l" . consult-line)
+         ("M-s m" . consult-multi-occur)
+         ("M-s k" . consult-keep-lines)
+         ("M-s u" . consult-focus-lines))
+  :init
+  (setq register-preview-delay 0)
+  (setq register-preview-function #'consult-register-format)
+  (setq xref-show-xrefs-function #'consult-xref)
+  (setq xref-show-definitions-function #'consult-xref)
+  :config
+  (recentf-mode 1)
+  (setq consult-narrow-key "<")
+  (autoload 'projectile-project-root "projectile")
+  (setq consult-project-root-function #'projectile-project-root))
+#+END_SRC
+
 Ivy - a generic completion frontend for Emacs.
 
 #+BEGIN_SRC emacs-lisp
