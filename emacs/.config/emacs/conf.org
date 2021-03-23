@@ -99,6 +99,17 @@ Simple but effective sorting and filtering for Emacs.
   (selectrum-prescient-mode 1))
 #+END_SRC
 
+Marginalia in the minibuffer.
+
+#+BEGIN_SRC emacs-lisp
+(use-package marginalia
+  :ensure
+  :custom
+  (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+  :init
+  (marginalia-mode))
+#+END_SRC
+
 Ivy - a generic completion frontend for Emacs.
 
 #+BEGIN_SRC emacs-lisp
