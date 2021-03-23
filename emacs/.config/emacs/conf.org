@@ -1,6 +1,7 @@
 #+TITLE: Emacs Configuration
 #+AUTHOR: Claes Hallstrom
 #+OPTIONS: toc:nil num:nil
+#+STARTUP: overview
 
 * Cleaning
 
