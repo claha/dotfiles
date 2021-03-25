@@ -638,6 +638,9 @@ An Emacs web feeds client.
 Load private file if it exists and is readable.
 
 #+begin_src emacs-lisp
-  (if (file-readable-p (expand-file-name "private.el" user-emacs-directory))
-      (load-file (expand-file-name "private.el" user-emacs-directory)))
+(use-package emacs
+  :config
+  (let ((private-file (expand-file-name "private.el" user-emacs-directory)))
+    (if (file-readable-p private-file)
+        (load-file private-file))))
 #+end_src
