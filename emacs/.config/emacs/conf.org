@@ -7,20 +7,20 @@
 
 Help keeping emacs-user-directory clean.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package no-littering
   :ensure
   :config
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
-#+END_SRC
+#+end_src
 
 * Appearance
 
 Configure the appearance of Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :init
   (tool-bar-mode -1)
@@ -36,19 +36,19 @@ Configure the appearance of Emacs.
   (set-window-scroll-bars (minibuffer-window) nil nil)
   (setq show-paren-delay 0.0)
   (setq column-number-mode t))
-#+END_SRC
+#+end_src
 
 An opinionated pack of modern color-themes.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package doom-themes
   :ensure
   :init (load-theme 'doom-material t))
-#+END_SRC
+#+end_src
 
 Configure mode line without icon and showing minor modes and buffer name.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package diminish
   :ensure
   :after use-package)
@@ -65,13 +65,13 @@ Configure mode line without icon and showing minor modes and buffer name.
   (doom-modeline-buffer-file-name-style 'buffer-name)
   :config
   (setq doom-modeline-icon t))
-#+END_SRC
+#+end_src
 
 * Completion
 
 Better solution for incremental narrowing in Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package selectrum
   :ensure
   :custom
@@ -81,11 +81,11 @@ Better solution for incremental narrowing in Emacs.
   (selectrum-extend-current-candidate-highlight t)
   :init
   (selectrum-mode 1))
-#+END_SRC
+#+end_src
 
 Simple but effective sorting and filtering for Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package prescient
   :ensure
   :after selectrum
@@ -97,22 +97,22 @@ Simple but effective sorting and filtering for Emacs.
   :after prescient
   :config
   (selectrum-prescient-mode 1))
-#+END_SRC
+#+end_src
 
 Marginalia in the minibuffer.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package marginalia
   :ensure
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :init
   (marginalia-mode))
-#+END_SRC
+#+end_src
 
 Consulting completing-read.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package consult
   :ensure
   :bind (("C-x b" . consult-buffer)
@@ -141,11 +141,11 @@ Consulting completing-read.
   (setq consult-narrow-key "<")
   (autoload 'projectile-project-root "projectile")
   (setq consult-project-root-function #'projectile-project-root))
-#+END_SRC
+#+end_src
 
 Ivy - a generic completion frontend for Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package ivy
   :disabled
   :ensure
@@ -207,11 +207,11 @@ Ivy - a generic completion frontend for Emacs.
            "\\(?:\\`[#]\\)"
            ;; file names ending with # or ~
            "\\|\\(?:[#~]\\'\\)")))
-#+END_SRC
+#+end_src
 
 Configure dabbrev.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package dabbrev
   :custom
   (dabbrev-abbrev-char-regexp nil)
@@ -228,13 +228,13 @@ Configure dabbrev.
                      (interactive)
                      (let ((current-prefix-arg '(16)))  ;; C-u C-u
                        (call-interactively 'dabbrev-completion)))))
-#+END_SRC
+#+end_src
 
 * Project
 
 Project Interaction Library for Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package projectile
   :ensure
   :diminish projectile-mode
@@ -243,95 +243,95 @@ Project Interaction Library for Emacs.
   :config
   (projectile-mode)
   (setq frame-title-format '((:eval (projectile-project-name)))))
-#+END_SRC
+#+end_src
 
 Ivy UI for Projectile.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package counsel-projectile
   :disabled
   :ensure
   :after (counsel projectile)
   :config (counsel-projectile-mode))
-#+END_SRC
+#+end_src
 
 * Files
 
 Dired, the Directory Editor.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package dired
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
-#+END_SRC
+#+end_src
 
 * Buffers
 
 Operate on buffers like dired.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package ibuffer
   :bind
   (("C-x C-b" . ibuffer)
    ("C-x k" . kill-this-buffer)))
-#+END_SRC
+#+end_src
 
 * Windows
 
 Quickly switch windows in Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package ace-window
   :ensure
   :bind ("C-x o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-#+END_SRC
+#+end_src
 
 * Searching/Jumping
 
 Jump to things in Emacs tree-style.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package avy
   :ensure
   :defer
   :init
   (avy-setup-default))
-#+END_SRC
+#+end_src
 
 An Emacs frontend to The Silver Searcher.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package ag
   :ensure
   :commands ag)
-#+END_SRC
+#+end_src
 
 Emacs search tool based on ripgrep.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package rg
   :ensure
   :commands rg)
-#+END_SRC
+#+end_src
 
 An Emacs "jump to definition" package for 40+ languages.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package dumb-jump
   :ensure
   :config
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-#+END_SRC
+#+end_src
 
 * Version Control
 
 It's Magit! A Git porcelain inside Emacs.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package magit
   :ensure
   :custom
@@ -348,25 +348,25 @@ It's Magit! A Git porcelain inside Emacs.
             '(lambda ()
                (setq fill-column 72)
                (setq-local comment-auto-fill-only-comments nil))))
-#+END_SRC
+#+end_src
 
 Work with Git forges from the comfort of Magit.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package forge
   :after magit
   :ensure)
-#+END_SRC
+#+end_src
 
 Example of ~/.authinfo for github.
 
-#+BEGIN_EXAMPLE conf
+#+begin_example conf
 machine api.github.com login claha^forge password TOKEN
-#+END_EXAMPLE
+#+end_example
 
 Emacs package for highlighting uncommitted changes
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package diff-hl
   :ensure
   :hook ((prog-mode . diff-hl-mode)
@@ -374,52 +374,52 @@ Emacs package for highlighting uncommitted changes
          (dired-mode . diff-hl-dired-mode))
   :custom
   (diff-hl-side 'right))
-#+END_SRC
+#+end_src
 
 * Editing
 
 Convert the region to lower or upper case.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil))
-#+END_SRC
+#+end_src
 
 Restrict editing in this buffer to the current region.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (put 'narrow-to-region 'disabled nil))
-#+END_SRC
+#+end_src
 
 Enables hungry deletion in all modes.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package hungry-delete
   :ensure
   :diminish hungry-delete-mode
   :config
   (global-hungry-delete-mode)
   (setq hungry-delete-join-reluctantly t))
-#+END_SRC
+#+end_src
 
 * Programming
 
 Tabs are evil, use 4 spaces as default.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4))
-#+END_SRC
+#+end_src
 
 Emacs client/library for the Language Server Protocol.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package lsp-mode
   :ensure
   :commands (lsp lsp-deferred)
@@ -427,9 +427,9 @@ Emacs client/library for the Language Server Protocol.
   (setq lsp-keymap-prefix "C-c l")
   :config
   (lsp-enable-which-key-integration t))
-#+END_SRC
+#+end_src
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package yaml-mode
   :ensure
   :defer t)
@@ -443,50 +443,50 @@ Emacs client/library for the Language Server Protocol.
   :diminish flycheck-mode
   :init
   (global-flycheck-mode))
-#+END_SRC
+#+end_src
 
 Setup how compilation should behave.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq-default compilation-ask-about-save nil)
   (setq-default compilation-always-kill t)
   (setq-default compilation-scroll-output 'first-error))
-#+END_SRC
+#+end_src
 
 # Colorize compilation buffer.
 
-# #+BEGIN_SRC emacs-lisp
+# #+begin_src emacs-lisp
 #   (use-package ansi-color
 #     :ensure
 #     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
 
 #   (defun colorize-compilation-buffer ()
 #     (ansi-color-apply-on-region compilation-filter-start (point)))
-# #+END_SRC
+# #+end_src
 
 Configure c/c++ indentation.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+))
-#+END_SRC
+#+end_src
 
 Diminish eldoc-mode.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package eldoc
   :diminish eldoc-mode)
-#+END_SRC
+#+end_src
 
 * Shell/Terminal
 
 Hide line numbers in terminals and shells.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package shell
   :commands shell
   :config
@@ -501,13 +501,13 @@ Hide line numbers in terminals and shells.
   :commands term
   :config
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
-#+END_SRC
+#+end_src
 
 * Org mode
 
 Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package org
   :config
   (defun org-mode-setup ()
@@ -517,22 +517,22 @@ Org mode is for keeping notes, maintaining TODO lists, planning projects, and au
   (setq org-ellipsis " ▾")
   (setq org-hide-emphasis-markers t)
   :hook (org-mode . org-mode-setup))
-#+END_SRC
+#+end_src
 
 UTF-8 bullets for org-mode.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package org-bullets
   :ensure
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-#+END_SRC
+#+end_src
 
 Configure org source code blocks.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package org-src
   :after org
   :config
@@ -540,24 +540,24 @@ Configure org source code blocks.
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
   (setq org-src-tab-acts-natively t))
-#+END_SRC
+#+end_src
 
 * Help
 
 Emacs package that displays available keybindings in popup.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package which-key
   :ensure
   :diminish which-key-mode
   :custom
   (which-key-idle-delay 0.25)
   :init (which-key-mode))
-#+END_SRC
+#+end_src
 
 A better Emacs *help* buffer.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package helpful
   :ensure
   :after counsel
@@ -569,43 +569,43 @@ A better Emacs *help* buffer.
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
-#+END_SRC
+#+end_src
 
 * Miscellaneous
 
 Miscellaneous packages.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package hydra
   :ensure
   :defer t)
-#+END_SRC
+#+end_src
 
 Use qutebrowser to browse.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq browse-url-browser-function 'browse-url-generic)
   (setq browse-url-generic-program "qutebrowser"))
-#+END_SRC
+#+end_src
 
 Writing 'yes/no' takes to much time...
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package emacs
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
   (setq large-file-warning-threshold nil)
   (setq vc-follow-symlinks t)
   (setq visible-bell t))
-#+END_SRC
+#+end_src
 
 * Multimedia
 
 An Emacs web feeds client.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (use-package elfeed
   :ensure
   :commands elfeed
@@ -631,13 +631,13 @@ An Emacs web feeds client.
     (interactive)
     (let ((url (elfeed-entry-link elfeed-show-entry)))
       (start-process "*elfeed-mpv*" nil "mpv" url))))
-#+END_SRC
+#+end_src
 
 * Private
 
 Load private file if it exists and is readable.
 
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
   (if (file-readable-p (expand-file-name "private.el" user-emacs-directory))
       (load-file (expand-file-name "private.el" user-emacs-directory)))
-#+END_SRC
+#+end_src
