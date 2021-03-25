@@ -482,6 +482,36 @@ Diminish eldoc-mode.
   :diminish eldoc-mode)
 #+end_src
 
+** Python
+
+When working with python it is usually a good idea to set up a virtual environment.
+
+#+begin_example bash
+python -m venv .venv
+#+end_example
+
+Python virtual environment interface for Emacs.
+
+#+begin_src emacs-lisp
+(use-package pyvenv
+  :ensure
+  :hook (python-mode . pyvenv-mode)
+  :bind
+  (:map python-mode-map
+        ("C-c C-a" . pyvenv-activate)))
+#+end_src
+
+Python Black for Emacs.
+
+#+begin_src emacs-lisp
+(use-package blacken
+  :ensure
+  :after python
+  :bind
+  (:map python-mode-map
+        ("C-c C-b" . blacken-buffer)))
+#+end_src
+
 * Shell/Terminal
 
 Hide line numbers in terminals and shells.

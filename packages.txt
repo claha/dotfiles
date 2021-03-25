@@ -3,6 +3,8 @@ feh
 git
 i3-wm
 mpv
+python
+python-pip
 qutebrowser
 ripgrep
 rofi
