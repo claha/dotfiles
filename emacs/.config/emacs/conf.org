@@ -601,6 +601,38 @@ Writing 'yes/no' takes to much time...
   (setq visible-bell t))
 #+END_SRC
 
+* Multimedia
+
+An Emacs web feeds client.
+
+#+BEGIN_SRC emacs-lisp
+(use-package elfeed
+  :ensure
+  :commands elfeed
+  :bind
+  (:map elfeed-search-mode-map
+        ("v" . elfeed-search-mpv)
+        :map elfeed-show-mode-map
+        ("v" . elfeed-show-mpv))
+  :config
+  (defun elfeed-search-mpv ()
+    "Open the current entry in mpv."
+    (interactive)
+    (let ((entry (car (elfeed-search-selected)))
+          (url (elfeed-entry-link (car (elfeed-search-selected)))))
+      (elfeed-untag entry 'unread)
+      (start-process "*elfeed-mpv*" nil "mpv" url)
+      (elfeed-search-update-entry entry)
+      (unless elfeed-search-remain-on-entry
+        (forward-line))))
+
+  (defun elfeed-show-mpv ()
+    "Open the current entry in mpv."
+    (interactive)
+    (let ((url (elfeed-entry-link elfeed-show-entry)))
+      (start-process "*elfeed-mpv*" nil "mpv" url))))
+#+END_SRC
+
 * Private
 
 Load private file if it exists and is readable.
