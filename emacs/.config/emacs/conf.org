@@ -23,15 +23,10 @@ Configure the appearance of Emacs.
 #+begin_src emacs-lisp
 (use-package emacs
   :init
-  (tool-bar-mode -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode -1)
-  (tooltip-mode -1)
   (global-hl-line-mode 1)
   (show-paren-mode 1)
   (global-display-line-numbers-mode t)
   :config
-  (setq inhibit-startup-message t)
   (setq initial-scratch-message nil)
   (set-window-scroll-bars (minibuffer-window) nil nil)
   (setq show-paren-delay 0.0)
