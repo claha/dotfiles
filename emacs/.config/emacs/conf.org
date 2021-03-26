@@ -441,8 +441,7 @@ Emacs client/library for the Language Server Protocol.
 (use-package flycheck
   :ensure
   :diminish flycheck-mode
-  :init
-  (global-flycheck-mode))
+  :hook (prog-mode . flycheck-mode))
 #+end_src
 
 Setup how compilation should behave.
