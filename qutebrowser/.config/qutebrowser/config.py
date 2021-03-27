@@ -14,7 +14,7 @@ c.confirm_quit = ["downloads"]
 # Automatically start playing `<video>` elements.
 c.content.autoplay = False
 
-# Editor (and arguments) to use for the `open-editor` command.
+# Editor (and arguments) to use for the `edit-*` commands.
 c.editor.command = [
     "emacsclient",
     "--create-frame",
