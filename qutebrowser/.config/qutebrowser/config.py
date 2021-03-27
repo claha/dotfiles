@@ -8,6 +8,16 @@ Documentation:
 # Always restore open sites when qutebrowser is reopened.
 c.auto_save.session = True
 
+# Background color for webpages if unset (or empty to use the theme's
+# color).
+c.colors.webpage.bg = "black"
+
+# Render all web contents using a dark theme.
+c.colors.webpage.darkmode.enabled = True
+
+# Which images to apply dark mode to.
+c.colors.webpage.darkmode.policy.images = "never"
+
 # Require a confirmation before quitting the application.
 c.confirm_quit = ["downloads"]
 
