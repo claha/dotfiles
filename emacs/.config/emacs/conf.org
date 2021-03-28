@@ -26,11 +26,13 @@ Configure the appearance of Emacs.
   (global-hl-line-mode 1)
   (show-paren-mode 1)
   (global-display-line-numbers-mode t)
+  :custom
+  (initial-scratch-message nil)
+  (show-paren-delay 0.0)
+  (column-number-mode t)
+  (visible-bell t)
   :config
-  (setq initial-scratch-message nil)
-  (set-window-scroll-bars (minibuffer-window) nil nil)
-  (setq show-paren-delay 0.0)
-  (setq column-number-mode t))
+  (set-window-scroll-bars (minibuffer-window) nil nil))
 #+end_src
 
 An opinionated pack of modern color-themes.
@@ -624,8 +626,7 @@ Writing 'yes/no' takes to much time...
   :config
   (defalias 'yes-or-no-p 'y-or-n-p)
   (setq large-file-warning-threshold nil)
-  (setq vc-follow-symlinks t)
-  (setq visible-bell t))
+  (setq vc-follow-symlinks t))
 #+end_src
 
 * Multimedia
