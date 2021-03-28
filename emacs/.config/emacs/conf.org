@@ -74,8 +74,8 @@ Better solution for incremental narrowing in Emacs.
   (selectrum-max-window-height 9)
   (selectrum-show-indices t)
   (selectrum-extend-current-candidate-highlight t)
-  :init
-  (selectrum-mode 1))
+  :hook
+  (after-init . selectrum-mode))
 #+end_src
 
 Simple but effective sorting and filtering for Emacs.
@@ -89,7 +89,7 @@ Simple but effective sorting and filtering for Emacs.
 
 (use-package selectrum-prescient
   :ensure
-  :after prescient
+  :after (selectrum prescient)
   :config
   (selectrum-prescient-mode 1))
 #+end_src
@@ -101,8 +101,8 @@ Marginalia in the minibuffer.
   :ensure
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
-  :init
-  (marginalia-mode))
+  :hook
+  (selectrum-mode . marginalia-mode))
 #+end_src
 
 Consulting completing-read.
