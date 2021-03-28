@@ -396,9 +396,10 @@ Enables hungry deletion in all modes.
 (use-package hungry-delete
   :ensure
   :diminish hungry-delete-mode
-  :config
-  (global-hungry-delete-mode)
-  (setq hungry-delete-join-reluctantly t))
+  :custom
+  (hungry-delete-join-reluctantly t)
+  :hook
+  (after-init . global-hungry-delete-mode))
 #+end_src
 
 * Programming
