@@ -576,8 +576,9 @@ Emacs package that displays available keybindings in popup.
   :ensure
   :diminish which-key-mode
   :custom
-  (which-key-idle-delay 0.25)
-  :init (which-key-mode))
+  (which-key-idle-delay 0.5)
+  :hook
+  (after-init . which-key-mode))
 #+end_src
 
 A better Emacs *help* buffer.
