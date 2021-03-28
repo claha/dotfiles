@@ -463,7 +463,8 @@ Setup how compilation should behave.
 Configure c/c++ indentation.
 
 #+begin_src emacs-lisp
-(use-package emacs
+(use-package cc-mode
+  :defer t
   :config
   (setq c-default-style "linux" c-basic-offset 2)
   (c-set-offset 'case-label '+))
