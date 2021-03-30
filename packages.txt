@@ -3,6 +3,7 @@ feh
 git
 i3-wm
 mpv
+picom
 python
 python-pip
 qutebrowser

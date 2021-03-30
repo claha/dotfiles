@@ -155,6 +155,9 @@ exec setxkbmap -option ctrl:nocaps &
 # Hide the mouse cursor after a second
 exec unclutter -idle 1 -noevents &
 
+# A lightweight compositor for X11
+exec picom &
+
 # Set background
 exec feh --bg-fill ~/.background
 
