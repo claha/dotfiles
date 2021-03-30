@@ -9,7 +9,7 @@ Help keeping emacs-user-directory clean.
 
 #+begin_src emacs-lisp
 (use-package no-littering
-  :ensure
+  :ensure t
   :config
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
@@ -39,7 +39,7 @@ An opinionated pack of modern color-themes.
 
 #+begin_src emacs-lisp
 (use-package doom-themes
-  :ensure
+  :ensure t
   :init (load-theme 'doom-material t))
 #+end_src
 
@@ -47,14 +47,14 @@ Configure mode line without icon and showing minor modes and buffer name.
 
 #+begin_src emacs-lisp
 (use-package diminish
-  :ensure
+  :ensure t
   :after use-package)
 
 (use-package all-the-icons
-  :ensure)
+  :ensure t)
 
 (use-package doom-modeline
-  :ensure
+  :ensure t
   :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-buffer-encoding nil)
@@ -70,7 +70,7 @@ Better solution for incremental narrowing in Emacs.
 
 #+begin_src emacs-lisp
 (use-package selectrum
-  :ensure
+  :ensure t
   :custom
   (selectrum-fix-vertical-window-height t)
   (selectrum-max-window-height 9)
@@ -85,13 +85,13 @@ Simple but effective sorting and filtering for Emacs.
 
 #+begin_src emacs-lisp
 (use-package prescient
-  :ensure
+  :ensure t
   :after selectrum
   :config
   (prescient-persist-mode 1))
 
 (use-package selectrum-prescient
-  :ensure
+  :ensure t
   :after (selectrum prescient)
   :custom
   (selectrum-prescient-enable-filtering nil)
@@ -103,7 +103,7 @@ Emacs completion style that matches multiple regexps in any order.
 
 #+begin_src emacs-lisp
 (use-package orderless
-  :ensure
+  :ensure t
   :custom
   (completion-styles '(orderless))
   (orderless-skip-highlighting (lambda () selectrum-is-active)))
@@ -113,7 +113,7 @@ Marginalia in the minibuffer.
 
 #+begin_src emacs-lisp
 (use-package marginalia
-  :ensure
+  :ensure t
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :hook
@@ -124,7 +124,7 @@ Consulting completing-read.
 
 #+begin_src emacs-lisp
 (use-package consult
-  :ensure
+  :ensure t
   :bind (("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
@@ -167,7 +167,7 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
    embark-become-indicator embark-action-indicator))
 
 (use-package embark-consult
-  :ensure
+  :ensure t
   :after (embark consult))
 #+end_src
 
@@ -176,7 +176,7 @@ Ivy - a generic completion frontend for Emacs.
 #+begin_src emacs-lisp
 (use-package ivy
   :disabled
-  :ensure
+  :ensure t
   :defer 0.1
   :diminish ivy-mode
   :config
@@ -192,7 +192,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package ivy-rich
   :disabled
-  :ensure
+  :ensure t
   :after (ivy counsel)
   :config
   (setcdr (assq t ivy-format-functions-alist)
@@ -201,7 +201,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package ivy-posframe
   :disabled
-  :ensure
+  :ensure t
   :after (ivy counsel)
   :diminish ivy-posframe-mode
   :custom
@@ -219,7 +219,7 @@ Ivy - a generic completion frontend for Emacs.
 
 (use-package counsel
   :disabled
-  :ensure
+  :ensure t
   :after ivy
   :diminish counsel-mode
   :bind (("M-x" . counsel-M-x)
@@ -264,7 +264,7 @@ Project Interaction Library for Emacs.
 
 #+begin_src emacs-lisp
 (use-package projectile
-  :ensure
+  :ensure t
   :diminish projectile-mode
   :bind-keymap
   ("C-c p" . projectile-command-map)
@@ -278,7 +278,7 @@ Ivy UI for Projectile.
 #+begin_src emacs-lisp
 (use-package counsel-projectile
   :disabled
-  :ensure
+  :ensure t
   :after (counsel projectile)
   :config (counsel-projectile-mode))
 #+end_src
@@ -311,7 +311,7 @@ Quickly switch windows in Emacs.
 
 #+begin_src emacs-lisp
 (use-package ace-window
-  :ensure
+  :ensure t
   :bind ("C-x o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
@@ -323,7 +323,7 @@ Jump to things in Emacs tree-style.
 
 #+begin_src emacs-lisp
 (use-package avy
-  :ensure
+  :ensure t
   :defer
   :init
   (avy-setup-default))
@@ -333,7 +333,7 @@ An Emacs frontend to The Silver Searcher.
 
 #+begin_src emacs-lisp
 (use-package ag
-  :ensure
+  :ensure t
   :commands ag)
 #+end_src
 
@@ -341,7 +341,7 @@ Emacs search tool based on ripgrep.
 
 #+begin_src emacs-lisp
 (use-package rg
-  :ensure
+  :ensure t
   :commands rg)
 #+end_src
 
@@ -349,7 +349,7 @@ An Emacs "jump to definition" package for 40+ languages.
 
 #+begin_src emacs-lisp
 (use-package dumb-jump
-  :ensure
+  :ensure t
   :config
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
@@ -361,14 +361,14 @@ It's Magit! A Git porcelain inside Emacs.
 
 #+begin_src emacs-lisp
 (use-package magit
-  :ensure
+  :ensure t
   :custom
   (magit-display-buffer-function
    #'magit-display-buffer-fullframe-status-v1)
   :bind (("C-c g" . magit-status)))
 
 (use-package git-commit
-  :ensure
+  :ensure t
   :after magit
   :config
   (setq git-commit-summary-max-length 50)
@@ -383,7 +383,7 @@ Work with Git forges from the comfort of Magit.
 #+begin_src emacs-lisp
 (use-package forge
   :after magit
-  :ensure)
+  :ensure t)
 #+end_src
 
 Example of ~/.authinfo for github.
@@ -396,7 +396,7 @@ Emacs package for highlighting uncommitted changes
 
 #+begin_src emacs-lisp
 (use-package diff-hl
-  :ensure
+  :ensure t
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
          (dired-mode . diff-hl-dired-mode))
@@ -427,7 +427,7 @@ Enables hungry deletion in all modes.
 
 #+begin_src emacs-lisp
 (use-package hungry-delete
-  :ensure
+  :ensure t
   :diminish hungry-delete-mode
   :custom
   (hungry-delete-join-reluctantly t)
@@ -450,7 +450,7 @@ Emacs client/library for the Language Server Protocol.
 
 #+begin_src emacs-lisp
 (use-package lsp-mode
-  :ensure
+  :ensure t
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
@@ -460,15 +460,15 @@ Emacs client/library for the Language Server Protocol.
 
 #+begin_src emacs-lisp
 (use-package yaml-mode
-  :ensure
+  :ensure t
   :defer t)
 
 (use-package cmake-mode
-  :ensure
+  :ensure t
   :defer t)
 
 (use-package flycheck
-  :ensure
+  :ensure t
   :diminish flycheck-mode
   :hook (prog-mode . flycheck-mode))
 #+end_src
@@ -487,7 +487,7 @@ Setup how compilation should behave.
 
 # #+begin_src emacs-lisp
 #   (use-package ansi-color
-#     :ensure
+#     :ensure t
 #     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
 
 #   (defun colorize-compilation-buffer ()
@@ -523,7 +523,7 @@ Python virtual environment interface for Emacs.
 
 #+begin_src emacs-lisp
 (use-package pyvenv
-  :ensure
+  :ensure t
   :hook (python-mode . pyvenv-mode)
   :bind
   (:map python-mode-map
@@ -534,7 +534,7 @@ Python Black for Emacs.
 
 #+begin_src emacs-lisp
 (use-package blacken
-  :ensure
+  :ensure t
   :after python
   :bind
   (:map python-mode-map
@@ -582,7 +582,7 @@ UTF-8 bullets for org-mode.
 
 #+begin_src emacs-lisp
 (use-package org-bullets
-  :ensure
+  :ensure t
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
@@ -607,7 +607,7 @@ Emacs package that displays available keybindings in popup.
 
 #+begin_src emacs-lisp
 (use-package which-key
-  :ensure
+  :ensure t
   :diminish which-key-mode
   :custom
   (which-key-idle-delay 0.5)
@@ -619,7 +619,7 @@ A better Emacs *help* buffer.
 
 #+begin_src emacs-lisp
 (use-package helpful
-  :ensure
+  :ensure t
   :after counsel
   :custom
   (counsel-describe-function-function #'helpful-callable)
@@ -637,7 +637,7 @@ Miscellaneous packages.
 
 #+begin_src emacs-lisp
 (use-package hydra
-  :ensure
+  :ensure t
   :defer t)
 #+end_src
 
@@ -666,7 +666,7 @@ An Emacs web feeds client.
 
 #+begin_src emacs-lisp
 (use-package elfeed
-  :ensure
+  :ensure t
   :commands elfeed
   :bind
   (:map elfeed-search-mode-map
