@@ -435,6 +435,13 @@ Enables hungry deletion in all modes.
   (after-init . global-hungry-delete-mode))
 #+end_src
 
+Writable grep buffer and apply the changes to files.
+
+#+begin_src emacs-lisp
+(use-package wgrep
+  :ensure t)
+#+end_src
+
 * Programming
 
 Tabs are evil, use 4 spaces as default.
