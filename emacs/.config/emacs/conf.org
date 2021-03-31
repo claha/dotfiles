@@ -239,6 +239,14 @@ Ivy - a generic completion frontend for Emacs.
            "\\|\\(?:[#~]\\'\\)")))
 #+end_src
 
+Modular in-buffer completion framework for Emacs.
+
+#+begin_src emacs-lisp
+(use-package company
+  :ensure t
+  :defer t)
+#+end_src
+
 Configure dabbrev.
 
 #+begin_src emacs-lisp
