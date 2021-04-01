@@ -506,6 +506,7 @@ Emacs client/library for the Language Server Protocol.
 #+begin_src emacs-lisp
 (use-package lsp-mode
   :ensure t
+  :after which-key
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
