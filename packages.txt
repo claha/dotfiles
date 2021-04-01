@@ -1,6 +1,7 @@
 emacs
 feh
 git
+gnupg
 i3-wm
 mpv
 picom

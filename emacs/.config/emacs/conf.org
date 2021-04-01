@@ -402,6 +402,24 @@ Example of ~/.authinfo for github.
 machine api.github.com login claha^forge password TOKEN
 #+end_example
 
+GnuPG Pinentry server implementation.
+
+#+begin_src emacs-lisp
+(use-package pinentry
+  :ensure t
+  :hook
+  (after-init . pinentry-start)
+  :custom
+  (epg-pinentry-mode 'loopback))
+#+end_src
+
+Example of ~/.gnupg/gpg-agent.conf.
+
+#+begin_example conf
+allow-emacs-pinentry
+allow-loopback-pinentry
+#+end_example
+
 Emacs package for highlighting uncommitted changes
 
 #+begin_src emacs-lisp
