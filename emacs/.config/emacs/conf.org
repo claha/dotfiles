@@ -193,72 +193,6 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
   :after (embark consult))
 #+end_src
 
-Ivy - a generic completion frontend for Emacs.
-
-#+begin_src emacs-lisp
-(use-package ivy
-  :disabled
-  :ensure t
-  :defer 0.1
-  :diminish ivy-mode
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "")
-  (setq ivy-display-style 'fancy)
-  (setq ivy-extra-directories ())
-  (setq ivy-sort-matches-functions-alist
-        '((t . ivy--prefix-sort)))
-  (setq ivy-initial-inputs-alist nil)
-  (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-partial))
-
-(use-package ivy-rich
-  :disabled
-  :ensure t
-  :after (ivy counsel)
-  :config
-  (setcdr (assq t ivy-format-functions-alist)
-          #'ivy-format-function-line)
-  (ivy-rich-mode 1))
-
-(use-package ivy-posframe
-  :disabled
-  :ensure t
-  :after (ivy counsel)
-  :diminish ivy-posframe-mode
-  :custom
-  (ivy-posframe-height-alist
-   '((t . 20)))
-  (ivy-posframe-display-functions-alist
-   '((counsel-find-file . ivy-display-function-fallback)
-     (ivy-completion-in-region . ivy-posframe-display-at-frame-center)
-     (t . ivy-posframe-display-at-frame-center)))
-  (ivy-posframe-parameters
-   '((left-fringe . 4)
-     (right-fringe . 4)))
-  :config
-  (ivy-posframe-mode 1))
-
-(use-package counsel
-  :disabled
-  :ensure t
-  :after ivy
-  :diminish counsel-mode
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file)
-         ("C-c i" . counsel-imenu)
-         ("C-x C-r" . counsel-recentf))
-  :config
-  (counsel-mode 1)
-  (setq counsel-find-file-ignore-regexp
-          (concat
-           ;; file names beginning with #
-           "\\(?:\\`[#]\\)"
-           ;; file names ending with # or ~
-           "\\|\\(?:[#~]\\'\\)")))
-#+end_src
-
 Modular in-buffer completion framework for Emacs.
 
 #+begin_src emacs-lisp
@@ -301,16 +235,6 @@ Project Interaction Library for Emacs.
   :config
   (projectile-mode)
   (setq frame-title-format '((:eval (projectile-project-name)))))
-#+end_src
-
-Ivy UI for Projectile.
-
-#+begin_src emacs-lisp
-(use-package counsel-projectile
-  :disabled
-  :ensure t
-  :after (counsel projectile)
-  :config (counsel-projectile-mode))
 #+end_src
 
 * Files
@@ -676,14 +600,10 @@ A better Emacs *help* buffer.
 #+begin_src emacs-lisp
 (use-package helpful
   :ensure t
-  :after counsel
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
   :bind
-  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-function] . helpful-callable)
   ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key))
 #+end_src
 
