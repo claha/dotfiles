@@ -3,6 +3,26 @@
 #+OPTIONS: toc:nil num:nil
 #+STARTUP: overview
 
+* Package Management
+
+Package system for Emacs.
+
+#+begin_src emacs-lisp
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+#+end_src
+
+A use-package declaration for simplifying your .emacs.
+
+#+begin_src emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+#+end_src
+
 * Cleaning
 
 Help keeping emacs-user-directory clean.

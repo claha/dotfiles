@@ -10,27 +10,6 @@
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
 
-;; Configure package.el to include MELPA.
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
-
-;; Configure and install use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-and-compile
-  (setq use-package-always-ensure nil)
-  (setq use-package-always-defer nil)
-  (setq use-package-always-demand nil)
-  (setq use-package-expand-minimally nil)
-  (setq use-package-enable-imenu-support t)
-  (setq use-package-compute-statistics nil))
-
-(eval-when-compile
-  (require 'use-package))
-
 ;; Load configuration
 (let* ((file (expand-file-name "conf.org" user-emacs-directory))
        (tangled-file (concat (file-name-sans-extension file) ".el")))
@@ -41,7 +20,7 @@
 	       (file-attribute-modification-time
 	        (file-attributes (file-truename file))))
     (require 'ob-tangle)
-    (org-babel-tangle-file file tangled-file "emacs-lisp\\|elisp"))
+    (org-babel-tangle-file file tangled-file "emacs-lisp"))
   (load-file tangled-file)
   (message "Loaded %s" tangled-file))
 
