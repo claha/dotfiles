@@ -350,6 +350,7 @@ GnuPG Pinentry server implementation.
 
 #+begin_src emacs-lisp
 (use-package pinentry
+  :if (not (eq system-type 'windows-nt))
   :ensure t
   :hook
   (after-init . pinentry-start)
