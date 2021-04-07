@@ -669,6 +669,14 @@ An Emacs web feeds client.
       (start-process "*elfeed-mpv*" nil "mpv" url))))
 #+end_src
 
+Play music from emacs with playerctl.
+
+#+begin_src emacs-lisp
+(use-package playerctl
+  :ensure t
+  :defer t)
+#+end_src
+
 * Private
 
 Load private file if it exists and is readable.

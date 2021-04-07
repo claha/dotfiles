@@ -6,6 +6,7 @@ gnupg
 i3-wm
 mpv
 picom
+playerctl
 python
 python-pip
 qutebrowser
