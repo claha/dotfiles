@@ -8,7 +8,7 @@ repos:
       - id: mixed-line-ending
         args: ["--fix=lf"]
       - id: file-contents-sorter
-        files: "packages.txt"
+        files: packages.txt|packages_aur.txt
 
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.25.0
