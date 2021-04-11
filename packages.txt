@@ -4,6 +4,8 @@ feh
 git
 gnupg
 i3-wm
+i3lock
+i3status
 mpv
 picom
 playerctl
