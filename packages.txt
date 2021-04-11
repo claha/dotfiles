@@ -18,4 +18,5 @@ rxvt-unicode
 stow
 the_silver_searcher
 unclutter
+xorg-xrdb
 youtube-dl
