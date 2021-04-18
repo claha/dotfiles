@@ -3,7 +3,7 @@
 To install these dotfiles simply run:
 
 ```bash
-stow emacs git i3 mpv qutebrowser
+stow .
 ```
 
 For everything to work correctly a few packages are needed, listed [here](packages.txt).

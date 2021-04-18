@@ -1,0 +1,8 @@
+.git
+.github
+.gitignore
+.pre-commit-config.yaml
+LICENSE.md
+README.md
+packages.txt
+packages_aur.txt
