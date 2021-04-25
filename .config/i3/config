@@ -171,6 +171,9 @@ exec "emacs --daemon && emacsclient --create-frame &"
 # Start qutebrowser
 exec qutebrowser &
 
+# Start volumeicon
+exec volumeicon
+
 # Start i3bar to display a workspace bar and i3status
 bar {
     status_command i3status

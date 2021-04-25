@@ -1,3 +1,4 @@
+alsa-utils
 base-devel
 emacs
 feh
@@ -18,5 +19,6 @@ rxvt-unicode
 stow
 the_silver_searcher
 unclutter
+volumeicon
 xorg-xrdb
 youtube-dl
