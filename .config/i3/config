@@ -154,22 +154,22 @@ assign [class="Emacs"] $ws2
 for_window [class="mpv$"] floating enable
 
 # Use Caps Lock as an additional Control key
-exec setxkbmap -option ctrl:nocaps &
+exec setxkbmap -option ctrl:nocaps
 
 # Hide the mouse cursor after a second
-exec unclutter -idle 1 -noevents &
+exec unclutter -idle 1 -noevents
 
 # A lightweight compositor for X11
-exec picom &
+exec picom
 
 # Set background
 exec feh --bg-fill ~/.background
 
 # Start emacs daemon
-exec "emacs --daemon && emacsclient --create-frame &"
+exec "emacs --daemon && emacsclient --create-frame"
 
 # Start qutebrowser
-exec qutebrowser &
+exec qutebrowser
 
 # Start volumeicon
 exec volumeicon
