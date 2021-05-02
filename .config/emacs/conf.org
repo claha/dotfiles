@@ -5,22 +5,29 @@
 
 * Package Management
 
-Package system for Emacs.
+Next-generation, purely functional package manager for the Emacs hacker.
 
 #+begin_src emacs-lisp
-(require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+(setq straight-check-for-modifications '(check-on-save find-when-checking))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 #+end_src
 
 A use-package declaration for simplifying your .emacs.
 
 #+begin_src emacs-lisp
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(require 'use-package)
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 #+end_src
 
 * Cleaning
@@ -29,7 +36,6 @@ Help keeping emacs-user-directory clean.
 
 #+begin_src emacs-lisp
 (use-package no-littering
-  :ensure t
   :config
   (setq auto-save-file-name-transforms
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
@@ -62,7 +68,6 @@ An opinionated pack of modern color-themes.
 
 #+begin_src emacs-lisp
 (use-package doom-themes
-  :ensure t
   :init (load-theme 'doom-material t))
 #+end_src
 
@@ -70,14 +75,11 @@ Configure mode line without icon and showing minor modes and buffer name.
 
 #+begin_src emacs-lisp
 (use-package diminish
-  :ensure t
   :after use-package)
 
-(use-package all-the-icons
-  :ensure t)
+(use-package all-the-icons)
 
 (use-package doom-modeline
-  :ensure t
   :hook (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-buffer-encoding nil)
@@ -93,7 +95,6 @@ Better solution for incremental narrowing in Emacs.
 
 #+begin_src emacs-lisp
 (use-package selectrum
-  :ensure t
   :custom
   (selectrum-fix-vertical-window-height t)
   (selectrum-max-window-height 9)
@@ -108,13 +109,11 @@ Simple but effective sorting and filtering for Emacs.
 
 #+begin_src emacs-lisp
 (use-package prescient
-  :ensure t
   :after selectrum
   :config
   (prescient-persist-mode 1))
 
 (use-package selectrum-prescient
-  :ensure t
   :after (selectrum prescient)
   :custom
   (selectrum-prescient-enable-filtering nil)
@@ -126,7 +125,6 @@ Emacs completion style that matches multiple regexps in any order.
 
 #+begin_src emacs-lisp
 (use-package orderless
-  :ensure t
   :custom
   (completion-styles '(orderless))
   (orderless-skip-highlighting (lambda () selectrum-is-active)))
@@ -136,7 +134,6 @@ Marginalia in the minibuffer.
 
 #+begin_src emacs-lisp
 (use-package marginalia
-  :ensure t
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :hook
@@ -147,7 +144,6 @@ Consulting completing-read.
 
 #+begin_src emacs-lisp
 (use-package consult
-  :ensure t
   :bind (("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
@@ -180,7 +176,6 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
 
 #+begin_src emacs-lisp
 (use-package embark
-  :ensure t
   :bind ("C-," . embark-act)
   :custom
   (embark-action-indicator
@@ -190,7 +185,6 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
    embark-become-indicator embark-action-indicator))
 
 (use-package embark-consult
-  :ensure t
   :after (embark consult))
 #+end_src
 
@@ -198,7 +192,6 @@ Modular in-buffer completion framework for Emacs.
 
 #+begin_src emacs-lisp
 (use-package company
-  :ensure t
   :defer t)
 #+end_src
 
@@ -229,7 +222,6 @@ Project Interaction Library for Emacs.
 
 #+begin_src emacs-lisp
 (use-package projectile
-  :ensure t
   :diminish projectile-mode
   :bind-keymap
   ("C-c p" . projectile-command-map)
@@ -244,6 +236,7 @@ Dired, the Directory Editor.
 
 #+begin_src emacs-lisp
 (use-package dired
+  :straight nil
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
@@ -266,7 +259,6 @@ Quickly switch windows in Emacs.
 
 #+begin_src emacs-lisp
 (use-package ace-window
-  :ensure t
   :bind ("C-x o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
@@ -278,7 +270,6 @@ Jump to things in Emacs tree-style.
 
 #+begin_src emacs-lisp
 (use-package avy
-  :ensure t
   :defer
   :init
   (avy-setup-default))
@@ -288,7 +279,6 @@ An Emacs frontend to The Silver Searcher.
 
 #+begin_src emacs-lisp
 (use-package ag
-  :ensure t
   :commands ag)
 #+end_src
 
@@ -296,7 +286,6 @@ Emacs search tool based on ripgrep.
 
 #+begin_src emacs-lisp
 (use-package rg
-  :ensure t
   :commands rg)
 #+end_src
 
@@ -304,7 +293,6 @@ An Emacs "jump to definition" package for 40+ languages.
 
 #+begin_src emacs-lisp
 (use-package dumb-jump
-  :ensure t
   :config
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
@@ -316,14 +304,12 @@ It's Magit! A Git porcelain inside Emacs.
 
 #+begin_src emacs-lisp
 (use-package magit
-  :ensure t
   :custom
   (magit-display-buffer-function
    #'magit-display-buffer-fullframe-status-v1)
   :bind (("C-c g" . magit-status)))
 
 (use-package git-commit
-  :ensure t
   :after magit
   :config
   (setq git-commit-summary-max-length 50)
@@ -337,8 +323,7 @@ Work with Git forges from the comfort of Magit.
 
 #+begin_src emacs-lisp
 (use-package forge
-  :after magit
-  :ensure t)
+  :after magit)
 #+end_src
 
 Example of ~/.authinfo for github.
@@ -352,7 +337,6 @@ GnuPG Pinentry server implementation.
 #+begin_src emacs-lisp
 (use-package pinentry
   :if (not (eq system-type 'windows-nt))
-  :ensure t
   :hook
   (after-init . pinentry-start)
   :custom
@@ -370,7 +354,6 @@ Emacs package for highlighting uncommitted changes
 
 #+begin_src emacs-lisp
 (use-package diff-hl
-  :ensure t
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
          (dired-mode . diff-hl-dired-mode))
@@ -401,7 +384,6 @@ Enables hungry deletion in all modes.
 
 #+begin_src emacs-lisp
 (use-package hungry-delete
-  :ensure t
   :diminish hungry-delete-mode
   :custom
   (hungry-delete-join-reluctantly t)
@@ -412,8 +394,7 @@ Enables hungry deletion in all modes.
 Writable grep buffer and apply the changes to files.
 
 #+begin_src emacs-lisp
-(use-package wgrep
-  :ensure t)
+(use-package wgrep)
 #+end_src
 
 * Programming
@@ -431,7 +412,6 @@ Emacs client/library for the Language Server Protocol.
 
 #+begin_src emacs-lisp
 (use-package lsp-mode
-  :ensure t
   :after which-key
   :commands (lsp lsp-deferred)
   :init
@@ -442,15 +422,12 @@ Emacs client/library for the Language Server Protocol.
 
 #+begin_src emacs-lisp
 (use-package yaml-mode
-  :ensure t
   :defer t)
 
 (use-package cmake-mode
-  :ensure t
   :defer t)
 
 (use-package flycheck
-  :ensure t
   :diminish flycheck-mode
   :hook (prog-mode . flycheck-mode))
 #+end_src
@@ -469,7 +446,6 @@ Setup how compilation should behave.
 
 # #+begin_src emacs-lisp
 #   (use-package ansi-color
-#     :ensure t
 #     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
 
 #   (defun colorize-compilation-buffer ()
@@ -505,7 +481,6 @@ Python virtual environment interface for Emacs.
 
 #+begin_src emacs-lisp
 (use-package pyvenv
-  :ensure t
   :hook (python-mode . pyvenv-mode)
   :bind
   (:map python-mode-map
@@ -516,7 +491,6 @@ Python Black for Emacs.
 
 #+begin_src emacs-lisp
 (use-package blacken
-  :ensure t
   :after python
   :bind
   (:map python-mode-map
@@ -564,7 +538,6 @@ UTF-8 bullets for org-mode.
 
 #+begin_src emacs-lisp
 (use-package org-bullets
-  :ensure t
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
@@ -575,6 +548,7 @@ Configure org source code blocks.
 
 #+begin_src emacs-lisp
 (use-package org-src
+  :straight nil
   :after org
   :config
   (setq org-src-window-setup 'current-window)
@@ -589,7 +563,6 @@ Emacs package that displays available keybindings in popup.
 
 #+begin_src emacs-lisp
 (use-package which-key
-  :ensure t
   :diminish which-key-mode
   :custom
   (which-key-idle-delay 0.5)
@@ -601,7 +574,6 @@ A better Emacs *help* buffer.
 
 #+begin_src emacs-lisp
 (use-package helpful
-  :ensure t
   :bind
   ([remap describe-function] . helpful-callable)
   ([remap describe-command] . helpful-command)
@@ -615,7 +587,6 @@ Miscellaneous packages.
 
 #+begin_src emacs-lisp
 (use-package hydra
-  :ensure t
   :defer t)
 #+end_src
 
@@ -644,7 +615,6 @@ An Emacs web feeds client.
 
 #+begin_src emacs-lisp
 (use-package elfeed
-  :ensure t
   :commands elfeed
   :bind
   (:map elfeed-search-mode-map
@@ -674,7 +644,6 @@ Play music from emacs with playerctl.
 
 #+begin_src emacs-lisp
 (use-package playerctl
-  :ensure t
   :defer t)
 #+end_src
 

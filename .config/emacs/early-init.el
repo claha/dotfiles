@@ -1,13 +1,8 @@
-;; Initialise installed packages.
-(setq package-enable-at-startup t)
+;; Do not make installed packages available at startup.
+(setq package-enable-at-startup nil)
 
-;; Allow loading from the package cache.
-(setq package-quickstart t)
-
-;; Do not resize the frame at this early stage.
+;; Hide/Skip GUI stuff early.
 (setq frame-inhibit-implied-resize t)
-
-;; Hide GUI elements early.
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
