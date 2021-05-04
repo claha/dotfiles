@@ -174,6 +174,9 @@ exec qutebrowser
 # Start volumeicon
 exec volumeicon
 
+# Start on workspace 3
+exec i3-msg workspace number $ws3
+
 # Start i3bar to display a workspace bar and i3status
 bar {
     status_command i3status
