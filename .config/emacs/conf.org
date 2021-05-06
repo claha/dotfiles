@@ -351,12 +351,13 @@ allow-emacs-pinentry
 allow-loopback-pinentry
 #+end_example
 
-Emacs package for highlighting uncommitted changes
+Emacs package for highlighting uncommitted changes.
 
 #+begin_src emacs-lisp
 (use-package diff-hl
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
+         (text-mode . diff-hl-mode)
          (dired-mode . diff-hl-dired-mode))
   :custom
   (diff-hl-side 'right))
