@@ -597,7 +597,11 @@ Use qutebrowser to browse.
 #+begin_src emacs-lisp
 (use-package emacs
   :config
-  (setq browse-url-browser-function 'browse-url-generic)
+  (defun browse-url-mpv (url &optional new-window)
+    (start-process "*mpv*" nil "mpv" url))
+  (setq browse-url-browser-function
+        '(("https:\\/\\/www\\.youtube." . browse-url-mpv)
+          ("." . browse-url-generic)))
   (setq browse-url-generic-program "qutebrowser"))
 #+end_src
 
