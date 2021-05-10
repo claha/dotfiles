@@ -471,6 +471,14 @@ Diminish eldoc-mode.
   :diminish eldoc-mode)
 #+end_src
 
+Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
+
+#+begin_src emacs-lisp
+(use-package smartparens
+  :diminish smartparens-mode
+  :hook (prog-mode . smartparens-mode))
+#+end_src
+
 ** Python
 
 When working with python it is usually a good idea to set up a virtual environment.
