@@ -20,5 +20,6 @@ stow
 the_silver_searcher
 unclutter
 volumeicon
+xbindkeys
 xorg-xrdb
 youtube-dl
