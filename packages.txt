@@ -1,5 +1,6 @@
 alsa-utils
 base-devel
+dunst
 emacs
 feh
 git
