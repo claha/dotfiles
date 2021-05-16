@@ -633,6 +633,7 @@ An Emacs web feeds client.
   :bind
   (:map elfeed-search-mode-map
         ("v" . elfeed-search-mpv)
+        ("d" . elfeed-search-youtube-dl)
         :map elfeed-show-mode-map
         ("v" . elfeed-show-mpv))
   :config
@@ -646,7 +647,16 @@ An Emacs web feeds client.
       (elfeed-search-update-entry entry)
       (unless elfeed-search-remain-on-entry
         (forward-line))))
-
+  (defun elfeed-search-youtube-dl ()
+    "Forward the current entry to youtube-dl."
+    (interactive)
+    (let ((entry (car (elfeed-search-selected)))
+          (url (elfeed-entry-link (car (elfeed-search-selected)))))
+      (elfeed-untag entry 'unread)
+      (start-process "*elfeed-youtube-dl*" nil "youtube-dl" url)
+      (elfeed-search-update-entry entry)
+      (unless elfeed-search-remain-on-entry
+        (forward-line))))
   (defun elfeed-show-mpv ()
     "Open the current entry in mpv."
     (interactive)
