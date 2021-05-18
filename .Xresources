@@ -33,7 +33,7 @@ Xft.lcdfilter: lcddefault
 *color15: #f8f8f8
 
 ! Urxvt
-URxvt.font: 9x15,xft:TerminessTTFNerdFontMono
+URxvt.font: xft:TerminessTTFNerdFontMono:pixelsize=16
 URxvt.depth: 32
 URxvt.background: [100]#222D31
 URxvt*scrollBar: false
@@ -48,3 +48,5 @@ URxvt*shading: 30
 URxvt.iso14755: false
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+URxvt.perl-ext-common: default,resize-font
