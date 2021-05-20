@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -9,14 +9,15 @@ repos:
         args: ["--fix=lf"]
       - id: file-contents-sorter
         files: packages.txt|packages_aur.txt|.gitignore|.stow-local-ignore
+        args: ["--unique"]
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.25.0
+    rev: v1.26.1
     hooks:
       - id: yamllint
         args: [--strict]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.26.0
+    rev: v0.27.1
     hooks:
       - id: markdownlint
