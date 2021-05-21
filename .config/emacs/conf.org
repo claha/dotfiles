@@ -659,6 +659,12 @@ Writing 'yes/no' takes to much time...
   (setq vc-follow-symlinks t))
 #+end_src
 
+Manage docker from Emacs.
+
+#+begin_src emacs-lisp
+(use-package docker)
+#+end_src
+
 * Multimedia
 
 An Emacs web feeds client.
