@@ -716,6 +716,41 @@ Play music from emacs with playerctl.
   :defer t)
 #+end_src
 
+* Chat
+
+ERC is a powerful, modular, and extensible IRC client for Emacs.
+
+#+begin_src emacs-lisp
+(use-package erc
+  :straight (:type built-in)
+  :commands erc-tls
+  :custom
+  (erc-server "irc.libera.chat")
+  (erc-nick "claha")
+  (erc-user-full-name "Claes Hallström")
+  (erc-autojoin-channels-alist (quote (("libera.chat" "#systemcrafters"))))
+  (erc-track-shorten-start 8)
+  (erc-rename-buffers t)
+  (erc-kill-buffer-on-part t)
+  (erc-auto-query 'bury)
+  (erc-join-buffer 'bury)
+  (erc-fill-column 120)
+  (erc-fill-function 'erc-fill-static)
+  (erc-fill-static-center 20)
+  (erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE" "AWAY"))
+  (erc-hide-list '("JOIN" "NICK" "PART" "QUIT" "MODE" "AWAY"))
+  (erc-track-exclude-server-buffer t))
+#+end_src
+
+Nickname Highlighting for ERC.
+
+#+begin_src emacs-lisp
+(use-package erc-hl-nicks
+  :after erc
+  :config
+  (add-to-list 'erc-modules 'hl-nicks))
+#+end_src
+
 * Local
 
 Load local file if it exists and is readable.
