@@ -217,6 +217,14 @@ Configure dabbrev.
                        (call-interactively 'dabbrev-completion)))))
 #+end_src
 
+Save minibuffer history.
+
+#+begin_src emacs-lisp
+(use-package savehist
+  :straight (:type built-in)
+  :init (savehist-mode))
+#+end_src
+
 * Project
 
 Project Interaction Library for Emacs.
