@@ -683,6 +683,9 @@ An Emacs web feeds client.
 #+begin_src emacs-lisp
 (use-package elfeed
   :commands elfeed
+  :hook
+  (elfeed-db-update . elfeed-db-save)
+  (elfeed-search-update . elfeed-db-save)
   :bind
   (:map elfeed-search-mode-map
         ("v" . elfeed-search-mpv)
