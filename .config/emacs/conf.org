@@ -762,6 +762,14 @@ Nickname Highlighting for ERC.
   (add-to-list 'erc-modules 'hl-nicks))
 #+end_src
 
+Display emojis in Emacs.
+
+#+begin_src emacs-lisp
+(use-package emojify
+  :hook (erc-mode . emojify-mode)
+  :commands emojify-mode)
+#+end_src
+
 * Local
 
 Load local file if it exists and is readable.
