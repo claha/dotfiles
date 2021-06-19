@@ -46,11 +46,8 @@ c.scrolling.smooth = True
 # How to behave when the last tab is closed.
 c.tabs.last_close = "close"
 
-# Position of the tab bar.
-c.tabs.position = "top"
-
 # When to show the tab bar.
-c.tabs.show = "multiple"
+c.tabs.show = "never"
 
 # Page to open if :open -t/-b/-w is used without URL.
 c.url.default_page = "https://start.duckduckgo.com/"
