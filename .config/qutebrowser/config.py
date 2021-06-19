@@ -44,7 +44,7 @@ c.scrolling.bar = "never"
 c.scrolling.smooth = True
 
 # How to behave when the last tab is closed.
-c.tabs.last_close = "close"
+c.tabs.last_close = "default-page"
 
 # When to show the tab bar.
 c.tabs.show = "never"
