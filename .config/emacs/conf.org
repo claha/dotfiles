@@ -635,6 +635,13 @@ A better Emacs *help* buffer.
   ([remap describe-key] . helpful-key))
 #+end_src
 
+tldr client for Emacs.
+
+#+begin_src emacs-lisp
+(use-package tldr
+  :commands tldr)
+#+end_src
+
 * Miscellaneous
 
 Miscellaneous packages.
