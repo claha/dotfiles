@@ -680,7 +680,8 @@ Writing 'yes/no' takes to much time...
 Manage docker from Emacs.
 
 #+begin_src emacs-lisp
-(use-package docker)
+(use-package docker
+  :commands docker)
 #+end_src
 
 * Multimedia
