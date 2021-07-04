@@ -684,6 +684,12 @@ Manage docker from Emacs.
   :commands docker)
 #+end_src
 
+Simple password manager using gpg and ordinary unix directories.
+
+#+begin_src emacs-lisp
+(use-package password-store)
+#+end_src
+
 * Multimedia
 
 An Emacs web feeds client.
