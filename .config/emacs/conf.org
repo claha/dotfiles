@@ -316,8 +316,7 @@ It's Magit! A Git porcelain inside Emacs.
   :commands (magit-status magit-get-current-branch)
   :custom
   (magit-display-buffer-function
-   #'magit-display-buffer-fullframe-status-v1)
-  :bind (("C-c g" . magit-status)))
+   #'magit-display-buffer-fullframe-status-v1))
 
 (use-package git-commit
   :after magit
