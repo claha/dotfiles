@@ -9,6 +9,7 @@ gnupg
 i3-wm
 i3lock
 i3status
+isync
 mpv
 picom
 playerctl
