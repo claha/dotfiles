@@ -27,7 +27,6 @@ c.content.autoplay = False
 # Editor (and arguments) to use for the `edit-*` commands.
 c.editor.command = [
     "emacsclient",
-    "--create-frame",
     "--alternate-editor=emacs",
     "+{line}:{column}",
     "{file}",
