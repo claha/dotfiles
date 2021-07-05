@@ -1,11 +1,13 @@
 alsa-utils
 base-devel
+cmake
 docker
 dunst
 emacs
 feh
 git
 gnupg
+gperf
 i3-wm
 i3lock
 i3status

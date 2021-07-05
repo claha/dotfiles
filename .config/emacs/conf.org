@@ -783,6 +783,22 @@ Display emojis in Emacs.
   :commands emojify-mode)
 #+end_src
 
+GNU Emacs telegram client.
+
+#+begin_src emacs-lisp
+(use-package telega
+  :commands telega
+  :custom
+  (telega-user-show-avatars nil)
+  (telega-root-show-avatars nil)
+  (telega-chat-show-avatars nil)
+  (telega-emoji-use-images t)
+  (telega-mode-line-string-format
+     '(" " (:eval (telega-mode-line-unread-unmuted))))
+  :config
+  (telega-mode-line-mode 1))
+#+end_src
+
 * Mail
 
 A full-featured e-mail client that runs inside Emacs.

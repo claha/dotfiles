@@ -1,2 +1,3 @@
 maildir-utils
 mpv-mpris
+telegram-tdlib
