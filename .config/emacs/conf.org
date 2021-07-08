@@ -810,7 +810,8 @@ A full-featured e-mail client that runs inside Emacs.
   :custom
   (user-full-name "Claes Hallström")
   (user-mail-address "hallstrom.claes@gmail.com")
-  (mu4e-get-mail-command "mbsync -a")
+  (mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
+                         epa-pinentry-mode 'ask)
   (mu4e-maildir "~/Mail")
   (mu4e-change-filenames-when-moving t)
   (mu4e-update-interval (* 10 60))
