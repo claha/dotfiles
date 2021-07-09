@@ -200,6 +200,7 @@ Configure dabbrev.
 
 #+begin_src emacs-lisp
 (use-package dabbrev
+  :straight (:type built-in)
   :custom
   (dabbrev-abbrev-char-regexp nil)
   (dabbrev-backward-only nil)
@@ -245,7 +246,7 @@ Dired, the Directory Editor.
 
 #+begin_src emacs-lisp
 (use-package dired
-  :straight nil
+  :straight (:type built-in)
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
@@ -257,6 +258,7 @@ Operate on buffers like dired.
 
 #+begin_src emacs-lisp
 (use-package ibuffer
+  :straight (:type built-in)
   :bind
   (("C-x C-b" . ibuffer)
    ("C-x k" . kill-this-buffer)))
@@ -466,6 +468,7 @@ Configure c/c++ indentation.
 
 #+begin_src emacs-lisp
 (use-package cc-mode
+  :straight (:type built-in)
   :defer t
   :config
   (setq c-default-style "linux" c-basic-offset 2)
@@ -521,11 +524,13 @@ Hide line numbers in terminals and shells.
 
 #+begin_src emacs-lisp
 (use-package shell
+  :straight (:type built-in)
   :commands shell
   :config
   (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 (use-package eshell
+  :straight (:type built-in)
   :commands eshell
   :custom
   (eshell-banner-message "")
@@ -557,6 +562,7 @@ Hide line numbers in terminals and shells.
        (propertize " " 'face `(:foreground "white"))))))
 
 (use-package term
+  :straight (:type built-in)
   :commands term
   :config
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
@@ -577,6 +583,7 @@ Org mode is for keeping notes, maintaining TODO lists, planning projects, and au
 
 #+begin_src emacs-lisp
 (use-package org
+  :straight (:type built-in)
   :config
   (defun org-mode-setup ()
     (display-line-numbers-mode 0)
@@ -601,7 +608,7 @@ Configure org source code blocks.
 
 #+begin_src emacs-lisp
 (use-package org-src
-  :straight nil
+  :straight (:type built-in)
   :after org
   :config
   (setq org-src-window-setup 'current-window)
