@@ -678,6 +678,12 @@ Writing 'yes/no' takes to much time...
   (defalias 'yes-or-no-p 'y-or-n-p)
   (setq large-file-warning-threshold nil)
   (setq vc-follow-symlinks t)
+  (global-unset-key (kbd "<C-down-mouse-1>"))
+  (global-unset-key (kbd "<C-down-mouse-2>"))
+  (global-unset-key (kbd "<C-down-mouse-3>"))
+  (global-unset-key (kbd "<S-down-mouse-1>"))
+  (global-unset-key (kbd "<S-down-mouse-2>"))
+  (global-unset-key (kbd "<S-down-mouse-3>"))
   :custom
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
