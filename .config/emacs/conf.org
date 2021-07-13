@@ -252,6 +252,16 @@ Dired, the Directory Editor.
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
 #+end_src
 
+Reuse the current dired buffer to visit a directory.
+
+#+begin_src emacs-lisp
+(use-package dired-single
+  :bind
+  (:map dired-mode-map
+        ([remap dired-find-file] . dired-single-buffer)
+        ([remap dired-up-directory] . dired-single-up-directory)))
+#+end_src
+
 * Buffers
 
 Operate on buffers like dired.
