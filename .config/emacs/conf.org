@@ -196,26 +196,24 @@ Modular in-buffer completion framework for Emacs.
   :defer t)
 #+end_src
 
-Configure dabbrev.
+Dynamic abbreviation package.
 
 #+begin_src emacs-lisp
 (use-package dabbrev
   :straight (:type built-in)
   :custom
-  (dabbrev-abbrev-char-regexp nil)
+  (dabbrev-case-replace nil)
   (dabbrev-backward-only nil)
   (dabbrev-case-distinction nil)
   (dabbrev-case-fold-search t)
-  (dabbrev-case-replace nil)
+  (dabbrev-check-all-buffers t)
+  (dabbrev-abbrev-char-regexp nil)
   (dabbrev-eliminate-newlines nil)
+  (dabbrev-check-other-buffers t)
   (dabbrev-upcase-means-case-search t)
-  :config
-  (global-set-key (kbd "C-.") 'dabbrev-expand)
-  (global-set-key (kbd "C-:")
-                  '(lambda()
-                     (interactive)
-                     (let ((current-prefix-arg '(16)))  ;; C-u C-u
-                       (call-interactively 'dabbrev-completion)))))
+  :bind
+  (("C-." . dabbrev-expand)
+   ("C-:" . dabbrev-completion)))
 #+end_src
 
 Save minibuffer history.
