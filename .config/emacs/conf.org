@@ -358,10 +358,11 @@ GnuPG Pinentry server implementation.
 #+begin_src emacs-lisp
 (use-package pinentry
   :if (not (eq system-type 'windows-nt))
-  :hook
-  (after-init . pinentry-start)
   :custom
-  (epg-pinentry-mode 'loopback))
+  (epg-pinentry-mode 'loopback)
+  :init
+  (setenv "INSIDE_EMACS" (format "%s,comint" emacs-version))
+  (pinentry-start))
 #+end_src
 
 Example of ~/.gnupg/gpg-agent.conf.
