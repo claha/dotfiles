@@ -211,9 +211,15 @@ Dynamic abbreviation package.
   (dabbrev-eliminate-newlines nil)
   (dabbrev-check-other-buffers t)
   (dabbrev-upcase-means-case-search t)
+  :config
+  (defun dabbrev-expand-or-completion ()
+    (interactive)
+    (if (not (eq 'dabbrev-expand-or-completion last-command))
+        (dabbrev-expand nil)
+      (undo)  ;; Undo dabbrev-expand from last time
+      (dabbrev-completion 16)))
   :bind
-  (("C-." . dabbrev-expand)
-   ("C-:" . dabbrev-completion)))
+  ("C-." . dabbrev-expand-or-completion))
 #+end_src
 
 Save minibuffer history.
