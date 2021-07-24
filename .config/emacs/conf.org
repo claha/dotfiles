@@ -75,8 +75,6 @@ An opinionated pack of modern color-themes.
 A fancy and fast mode-line inspired by minimalism design.
 
 #+begin_src emacs-lisp
-(use-package all-the-icons)
-
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom
@@ -92,6 +90,12 @@ A minor-mode menu for the mode line.
 #+begin_src emacs-lisp
 (use-package minions
   :hook (doom-modeline-mode . minions-mode))
+#+end_src
+
+A utility package to collect various Icon Fonts and propertize them within Emacs.
+
+#+begin_src emacs-lisp
+(use-package all-the-icons)
 #+end_src
 
 * Completion
