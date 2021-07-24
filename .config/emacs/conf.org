@@ -72,12 +72,9 @@ An opinionated pack of modern color-themes.
   :init (load-theme 'doom-material t))
 #+end_src
 
-Configure mode line without icon and showing minor modes and buffer name.
+A fancy and fast mode-line inspired by minimalism design.
 
 #+begin_src emacs-lisp
-(use-package diminish
-  :after use-package)
-
 (use-package all-the-icons)
 
 (use-package doom-modeline
@@ -88,6 +85,13 @@ Configure mode line without icon and showing minor modes and buffer name.
   (doom-modeline-buffer-file-name-style 'buffer-name)
   :config
   (setq doom-modeline-icon t))
+#+end_src
+
+A minor-mode menu for the mode line.
+
+#+begin_src emacs-lisp
+(use-package minions
+  :hook (doom-modeline-mode . minions-mode))
 #+end_src
 
 * Completion
@@ -236,7 +240,6 @@ Project Interaction Library for Emacs.
 
 #+begin_src emacs-lisp
 (use-package projectile
-  :diminish projectile-mode
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :config
@@ -411,7 +414,6 @@ Enables hungry deletion in all modes.
 
 #+begin_src emacs-lisp
 (use-package hungry-delete
-  :diminish hungry-delete-mode
   :custom
   (hungry-delete-join-reluctantly t)
   :hook
@@ -455,7 +457,6 @@ Emacs client/library for the Language Server Protocol.
   :defer t)
 
 (use-package flycheck
-  :diminish flycheck-mode
   :hook (prog-mode . flycheck-mode))
 #+end_src
 
@@ -490,18 +491,10 @@ Configure c/c++ indentation.
   (c-set-offset 'case-label '+))
 #+end_src
 
-Diminish eldoc-mode.
-
-#+begin_src emacs-lisp
-(use-package eldoc
-  :diminish eldoc-mode)
-#+end_src
-
 Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
 
 #+begin_src emacs-lisp
 (use-package smartparens
-  :diminish smartparens-mode
   :hook (prog-mode . smartparens-mode))
 #+end_src
 
@@ -638,7 +631,6 @@ Emacs package that displays available keybindings in popup.
 
 #+begin_src emacs-lisp
 (use-package which-key
-  :diminish which-key-mode
   :custom
   (which-key-idle-delay 0.5)
   :hook
