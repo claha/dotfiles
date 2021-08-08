@@ -194,6 +194,9 @@ exec qutebrowser
 # Start volumeicon
 exec volumeicon
 
+# Start network manager applet
+exec nm-applet
+
 # Start xbindkeys
 exec xbindkeys
 

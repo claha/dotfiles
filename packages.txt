@@ -13,6 +13,7 @@ i3lock
 i3status
 isync
 mpv
+network-manager-applet
 pass
 picom
 playerctl
