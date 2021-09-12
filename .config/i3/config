@@ -30,7 +30,8 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # Lock the screen
-bindsym Scroll_Lock exec i3lock --color 000000
+set $lock_color 44883C
+bindsym Scroll_Lock exec i3lock --color $lock_color
 
 # Start a program launcher
 bindsym $mod+d exec rofi -show run
@@ -201,7 +202,7 @@ exec nm-applet
 exec xbindkeys
 
 # Start xautolock
-exec xautolock -time 10 -locker "i3lock --color 000000"
+exec xautolock -time 10 -locker "i3lock --color $lock_color"
 
 # Start on workspace 3
 exec i3-msg workspace number $ws3
