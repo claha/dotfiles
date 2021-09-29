@@ -432,6 +432,19 @@ Writable grep buffer and apply the changes to files.
 
 * Programming
 
+#+begin_src emacs-lisp
+(use-package yaml-mode
+  :defer t)
+
+(use-package cmake-mode
+  :defer t)
+
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode))
+#+end_src
+
+** General
+
 Tabs are evil, use 4 spaces as default.
 
 #+begin_src emacs-lisp
@@ -439,6 +452,35 @@ Tabs are evil, use 4 spaces as default.
   :config
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4))
+#+end_src
+
+Run compiler as inferior of Emacs, parse error messages.
+
+#+begin_src emacs-lisp
+(use-package compile
+  :straight (:type built-in)
+  :custom
+  (compilation-ask-about-save nil)
+  (compilation-always-kill t)
+  (compilation-scroll-output 'first-error))
+#+end_src
+
+Translate ANSI escape sequences into faces.
+
+#+begin_src emacs-lisp
+(use-package ansi-color
+  :straight (:type built-in)
+  :hook (compilation-filter . colorize-compilation-buffer)
+  :config
+  (defun colorize-compilation-buffer ()
+    (ansi-color-apply-on-region compilation-filter-start (point))))
+#+end_src
+
+Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
+
+#+begin_src emacs-lisp
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))
 #+end_src
 
 Emacs client/library for the Language Server Protocol.
@@ -451,55 +493,6 @@ Emacs client/library for the Language Server Protocol.
   (setq lsp-keymap-prefix "C-c l")
   :config
   (lsp-enable-which-key-integration t))
-#+end_src
-
-#+begin_src emacs-lisp
-(use-package yaml-mode
-  :defer t)
-
-(use-package cmake-mode
-  :defer t)
-
-(use-package flycheck
-  :hook (prog-mode . flycheck-mode))
-#+end_src
-
-Setup how compilation should behave.
-
-#+begin_src emacs-lisp
-(use-package emacs
-  :config
-  (setq-default compilation-ask-about-save nil)
-  (setq-default compilation-always-kill t)
-  (setq-default compilation-scroll-output 'first-error))
-#+end_src
-
-# Colorize compilation buffer.
-
-# #+begin_src emacs-lisp
-#   (use-package ansi-color
-#     :config (add-hook 'compilation-filter-hook 'colorize-compilation-buffer))
-
-#   (defun colorize-compilation-buffer ()
-#     (ansi-color-apply-on-region compilation-filter-start (point)))
-# #+end_src
-
-Configure c/c++ indentation.
-
-#+begin_src emacs-lisp
-(use-package cc-mode
-  :straight (:type built-in)
-  :defer t
-  :config
-  (setq c-default-style "linux" c-basic-offset 2)
-  (c-set-offset 'case-label '+))
-#+end_src
-
-Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
-
-#+begin_src emacs-lisp
-(use-package smartparens
-  :hook (prog-mode . smartparens-mode))
 #+end_src
 
 ** Python
@@ -528,6 +521,21 @@ Python Black for Emacs.
   :bind
   (:map python-mode-map
         ("C-c C-b" . blacken-buffer)))
+#+end_src
+
+** C/C++
+
+Major mode for editing C and similar languages.
+
+#+begin_src emacs-lisp
+(use-package cc-mode
+  :straight (:type built-in)
+  :defer t
+  :custom
+  (c-default-style "linux")
+  (c-basic-offset 2)
+  :config
+  (c-set-offset 'case-label '+))
 #+end_src
 
 * Shell/Terminal
