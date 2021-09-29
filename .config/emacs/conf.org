@@ -580,15 +580,6 @@ Hide line numbers in terminals and shells.
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
 #+end_src
 
-shell-pop.el helps you to use shell easily on Emacs. Only one key action to work.
-
-#+begin_src emacs-lisp
-(use-package shell-pop
-  :custom
-  (shell-pop-shell-type '("eshell" "*eshell*" (lambda nil (eshell))))
-  (shell-pop-universal-key "C-c s"))
-#+end_src
-
 * Org mode
 
 Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
