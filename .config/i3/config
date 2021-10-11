@@ -26,6 +26,9 @@ set $exec exec --no-startup-id
 # Start a terminal
 bindsym $mod+Return exec urxvt
 
+# Start a terminal on a remote system
+bindsym $mod+Shift+Return exec rofi -show ssh
+
 # Kill focused window
 bindsym $mod+Shift+q kill
 
