@@ -251,6 +251,12 @@ Project Interaction Library for Emacs.
   (setq frame-title-format '((:eval (projectile-project-name)))))
 #+end_src
 
+Operations on the current project.
+
+#+begin_src emacs-lisp
+(use-package project)
+#+end_src
+
 * Files
 
 Dired, the Directory Editor.
