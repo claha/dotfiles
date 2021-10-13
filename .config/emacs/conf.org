@@ -267,6 +267,7 @@ Reuse the current dired buffer to visit a directory.
 
 #+begin_src emacs-lisp
 (use-package dired-single
+  :after dired
   :bind
   (:map dired-mode-map
         ([remap dired-find-file] . dired-single-buffer)
