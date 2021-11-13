@@ -65,6 +65,15 @@ Configure the appearance of Emacs.
   (add-to-list 'default-frame-alist `(alpha . ,'(95 . 95))))
 #+end_src
 
+Emacs mode for wrapping visual-line-mode buffers at fill-column.
+
+#+begin_src emacs-lisp
+(use-package visual-fill-column
+  :custom
+  (visual-fill-column-width 50)
+  (visual-fill-column-center-text t))
+#+end_src
+
 An opinionated pack of modern color-themes.
 
 #+begin_src emacs-lisp
@@ -633,6 +642,37 @@ Configure org source code blocks.
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
   (setq org-src-tab-acts-natively t))
+#+end_src
+
+Ultra-minimalist presentation minor-mode for Emacs org-mode.
+
+#+begin_src emacs-lisp
+(use-package org-present
+  :after org
+  :config
+  (defun org-present-hook ()
+    (org-present-big)
+    ;; (org-present-hide-cursor)
+    (org-present-read-only)
+    (org-present-beginning)
+    (visual-fill-column-mode +1)
+    (global-hi-line-mode -1)
+    (setq header-line-format " ")
+    (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+                                       (header-line (:height 4.5) variable-pitch)
+                                       (org-document-title (:height 4.0))
+                                       (org-level-1 (:height 2.0) org-level-1)
+                                       (org-block (:height 1.0 :inherit fixed-pitch) org-block))))
+  (defun org-present-quit-hook ()
+    (org-present-small)
+    ;;(org-present-show-cursor)
+    (org-present-read-write)
+    (visual-fill-column-mode -1)
+    (global-hi-line-mode +1)
+    (setq header-line-format nil)
+    (setq-local face-remapping-alist nil))
+  :hook ((org-present-mode . org-present-hook)
+         (org-present-mode-quit . org-present-quit-hook)))
 #+end_src
 
 * Help
