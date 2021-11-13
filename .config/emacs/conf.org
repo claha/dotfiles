@@ -511,6 +511,21 @@ Emacs client/library for the Language Server Protocol.
   (lsp-enable-which-key-integration t))
 #+end_src
 
+** Docker
+
+Manage docker from Emacs.
+
+#+begin_src emacs-lisp
+(use-package docker
+  :commands docker)
+#+end_src
+
+An emacs mode for handling Dockerfiles.
+
+#+begin_src emacs-lisp
+(use-package dockerfile-mode)
+#+end_src
+
 ** Python
 
 When working with python it is usually a good idea to set up a virtual environment.
@@ -744,13 +759,6 @@ Writing 'yes/no' takes to much time...
   :custom
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
-#+end_src
-
-Manage docker from Emacs.
-
-#+begin_src emacs-lisp
-(use-package docker
-  :commands docker)
 #+end_src
 
 Simple password manager using gpg and ordinary unix directories.
