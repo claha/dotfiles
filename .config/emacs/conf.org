@@ -536,6 +536,14 @@ An emacs mode for handling Dockerfiles.
 (use-package dockerfile-mode)
 #+end_src
 
+TRAMP integration for docker containers.
+
+#+begin_src emacs-lisp
+(use-package docker-tramp
+  :custom
+  (docker-tramp-use-names t))
+#+end_src
+
 ** Python
 
 When working with python it is usually a good idea to set up a virtual environment.
