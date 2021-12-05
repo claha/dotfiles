@@ -109,43 +109,32 @@ A utility package to collect various Icon Fonts and propertize them within Emacs
 
 * Completion
 
-Better solution for incremental narrowing in Emacs.
+VERTical Interactive COmpletion.
 
 #+begin_src emacs-lisp
-(use-package selectrum
-  :custom
-  (selectrum-fix-vertical-window-height t)
-  (selectrum-max-window-height 9)
-  (selectrum-show-indices t)
-  (selectrum-extend-current-candidate-highlight t)
-  (selectrum-highlight-candidates-function #'orderless-highlight-matches)
+(use-package vertico
   :hook
-  (after-init . selectrum-mode))
+  (after-init . vertico-mode))
 #+end_src
 
 Simple but effective sorting and filtering for Emacs.
 
 #+begin_src emacs-lisp
 (use-package prescient
-  :after selectrum
+  :after vertico
   :config
   (prescient-persist-mode 1))
-
-(use-package selectrum-prescient
-  :after (selectrum prescient)
-  :custom
-  (selectrum-prescient-enable-filtering nil)
-  :config
-  (selectrum-prescient-mode 1))
 #+end_src
 
 Emacs completion style that matches multiple regexps in any order.
 
 #+begin_src emacs-lisp
 (use-package orderless
+  :init
+  (setq completion-category-defaults nil)
   :custom
   (completion-styles '(orderless))
-  (orderless-skip-highlighting (lambda () selectrum-is-active)))
+  (completion-category-overrides '((file (styles . (basic partial-completion))))))
 #+end_src
 
 Marginalia in the minibuffer.
@@ -155,7 +144,7 @@ Marginalia in the minibuffer.
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :hook
-  (selectrum-mode . marginalia-mode))
+  (vertico-mode . marginalia-mode))
 #+end_src
 
 Consulting completing-read.
@@ -191,6 +180,7 @@ Consulting completing-read.
               :override #'consult-completing-read-multiple)
   (setq xref-show-xrefs-function #'consult-xref)
   (setq xref-show-definitions-function #'consult-xref)
+  (setq completion-in-region-function #'consult-completion-in-region)
   :config
   (recentf-mode 1)
   (setq consult-narrow-key "<")
