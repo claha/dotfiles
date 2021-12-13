@@ -187,7 +187,7 @@ exec unclutter -idle 1 -noevents
 exec picom
 
 # Set background
-exec feh --bg-fill ~/.background
+exec sh ~/.fehbg
 
 # Start emacs daemon
 exec "emacs --daemon && emacsclient --create-frame"
