@@ -6,3 +6,5 @@ configuration {
 	disable-history: false;
 	matching: "fuzzy";
 }
+
+@theme "theme"
