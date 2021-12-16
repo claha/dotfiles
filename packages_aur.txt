@@ -1,3 +1,4 @@
 maildir-utils
 mpv-mpris
+rofi-pass
 telegram-tdlib
