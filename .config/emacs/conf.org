@@ -249,17 +249,6 @@ Save minibuffer history.
 
 * Project
 
-Project Interaction Library for Emacs.
-
-#+begin_src emacs-lisp
-(use-package projectile
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :config
-  (projectile-mode)
-  (setq frame-title-format '((:eval (projectile-project-name)))))
-#+end_src
-
 Operations on the current project.
 
 #+begin_src emacs-lisp
