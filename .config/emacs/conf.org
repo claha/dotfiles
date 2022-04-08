@@ -204,13 +204,6 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
   :after (embark consult))
 #+end_src
 
-Modular in-buffer completion framework for Emacs.
-
-#+begin_src emacs-lisp
-(use-package company
-  :defer t)
-#+end_src
-
 Dynamic abbreviation package.
 
 #+begin_src emacs-lisp
