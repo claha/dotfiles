@@ -52,11 +52,9 @@ Configure the appearance of Emacs.
 (use-package emacs
   :init
   (global-hl-line-mode 1)
-  (show-paren-mode 1)
   (global-display-line-numbers-mode t)
   :custom
   (initial-scratch-message nil)
-  (show-paren-delay 0.0)
   (column-number-mode t)
   (visible-bell t)
   :config
@@ -481,11 +479,23 @@ Translate ANSI escape sequences into faces.
     (ansi-color-apply-on-region compilation-filter-start (point))))
 #+end_src
 
-Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
+Highlight matching paren.
 
 #+begin_src emacs-lisp
-(use-package smartparens
-  :hook (prog-mode . smartparens-mode))
+(use-package paren
+  :straight (:type built-in)
+  :init
+  (show-paren-mode 1)
+  :custom
+  (show-paren-delay 0.0))
+#+end_src
+
+Toggle automatic parens pairing.
+
+#+begin_src emacs-lisp
+(use-package electric-pair
+  :straight (:type built-in)
+  :hook (prog-mode . electric-pair-mode))
 #+end_src
 
 Emacs client/library for the Language Server Protocol.
