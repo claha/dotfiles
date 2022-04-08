@@ -742,12 +742,12 @@ Use qutebrowser to browse.
   (setq browse-url-generic-program "qutebrowser"))
 #+end_src
 
-Writing 'yes/no' takes to much time...
+Random stuff...
 
 #+begin_src emacs-lisp
 (use-package emacs
   :config
-  (defalias 'yes-or-no-p 'y-or-n-p)
+  (setq use-short-answers t)
   (setq large-file-warning-threshold nil)
   (setq vc-follow-symlinks t)
   (global-unset-key (kbd "<C-down-mouse-1>"))
