@@ -89,7 +89,7 @@ A fancy and fast mode-line inspired by minimalism design.
   :custom
   (doom-modeline-buffer-encoding nil)
   (doom-modeline-minor-modes t)
-  (doom-modeline-buffer-file-name-style 'buffer-name)
+  (doom-modeline-buffer-file-name-style 'truncate-except-project)
   :config
   (setq doom-modeline-icon t))
 #+end_src
