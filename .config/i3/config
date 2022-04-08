@@ -220,3 +220,6 @@ bar {
     strip_workspace_numbers yes
     workspace_min_width 50
 }
+
+# Load local config
+include local.conf
