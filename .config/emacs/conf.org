@@ -690,10 +690,11 @@ A better Emacs *help* buffer.
 #+begin_src emacs-lisp
 (use-package helpful
   :bind
-  ([remap describe-function] . helpful-callable)
   ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . helpful-variable)
-  ([remap describe-key] . helpful-key))
+  ([remap describe-function] . helpful-callable)
+  ([remap describe-key] . helpful-key)
+  ([remap describe-symbol] . helpful-symbol)
+  ([remap describe-variable] . helpful-variable))
 #+end_src
 
 tldr client for Emacs.
