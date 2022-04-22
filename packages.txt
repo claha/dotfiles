@@ -28,6 +28,7 @@ stow
 the_silver_searcher
 tldr
 unclutter
+unzip
 volumeicon
 xautolock
 xbindkeys
