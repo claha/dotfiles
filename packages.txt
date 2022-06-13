@@ -23,7 +23,6 @@ python-pip
 qutebrowser
 ripgrep
 rofi
-rxvt-unicode
 stow
 the_silver_searcher
 tldr
