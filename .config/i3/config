@@ -24,7 +24,7 @@ set $exec exec --no-startup-id
 ########################################
 
 # Start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # Start a terminal on a remote system
 bindsym $mod+Shift+Return exec rofi -show ssh

@@ -2,7 +2,7 @@ configuration {
 	modi: "window,run,ssh";
 	font: "TerminessTTFNerdFontMono 12";
 	fixed-num-lines: true;
-	terminal: "urxvt";
+	terminal: "alacritty";
 	disable-history: false;
 	matching: "fuzzy";
 }
