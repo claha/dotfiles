@@ -1,5 +1,7 @@
 # dotfiles
 
+![ci](https://github.com/claha/dotfiles/actions/workflows/ci.yaml/badge.svg)
+
 To install these dotfiles simply run:
 
 ```bash
