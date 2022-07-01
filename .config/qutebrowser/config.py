@@ -32,6 +32,9 @@ c.editor.command = [
     "{file}",
 ]
 
+# Make characters in hint strings uppercase.
+c.hints.uppercase = True
+
 # Automatically enter insert mode if an editable element is focused
 # after loading the page.
 c.input.insert_mode.auto_load = True
