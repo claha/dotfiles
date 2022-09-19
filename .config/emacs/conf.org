@@ -861,29 +861,6 @@ GNU Emacs telegram client.
   (telega-mode-line-mode 1))
 #+end_src
 
-* Mail
-
-A full-featured e-mail client that runs inside Emacs.
-
-#+begin_src emacs-lisp
-(unless (eq system-type 'windows-nt)
-  (use-package mu4e
-    :load-path "/usr/share/emacs/site-lisp/mu4e/"
-    :commands mu4e
-    :custom
-    (user-full-name "Claes Hallström")
-    (user-mail-address "hallstrom.claes@gmail.com")
-    (mu4e-get-mail-command (format "INSIDE_EMACS=%s mbsync -a" emacs-version)
-                           epa-pinentry-mode 'ask)
-    (mu4e-maildir "~/Mail")
-    (mu4e-change-filenames-when-moving t)
-    (mu4e-update-interval (* 10 60))
-    (mu4e-drafts-folder "/[Gmail]/Utkast")
-    (mu4e-sent-folder "/[Gmail]/Skickat")
-    (mu4e-refile-folder "/[Gmail]/Alla mail")
-    (mu4e-trash-folder "/[Gmail]/Papperskorgen")))
-#+end_src
-
 * Local
 
 Load local file if it exists and is readable.
