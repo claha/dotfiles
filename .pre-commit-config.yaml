@@ -34,3 +34,15 @@ repos:
     rev: 22.8.0
     hooks:
       - id: black
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 5.0.4
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-docstrings==1.6.0
+          - flake8-noqa==1.2.9
+        args:
+          - --max-line-length=88
+          - --extend-ignore=E203
+          - --noqa-require-code

@@ -4,6 +4,8 @@ Documentation:
     qute://help/configuring.html
     qute://help/settings.html
 """
+c = c  # noqa: F821
+config = config  # noqa: F821
 
 # Always restore open sites when qutebrowser is reopened.
 c.auto_save.session = True
