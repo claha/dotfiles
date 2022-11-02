@@ -36,8 +36,8 @@ bindsym $mod+p exec rofi-pass
 bindsym $mod+Shift+q kill
 
 # Lock the screen
-set $lock_color 44883C
-bindsym Scroll_Lock exec i3lock --color $lock_color
+set $lock_cmd "i3lock --blur 5 --ignore-empty-password"
+bindsym Control+$mod+l exec $lock_cmd
 
 # Start a program launcher
 bindsym $mod+d exec rofi -show run
@@ -208,7 +208,7 @@ exec nm-applet
 exec xbindkeys
 
 # Start xautolock
-exec xautolock -time 10 -locker "i3lock --color $lock_color"
+exec xautolock -time 10 -locker $lock_cmd
 
 # Start on workspace 2
 exec i3-msg workspace number $ws2
