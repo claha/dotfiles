@@ -30,4 +30,3 @@ volumeicon
 xautolock
 xbindkeys
 xclip
-youtube-dl
