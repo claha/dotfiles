@@ -21,6 +21,7 @@ python-pip
 qutebrowser
 ripgrep
 rofi
+starship
 stow
 the_silver_searcher
 tldr

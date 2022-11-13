@@ -11,4 +11,4 @@ export PATH="$HOME/.local/bin:$PATH"
 export GPG_TTY=$(tty)
 
 # Configure prompt
-PS1='[\u@\h \W]\$ '
+eval "$(starship init bash)"

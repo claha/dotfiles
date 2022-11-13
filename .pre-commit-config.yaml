@@ -4,6 +4,16 @@ repos:
     rev: 0.18.3
     hooks:
       - id: check-github-workflows
+      - id: check-jsonschema
+        name: check starship configuration
+        files: starship
+        types_or:
+          - toml
+        args:
+          - --schemafile
+          - https://starship.rs/config-schema.json
+        additional_dependencies:
+          - tomli
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
