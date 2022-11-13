@@ -1,4 +1,3 @@
 i3lock-color
-maildir-utils
 mpv-mpris
 rofi-pass

@@ -11,7 +11,6 @@ gnupg
 gperf
 i3-wm
 i3status
-isync
 mpv
 network-manager-applet
 pass
