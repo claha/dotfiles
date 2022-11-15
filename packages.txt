@@ -11,6 +11,8 @@ gnupg
 gperf
 i3-wm
 i3status
+lightdm
+lightdm-slick-greeter
 mpv
 network-manager-applet
 pass
