@@ -63,3 +63,8 @@ repos:
           - --max-line-length=88
           - --extend-ignore=E203
           - --noqa-require-code
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.8.0.4
+    hooks:
+      - id: shellcheck

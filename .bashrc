@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -9,7 +11,8 @@ alias enw='emacs --no-window-system'
 
 # Export
 export PATH="$HOME/.local/bin:$PATH"
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # Configure prompt
 eval "$(starship init bash)"

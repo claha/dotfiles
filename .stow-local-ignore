@@ -4,5 +4,6 @@
 .pre-commit-config.yaml
 LICENSE.md
 README.md
+bootstrap.sh
 packages.txt
 packages_aur.txt
