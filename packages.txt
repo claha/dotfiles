@@ -1,6 +1,8 @@
 alacritty
 alsa-utils
 base-devel
+bluez
+bluez-utils
 cmake
 docker
 dunst
