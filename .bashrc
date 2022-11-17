@@ -16,3 +16,7 @@ export GPG_TTY
 
 # Configure prompt
 eval "$(starship init bash)"
+
+# Enable git completion
+# shellcheck source=/dev/null
+source /usr/local/share/bash-completion/completions/git
