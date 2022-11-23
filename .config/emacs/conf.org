@@ -359,13 +359,6 @@ GnuPG Pinentry server implementation.
     (pinentry-start)))
 #+end_src
 
-Example of ~/.gnupg/gpg-agent.conf.
-
-#+begin_example conf
-allow-emacs-pinentry
-allow-loopback-pinentry
-#+end_example
-
 Emacs package for highlighting uncommitted changes.
 
 #+begin_src emacs-lisp
