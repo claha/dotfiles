@@ -1,5 +1,3 @@
 git-completion
 i3lock-color
-mpv-mpris
 nerd-font-complete
-rofi-pass

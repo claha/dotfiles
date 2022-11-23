@@ -5,6 +5,7 @@ bluez
 bluez-utils
 cmake
 docker
+docker-compose
 dunst
 emacs
 feh
@@ -16,6 +17,7 @@ i3status
 lightdm
 lightdm-slick-greeter
 mpv
+mpv-mpris
 network-manager-applet
 pass
 picom
@@ -25,12 +27,15 @@ python-pip
 qutebrowser
 ripgrep
 rofi
+rofi-pass
 starship
 stow
 the_silver_searcher
 tldr
 unclutter
 unzip
+vi
+vim
 volumeicon
 xautolock
 xbindkeys
