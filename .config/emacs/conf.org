@@ -290,15 +290,6 @@ Quickly switch windows in Emacs.
 
 * Searching/Jumping
 
-Jump to things in Emacs tree-style.
-
-#+begin_src emacs-lisp
-(use-package avy
-  :defer
-  :init
-  (avy-setup-default))
-#+end_src
-
 An Emacs frontend to The Silver Searcher.
 
 #+begin_src emacs-lisp
@@ -487,15 +478,6 @@ Toggle automatic parens pairing.
   :hook (prog-mode . electric-pair-mode))
 #+end_src
 
-Emacs client/library for the Language Server Protocol.
-
-#+begin_src emacs-lisp
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l"))
-#+end_src
-
 ** Docker
 
 Manage docker from Emacs.
@@ -520,12 +502,6 @@ TRAMP integration for docker containers.
 #+end_src
 
 ** Python
-
-When working with python it is usually a good idea to set up a virtual environment.
-
-#+begin_example bash
-python -m venv .venv
-#+end_example
 
 Python virtual environment interface for Emacs.
 
@@ -724,11 +700,8 @@ Use qutebrowser to browse.
 #+begin_src emacs-lisp
 (use-package emacs
   :config
-  (defun browse-url-mpv (url &optional new-window)
-    (start-process "*mpv*" nil "mpv" url))
   (setq browse-url-browser-function
-        '(("https:\\/\\/www\\.youtube." . browse-url-mpv)
-          ("." . browse-url-generic)))
+        '(("." . browse-url-generic)))
   (setq browse-url-generic-program "qutebrowser"))
 #+end_src
 
@@ -749,21 +722,6 @@ Random stuff...
   :custom
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
-#+end_src
-
-Simple password manager using gpg and ordinary unix directories.
-
-#+begin_src emacs-lisp
-(use-package password-store)
-#+end_src
-
-* Multimedia
-
-Play music from emacs with playerctl.
-
-#+begin_src emacs-lisp
-(use-package playerctl
-  :defer t)
 #+end_src
 
 * Local
