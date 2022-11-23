@@ -759,48 +759,6 @@ Simple password manager using gpg and ordinary unix directories.
 
 * Multimedia
 
-An Emacs web feeds client.
-
-#+begin_src emacs-lisp
-(use-package elfeed
-  :commands elfeed
-  :hook
-  (elfeed-db-update . elfeed-db-save)
-  (elfeed-search-update . elfeed-db-save)
-  :bind
-  (:map elfeed-search-mode-map
-        ("v" . elfeed-search-mpv)
-        ("d" . elfeed-search-youtube-dl)
-        :map elfeed-show-mode-map
-        ("v" . elfeed-show-mpv))
-  :config
-  (defun elfeed-search-mpv ()
-    "Open the current entry in mpv."
-    (interactive)
-    (let ((entry (car (elfeed-search-selected)))
-          (url (elfeed-entry-link (car (elfeed-search-selected)))))
-      (elfeed-untag entry 'unread)
-      (start-process "*elfeed-mpv*" nil "mpv" url)
-      (elfeed-search-update-entry entry)
-      (unless elfeed-search-remain-on-entry
-        (forward-line))))
-  (defun elfeed-search-youtube-dl ()
-    "Forward the current entry to youtube-dl."
-    (interactive)
-    (let ((entry (car (elfeed-search-selected)))
-          (url (elfeed-entry-link (car (elfeed-search-selected)))))
-      (elfeed-untag entry 'unread)
-      (start-process "*elfeed-youtube-dl*" nil "youtube-dl" url)
-      (elfeed-search-update-entry entry)
-      (unless elfeed-search-remain-on-entry
-        (forward-line))))
-  (defun elfeed-show-mpv ()
-    "Open the current entry in mpv."
-    (interactive)
-    (let ((url (elfeed-entry-link elfeed-show-entry)))
-      (start-process "*elfeed-mpv*" nil "mpv" url))))
-#+end_src
-
 Play music from emacs with playerctl.
 
 #+begin_src emacs-lisp
