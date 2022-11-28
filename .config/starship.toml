@@ -4,6 +4,7 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$python\
 $cmd_duration\
 $line_break\
 $character"""
@@ -99,4 +100,10 @@ ignore_submodules = false
 disabled = false
 
 [line_break]
+disabled = false
+
+[python]
+format = '[(\[${symbol}$virtualenv\] )]($style)'
+style = 'yellow bold'
+symbol = ' '
 disabled = false
