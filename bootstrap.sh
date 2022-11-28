@@ -4,4 +4,5 @@ if [[ $UID != 0 ]]; then
     exit 1
 fi
 
-pacman -S - < packages.txt
+pacman --sync --refresh
+pacman --sync --noconfirm - < packages.txt
