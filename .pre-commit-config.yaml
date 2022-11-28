@@ -68,3 +68,12 @@ repos:
     rev: v0.8.0.4
     hooks:
       - id: shellcheck
+
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.18.0
+    hooks:
+      - id: gitlint
+      - id: gitlint-ci
+        args:
+          - --commits
+          - main

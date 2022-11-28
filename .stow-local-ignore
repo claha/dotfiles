@@ -1,6 +1,7 @@
 .git
 .github
 .gitignore
+.gitlint
 .pre-commit-config.yaml
 LICENSE.md
 README.md
