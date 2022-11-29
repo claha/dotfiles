@@ -415,8 +415,14 @@ Writable grep buffer and apply the changes to files.
 (use-package cmake-mode
   :defer t)
 
+(use-package rust-mode
+  :defer t)
+
+(use-package go-mode
+  :defer t)
+
 (use-package flycheck
-  :hook (prog-mode . flycheck-mode))
+  :defer t)
 #+end_src
 
 ** General
