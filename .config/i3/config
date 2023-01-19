@@ -40,7 +40,7 @@ set $lock_cmd "i3lock --blur 5 --ignore-empty-password"
 bindsym Control+$mod+l exec $lock_cmd
 
 # Start a program launcher
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show combi
 
 # Change focus
 bindsym $mod+h focus left

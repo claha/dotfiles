@@ -1,10 +1,13 @@
 configuration {
-	modi: "window,run,ssh";
-	font: "TerminessTTFNerdFontMono 12";
-	fixed-num-lines: true;
-	terminal: "alacritty";
-	disable-history: false;
-	matching: "fuzzy";
+    modes: "drun,run,ssh,combi";
+    combi-modes: "run,drun";
+    combi-hide-mode-prefix: true;
+    display-combi: "run";
+    font: "TerminessTTFNerdFontMono 12";
+    fixed-num-lines: true;
+    terminal: "alacritty";
+    disable-history: false;
+    matching: "fuzzy";
 }
 
 @theme "theme"
