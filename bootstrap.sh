@@ -5,4 +5,4 @@ if [[ $UID != 0 ]]; then
 fi
 
 pacman --sync --refresh
-pacman --sync --noconfirm - < packages.txt
+pacman --sync --noconfirm --needed - < packages.txt
