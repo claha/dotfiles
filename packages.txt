@@ -22,6 +22,7 @@ network-manager-applet
 pass
 picom
 playerctl
+pulseaudio-bluetooth
 python
 python-pip
 qutebrowser
