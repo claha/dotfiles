@@ -1,5 +1,5 @@
 configuration {
-    modes: "drun,run,ssh,combi";
+    modes: "drun,run,ssh,window,combi";
     combi-modes: "run,drun";
     combi-hide-mode-prefix: true;
     display-combi: "run";
