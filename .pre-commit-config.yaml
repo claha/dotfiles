@@ -24,7 +24,7 @@ repos:
         args:
           - --fix=lf
       - id: file-contents-sorter
-        files: packages.txt|packages_aur.txt|.gitignore|.stow-local-ignore
+        files: packages_aur.txt|.gitignore|.stow-local-ignore
         args:
           - --unique
       - id: check-executables-have-shebangs
@@ -68,6 +68,11 @@ repos:
     rev: v0.8.0.4
     hooks:
       - id: shellcheck
+
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v6.11.0
+    hooks:
+      - id: ansible-lint
 
   - repo: https://github.com/jorisroovers/gitlint
     rev: v0.18.0

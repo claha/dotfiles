@@ -1,0 +1,56 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: Sync and refresh
+      community.general.pacman:
+        update_cache: true
+
+    - name: Install package
+      community.general.pacman:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - alacritty
+        - alsa-utils
+        - base-devel
+        - bluez
+        - bluez-utils
+        - cmake
+        - docker
+        - docker-compose
+        - dunst
+        - emacs
+        - feh
+        - git
+        - gnupg
+        - gperf
+        - i3-wm
+        - i3status
+        - lightdm
+        - lightdm-slick-greeter
+        - mpv
+        - mpv-mpris
+        - network-manager-applet
+        - pass
+        - picom
+        - playerctl
+        - pulseaudio-bluetooth
+        - python
+        - python-pip
+        - qutebrowser
+        - ripgrep
+        - rofi
+        - rofi-pass
+        - starship
+        - stow
+        - the_silver_searcher
+        - tldr
+        - unclutter
+        - unzip
+        - vi
+        - vim
+        - volumeicon
+        - xautolock
+        - xbindkeys
+        - xclip

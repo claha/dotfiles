@@ -8,7 +8,7 @@ To install these dotfiles simply run:
 stow .
 ```
 
-For everything to work correctly a few packages are needed, listed [here](packages.txt).
+For everything to work correctly a few packages are needed, listed [here](main.yaml).
 The package names are currently compatible with `pacman` but most packages should
 also work with other package managers suchs as `apt`, `yum` etc.
 
