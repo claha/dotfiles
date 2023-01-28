@@ -1,4 +1,0 @@
-git-completion
-i3lock-color
-nerd-font-complete
-pinentry-rofi

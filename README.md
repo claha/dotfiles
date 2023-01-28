@@ -12,7 +12,7 @@ For everything to work correctly a few packages are needed, listed [here](main.y
 The package names are currently compatible with `pacman` but most packages should
 also work with other package managers suchs as `apt`, `yum` etc.
 
-There are also some additional packages, listed [here](packages_aur.txt), which
+There are also some additional packages, listed [here](main.yaml), which
 can not  be installed directly using `pacman`. These are typically installed
 using the following commands.
 

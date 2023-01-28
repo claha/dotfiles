@@ -24,7 +24,7 @@ repos:
         args:
           - --fix=lf
       - id: file-contents-sorter
-        files: packages_aur.txt|.gitignore|.stow-local-ignore
+        files: .gitignore|.stow-local-ignore
         args:
           - --unique
       - id: check-executables-have-shebangs
