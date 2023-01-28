@@ -90,14 +90,6 @@ Also remember to update the `signingkey` in the [git configuration](git/.config/
 
 ## Docker
 
-After docker has been installed a few extra steps are needed. First enable and
-start the docker daemon.
-
-```bash
-sudo systemctl enable docker
-sudo systemctl start docker
-```
-
 Add our user to the `docker` group. Remember to log out and back in again after.
 
 ```bash
