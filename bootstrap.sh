@@ -4,4 +4,4 @@ python -m venv /tmp/venv --prompt ansible
 source /tmp/venv/bin/activate
 pip install ansible==7.1.0
 
-ansible-playbook --ask-become main.yaml
+ansible-playbook main.yaml
