@@ -2,6 +2,63 @@
 - hosts: localhost
   connection: local
   become: true
+
+  vars:
+    services:
+      - bluetooth
+      - docker
+      - lightdm
+
+    packages:
+      - alacritty
+      - alsa-utils
+      - base-devel
+      - bluez
+      - bluez-utils
+      - cmake
+      - docker
+      - docker-compose
+      - dunst
+      - emacs
+      - feh
+      - git
+      - gnupg
+      - gperf
+      - i3-wm
+      - i3status
+      - lightdm
+      - lightdm-slick-greeter
+      - mpv
+      - mpv-mpris
+      - network-manager-applet
+      - pass
+      - picom
+      - playerctl
+      - pulseaudio-bluetooth
+      - python
+      - python-pip
+      - qutebrowser
+      - ripgrep
+      - rofi
+      - rofi-pass
+      - starship
+      - stow
+      - the_silver_searcher
+      - tldr
+      - unclutter
+      - unzip
+      - vi
+      - vim
+      - volumeicon
+      - xautolock
+      - xbindkeys
+      - xclip
+
+    packages_aur:
+      - git-completion
+      - i3lock-color
+      - pinentry-rofi
+
   tasks:
     - name: Sync and refresh
       community.general.pacman:
@@ -11,70 +68,21 @@
       community.general.pacman:
         name: "{{ item }}"
         state: latest
-      loop:
-        - alacritty
-        - alsa-utils
-        - base-devel
-        - bluez
-        - bluez-utils
-        - cmake
-        - docker
-        - docker-compose
-        - dunst
-        - emacs
-        - feh
-        - git
-        - gnupg
-        - gperf
-        - i3-wm
-        - i3status
-        - lightdm
-        - lightdm-slick-greeter
-        - mpv
-        - mpv-mpris
-        - network-manager-applet
-        - pass
-        - picom
-        - playerctl
-        - pulseaudio-bluetooth
-        - python
-        - python-pip
-        - qutebrowser
-        - ripgrep
-        - rofi
-        - rofi-pass
-        - starship
-        - stow
-        - the_silver_searcher
-        - tldr
-        - unclutter
-        - unzip
-        - vi
-        - vim
-        - volumeicon
-        - xautolock
-        - xbindkeys
-        - xclip
+      loop: "{{ packages }}"
 
     - name: Clone aur package
       become: false
       ansible.builtin.git:
         repo: "https://aur.archlinux.org/{{ item }}"
         dest: "/tmp/{{ item }}"
-      loop:
-        - git-completion
-        - i3lock-color
-        - pinentry-rofi
+      loop: "{{ packages_aur }}"
 
     - name: Enable and start service
       ansible.builtin.service:
         name: "{{ item }}"
         enabled: true
         state: started
-      loop:
-        - bluetooth
-        - docker
-        - lightdm
+      loop: "{{ services }}"
 
     - name: Use lightdm slick greeter
       ansible.builtin.lineinfile:
