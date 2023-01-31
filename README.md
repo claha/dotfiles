@@ -8,20 +8,8 @@ To install these dotfiles simply run:
 stow .
 ```
 
-For everything to work correctly a few packages are needed, listed [here](main.yaml).
-The package names are currently compatible with `pacman` but most packages should
-also work with other package managers suchs as `apt`, `yum` etc.
-
-There are also some additional packages, listed [here](main.yaml), which
-can not  be installed directly using `pacman`. These are typically installed
-using the following commands.
-
-```bash
-git clone https://aur.archlinux.org/<package>.git
-cd <package>
-makepkg
-sudo pacman -U <package>.tar.xz
-```
+For everything to work correctly a few packages are needed, these can be installed
+using the [bootrstrap script](bootstrap.sh).
 
 ## GitHub
 
