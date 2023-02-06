@@ -13,6 +13,7 @@
       - alacritty
       - alsa-utils
       - base-devel
+      - blueman
       - bluez
       - bluez-utils
       - cmake
