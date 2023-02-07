@@ -211,8 +211,8 @@ exec xbindkeys
 # Start xautolock
 exec xautolock -time 10 -locker $lock_cmd
 
-# Start on workspace 2
-exec i3-msg workspace number $ws2
+# Start on workspace 3 with a terminal
+exec i3-msg workspace number $ws3 && alacritty
 
 # Start i3bar to display a workspace bar and i3status
 bar {
