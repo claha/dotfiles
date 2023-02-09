@@ -4,6 +4,9 @@
   become: true
   vars_files: vars.yaml
 
+  roles:
+    - role: emacs
+
   tasks:
     - name: Sync and refresh
       community.general.pacman:

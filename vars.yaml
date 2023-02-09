@@ -15,7 +15,6 @@ packages:
   - docker
   - docker-compose
   - dunst
-  - emacs
   - feh
   - git
   - gnupg

@@ -1,0 +1,8 @@
+---
+emacs_config_dir: ~/.config/emacs
+emacs_config_files:
+  - conf.org
+  - early-init.el
+  - init.el
+emacs_packages:
+  - emacs
