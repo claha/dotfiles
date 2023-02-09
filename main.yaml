@@ -5,13 +5,10 @@
   vars_files: vars.yaml
 
   roles:
+    - role: base
     - role: emacs
 
   tasks:
-    - name: Sync and refresh
-      community.general.pacman:
-        update_cache: true
-
     - name: Install package
       community.general.pacman:
         name: "{{ item }}"
