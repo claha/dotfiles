@@ -12,6 +12,7 @@
     - role: i3
     - role: rofi
     - role: emacs
+    - role: qutebrowser
 
   tasks:
     - name: Install package

@@ -1,0 +1,7 @@
+---
+qutebrowser_packages:
+  - qutebrowser
+qutebrowser_config_dir: ~/.config/qutebrowser
+qutebrowser_config_files:
+  - config.py
+  - quickmarks

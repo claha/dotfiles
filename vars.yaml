@@ -29,7 +29,6 @@ packages:
   - pulseaudio-bluetooth
   - python
   - python-pip
-  - qutebrowser
   - ripgrep
   - stow
   - the_silver_searcher
