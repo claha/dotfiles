@@ -2,14 +2,11 @@
 
 ![pre-commit](https://github.com/claha/dotfiles/actions/workflows/pre-commit.yaml/badge.svg)
 
-To install these dotfiles simply run:
+To install these dotfiles simply run the bootstrap script, which uses ansible:
 
 ```bash
-stow .
+./bootstrap
 ```
-
-For everything to work correctly a few packages are needed, these can be installed
-using the [bootrstrap script](bootstrap.sh).
 
 ## GitHub
 

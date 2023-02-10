@@ -27,7 +27,6 @@ packages:
   - python
   - python-pip
   - ripgrep
-  - stow
   - the_silver_searcher
   - tldr
   - unclutter
