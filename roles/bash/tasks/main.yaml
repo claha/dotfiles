@@ -1,0 +1,24 @@
+---
+- name: Install package
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ bash_packages }}"
+
+- name: Create directory
+  become: false
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - "{{ bash_config_dir }}"
+
+- name: Create link
+  become: false
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/{{ item }}"
+    dest: "{{ bash_config_dir }}/{{ item }}"
+    state: link
+  loop: "{{ bash_config_files }}"

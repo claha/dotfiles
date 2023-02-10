@@ -6,6 +6,7 @@
 
   roles:
     - role: base
+    - role: bash
     - role: alacritty
     - role: starship
     - role: git

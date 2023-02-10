@@ -1,0 +1,6 @@
+---
+bash_packages:
+  - bash
+bash_config_dir: ~/
+bash_config_files:
+  - .bashrc
