@@ -5,7 +5,6 @@ services:
   - lightdm
 
 packages:
-  - alacritty
   - alsa-utils
   - base-devel
   - blueman
@@ -36,7 +35,6 @@ packages:
   - ripgrep
   - rofi
   - rofi-pass
-  - starship
   - stow
   - the_silver_searcher
   - tldr
