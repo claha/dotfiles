@@ -16,6 +16,7 @@
     - role: emacs
     - role: mpv
     - role: qutebrowser
+    - role: mimeapps
 
   tasks:
     - name: Install package
