@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 
 # Setup aliases
-alias ls='ls --color=auto'
+alias ls='exa'
 alias ll='ls -la'
 alias e='emacsclient -n'
 alias enw='emacs --no-window-system'
