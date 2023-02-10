@@ -31,8 +31,6 @@ packages:
   - python-pip
   - qutebrowser
   - ripgrep
-  - rofi
-  - rofi-pass
   - stow
   - the_silver_searcher
   - tldr
@@ -44,6 +42,3 @@ packages:
   - xautolock
   - xbindkeys
   - xclip
-
-packages_aur:
-  - pinentry-rofi

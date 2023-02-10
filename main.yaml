@@ -10,6 +10,7 @@
     - role: starship
     - role: git
     - role: i3
+    - role: rofi
     - role: emacs
 
   tasks:
@@ -18,22 +19,6 @@
         name: "{{ item }}"
         state: latest
       loop: "{{ packages }}"
-
-    - name: Clone aur package
-      become: false
-      ansible.builtin.git:
-        repo: "https://aur.archlinux.org/{{ item }}"
-        dest: "/tmp/{{ item }}"
-      loop: "{{ packages_aur }}"
-
-    - name: Install aur package
-      become: false
-      ansible.builtin.command:
-        cmd: makepkg --install --needed --syncdeps --noconfirm
-        chdir: "/tmp/{{ item }}"
-      register: result
-      changed_when: "'there is nothing to do' not in result.stdout"
-      loop: "{{ packages_aur }}"
 
     - name: Enable and start service
       ansible.builtin.service:
