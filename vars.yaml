@@ -18,8 +18,6 @@ packages:
   - git
   - gnupg
   - gperf
-  - i3-wm
-  - i3status
   - lightdm
   - lightdm-slick-greeter
   - mpv
@@ -49,5 +47,4 @@ packages:
 
 packages_aur:
   - git-completion
-  - i3lock-color
   - pinentry-rofi
