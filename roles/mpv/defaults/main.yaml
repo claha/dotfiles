@@ -1,0 +1,7 @@
+---
+mpv_packages:
+  - mpv
+  - mpv-mpris
+mpv_config_dir: ~/.config/mpv
+mpv_config_files:
+  - mpv.conf

@@ -20,8 +20,6 @@ packages:
   - gperf
   - lightdm
   - lightdm-slick-greeter
-  - mpv
-  - mpv-mpris
   - network-manager-applet
   - pass
   - picom
