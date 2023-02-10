@@ -11,6 +11,7 @@
     - role: git
     - role: i3
     - role: dunst
+    - role: volumeicon
     - role: rofi
     - role: emacs
     - role: mpv

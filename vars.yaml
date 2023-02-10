@@ -34,7 +34,6 @@ packages:
   - unzip
   - vi
   - vim
-  - volumeicon
   - xautolock
   - xbindkeys
   - xclip
