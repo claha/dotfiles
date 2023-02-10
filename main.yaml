@@ -10,6 +10,7 @@
     - role: starship
     - role: git
     - role: i3
+    - role: dunst
     - role: rofi
     - role: emacs
     - role: mpv

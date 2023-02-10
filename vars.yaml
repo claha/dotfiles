@@ -13,7 +13,6 @@ packages:
   - cmake
   - docker
   - docker-compose
-  - dunst
   - exa
   - feh
   - gnupg

@@ -1,0 +1,6 @@
+---
+dunst_packages:
+  - dunst
+dunst_config_dir: ~/.config/dunst
+dunst_config_files:
+  - dunstrc
