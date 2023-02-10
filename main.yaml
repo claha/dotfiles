@@ -8,6 +8,7 @@
     - role: base
     - role: alacritty
     - role: starship
+    - role: git
     - role: i3
     - role: emacs
 

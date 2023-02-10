@@ -15,7 +15,6 @@ packages:
   - docker-compose
   - dunst
   - feh
-  - git
   - gnupg
   - gperf
   - lightdm
@@ -46,5 +45,4 @@ packages:
   - xclip
 
 packages_aur:
-  - git-completion
   - pinentry-rofi
