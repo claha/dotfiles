@@ -23,10 +23,6 @@ repos:
       - id: mixed-line-ending
         args:
           - --fix=lf
-      - id: file-contents-sorter
-        files: .gitignore|.stow-local-ignore
-        args:
-          - --unique
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
       - id: check-json
