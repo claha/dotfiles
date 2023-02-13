@@ -15,7 +15,6 @@ packages:
   - docker-compose
   - exa
   - feh
-  - gnupg
   - gperf
   - lightdm
   - lightdm-slick-greeter

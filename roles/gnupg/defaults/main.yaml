@@ -1,0 +1,6 @@
+---
+gnupg_packages:
+  - gnupg
+gnupg_config_dir: ~/.gnupg
+gnupg_config_files:
+  - gpg-agent.conf

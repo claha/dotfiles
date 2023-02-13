@@ -18,6 +18,7 @@
     - role: mpv
     - role: qutebrowser
     - role: mimeapps
+    - role: gnupg
 
   tasks:
     - name: Install package
