@@ -4,8 +4,12 @@
   become: true
   vars_files: vars.yaml
 
+  pre_tasks:
+    - name: Sync and refresh
+      community.general.pacman:
+        update_cache: true
+
   roles:
-    - role: base
     - role: bash
     - role: alacritty
     - role: starship
