@@ -2,6 +2,13 @@
 i3_packages:
   - i3-wm
   - i3status
+  - blueman
+  - feh
+  - network-manager-applet
+  - picom
+  - unclutter
+  - xautolock
+  - xbindkeys
 i3_packages_aur:
   - i3lock-color
 i3_config_dir: ~/.config/i3
