@@ -1,7 +1,6 @@
 ---
 services:
   - bluetooth
-  - lightdm
 
 packages:
   - alsa-utils
@@ -10,8 +9,6 @@ packages:
   - bluez-utils
   - cmake
   - exa
-  - lightdm
-  - lightdm-slick-greeter
   - pass
   - pulseaudio-bluetooth
   - the_silver_searcher

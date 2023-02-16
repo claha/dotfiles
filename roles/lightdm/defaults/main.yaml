@@ -1,0 +1,6 @@
+---
+lightdm_packages:
+  - lightdm
+  - lightdm-slick-greeter
+lightdm_services:
+  - lightdm
