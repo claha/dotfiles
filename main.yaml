@@ -24,6 +24,7 @@
     - role: mimeapps
     - role: gnupg
     - role: python
+    - role: docker
 
   tasks:
     - name: Install package

@@ -1,7 +1,6 @@
 ---
 services:
   - bluetooth
-  - docker
   - lightdm
 
 packages:
@@ -10,7 +9,6 @@ packages:
   - bluez
   - bluez-utils
   - cmake
-  - docker
   - exa
   - lightdm
   - lightdm-slick-greeter

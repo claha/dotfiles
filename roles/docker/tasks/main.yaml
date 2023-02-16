@@ -1,0 +1,14 @@
+---
+- name: Install package
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ docker_packages }}"
+
+- name: Enable and start service
+  ansible.builtin.service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  loop: "{{ docker_services }}"
