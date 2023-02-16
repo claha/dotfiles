@@ -1,0 +1,13 @@
+---
+python_packages:
+  - python
+  - python-pip
+python_pip_packages:
+  - pipx
+python_pipx_packages:
+  - black
+  - flake8
+  - isort
+  - pre-commit
+  - pylint
+  - pytest

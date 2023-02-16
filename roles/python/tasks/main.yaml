@@ -1,0 +1,20 @@
+---
+- name: Install package
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ python_packages }}"
+
+- name: Install python package
+  become: false
+  ansible.builtin.pip:
+    name: "{{ item }}"
+  loop:
+    - "{{ python_pip_packages }}"
+
+- name: Install python package (pipx)
+  become: false
+  community.general.pipx:
+    name: "{{ item }}"
+  loop: "{{ python_pipx_packages }}"

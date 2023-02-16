@@ -23,8 +23,6 @@ packages:
   - picom
   - playerctl
   - pulseaudio-bluetooth
-  - python
-  - python-pip
   - ripgrep
   - the_silver_searcher
   - tldr

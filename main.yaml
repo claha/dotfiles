@@ -23,6 +23,7 @@
     - role: qutebrowser
     - role: mimeapps
     - role: gnupg
+    - role: python
 
   tasks:
     - name: Install package
