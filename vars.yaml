@@ -2,10 +2,3 @@
 packages:
   - base-devel
   - cmake
-  - exa
-  - pass
-  - the_silver_searcher
-  - tldr
-  - unzip
-  - vim
-  - xclip
