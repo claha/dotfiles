@@ -6,21 +6,11 @@
     state: latest
   loop: "{{ rofi_packages }}"
 
-- name: Clone aur package
-  become: false
-  ansible.builtin.git:
-    repo: "https://aur.archlinux.org/{{ item }}"
-    dest: "/tmp/{{ item }}"
-  loop: "{{ rofi_packages_aur }}"
-
 - name: Install aur package
-  become: false
-  ansible.builtin.command:
-    cmd: makepkg --install --needed --syncdeps --noconfirm
-    chdir: "/tmp/{{ item }}"
-  register: result
-  changed_when: "'there is nothing to do' not in result.stdout"
-  loop: "{{ rofi_packages_aur }}"
+  ansible.builtin.include_role:
+    name: aur_package
+  vars:
+    aur_packages: "{{ rofi_packages_aur }}"
 
 - name: Create directory
   become: false

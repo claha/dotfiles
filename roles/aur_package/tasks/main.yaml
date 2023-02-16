@@ -1,0 +1,23 @@
+---
+- name: Install package
+  become: true
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ aur_package_packages }}"
+
+- name: Clone aur package
+  become: false
+  ansible.builtin.git:
+    repo: "https://aur.archlinux.org/{{ item }}"
+    dest: "/tmp/{{ item }}"
+  loop: "{{ aur_packages }}"
+
+- name: Install aur package
+  become: false
+  ansible.builtin.command:
+    cmd: makepkg --install --needed --syncdeps --noconfirm
+    chdir: "/tmp/{{ item }}"
+  register: result
+  changed_when: "'there is nothing to do' not in result.stdout"
+  loop: "{{ aur_packages }}"

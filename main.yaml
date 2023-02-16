@@ -2,7 +2,6 @@
 - hosts: localhost
   connection: local
   become: true
-  vars_files: vars.yaml
 
   pre_tasks:
     - name: Sync and refresh
@@ -27,10 +26,3 @@
     - role: gnupg
     - role: python
     - role: docker
-
-  tasks:
-    - name: Install package
-      community.general.pacman:
-        name: "{{ item }}"
-        state: latest
-      loop: "{{ packages }}"

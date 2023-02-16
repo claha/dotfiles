@@ -1,4 +1,4 @@
 ---
-packages:
+aur_package_packages:
   - base-devel
   - cmake
