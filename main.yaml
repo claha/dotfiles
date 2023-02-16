@@ -18,6 +18,7 @@
     - role: lightdm
     - role: dunst
     - role: volumeicon
+    - role: bluetooth
     - role: rofi
     - role: emacs
     - role: mpv
@@ -33,10 +34,3 @@
         name: "{{ item }}"
         state: latest
       loop: "{{ packages }}"
-
-    - name: Enable and start service
-      ansible.builtin.service:
-        name: "{{ item }}"
-        enabled: true
-        state: started
-      loop: "{{ services }}"

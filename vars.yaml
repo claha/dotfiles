@@ -1,16 +1,9 @@
 ---
-services:
-  - bluetooth
-
 packages:
-  - alsa-utils
   - base-devel
-  - bluez
-  - bluez-utils
   - cmake
   - exa
   - pass
-  - pulseaudio-bluetooth
   - the_silver_searcher
   - tldr
   - unzip
