@@ -24,5 +24,6 @@
     - role: qutebrowser
     - role: mimeapps
     - role: gnupg
+    - role: ssh
     - role: python
     - role: docker

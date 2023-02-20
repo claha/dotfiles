@@ -1,0 +1,4 @@
+---
+ssh_packages:
+  - openssh
+ssh_config_dir: ~/.ssh
