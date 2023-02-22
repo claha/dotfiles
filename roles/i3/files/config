@@ -5,10 +5,15 @@ set $mod Mod4
 font pango:monospace 8
 
 # Configure border style
-default_border pixel 1
+default_border none
 
 # Hide borders adjacent to the screen.
 hide_edge_borders both
+
+# Configure gaps
+gaps inner 3px
+gaps outer 0px
+smart_gaps on
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
