@@ -15,6 +15,22 @@
 
 - name: Use lightdm slick greeter
   ansible.builtin.lineinfile:
-    path: /etc/lightdm/lightdm.conf
+    path: "{{ lightdm_config_dir }}/lightdm.conf"
     regexp: "^[#]?greeter-session="
     line: "greeter-session=lightdm-slick-greeter"
+
+- name: Create link
+  become: true
+  ansible.builtin.file:
+    src: "{{ role_path}}/files/{{ item }}"
+    dest: "{{ lightdm_config_dir }}/{{ item }}"
+    state: link
+  loop: "{{ lightdm_config_files }}"
+
+- name: Create link
+  become: true
+  ansible.builtin.file:
+    src: "{{ role_path}}/files/{{ item }}"
+    dest: "/usr/share/backgrounds/{{ item }}"
+    state: link
+  loop: "{{ lightdm_backgrounds }}"
