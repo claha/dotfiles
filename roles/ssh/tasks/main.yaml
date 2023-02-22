@@ -14,3 +14,13 @@
     mode: "0700"
   loop:
     - "{{ ssh_config_dir }}"
+
+- name: Create ssh key
+  become: false
+  community.crypto.openssh_keypair:
+    path: "{{ ssh_config_dir }}/id_rsa"
+    type: rsa
+    size: 4096
+    state: present
+    force: false
+    regenerate: never

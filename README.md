@@ -5,25 +5,12 @@
 To install these dotfiles simply run the bootstrap script, which uses ansible:
 
 ```bash
-./bootstrap
+./bootstrap.sh
 ```
 
 ## GitHub
 
 To easily clone/pull/push and sign commits there are some manual steps needed.
-
-### SSH Key
-
-Either restore old keys, if saved (i.e. put `id_rsa` and `id_rsa.pub` in `~/.ssh/`),
-or generate a new SSH key with the following command.
-
-```bash
-ssh-keygen -t rsa -b 4096 -C "hallstrom.claes@gmail.com"
-```
-
-If a new key is generated it also needs to be added to [GitHub](https://github.com).
-Make sure you are logged in and go to [GitHub keys](https://github.com/settings/keys).
-Click **New SSH key**, give it a name and copy and paste the public key (id_rsa.pub).
 
 ### GPG Key
 
