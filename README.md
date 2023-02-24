@@ -59,11 +59,3 @@ gpg --armor --export GPG_KEY_ID
 ```
 
 Also remember to update the `signingkey` in the [git configuration](git/.config/git/config).
-
-## Docker
-
-Add our user to the `docker` group. Remember to log out and back in again after.
-
-```bash
-sudo usermod -aG docker $(whoami)
-```
