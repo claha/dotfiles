@@ -13,7 +13,7 @@ hide_edge_borders both
 # Configure gaps
 gaps inner 3px
 gaps outer 0px
-smart_gaps on
+smart_gaps off
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
