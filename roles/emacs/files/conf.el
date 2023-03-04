@@ -1,13 +1,3 @@
-#+TITLE: Emacs Configuration
-#+AUTHOR: Claes Hallstrom
-#+OPTIONS: toc:nil num:nil
-#+STARTUP: overview
-
-* Package Management
-
-Next-generation, purely functional package manager for the Emacs hacker.
-
-#+begin_src emacs-lisp
 (setq straight-check-for-modifications '(check-on-save find-when-checking))
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -21,20 +11,10 @@ Next-generation, purely functional package manager for the Emacs hacker.
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
-#+end_src
 
-A use-package declaration for simplifying your .emacs.
-
-#+begin_src emacs-lisp
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
-#+end_src
 
-* Cleaning
-
-Help keeping emacs-user-directory clean.
-
-#+begin_src emacs-lisp
 (use-package no-littering
   :config
   (setq auto-save-file-name-transforms
@@ -42,13 +22,7 @@ Help keeping emacs-user-directory clean.
   (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
   (when (file-exists-p custom-file)
     (load-file custom-file)))
-#+end_src
 
-* Appearance
-
-Configure the appearance of Emacs.
-
-#+begin_src emacs-lisp
 (use-package emacs
   :init
   (global-hl-line-mode 1)
@@ -61,27 +35,15 @@ Configure the appearance of Emacs.
   (set-window-scroll-bars (minibuffer-window) nil nil)
   (set-frame-parameter (selected-frame) 'alpha '(95 . 95))
   (add-to-list 'default-frame-alist `(alpha . ,'(95 . 95))))
-#+end_src
 
-Emacs mode for wrapping visual-line-mode buffers at fill-column.
-
-#+begin_src emacs-lisp
 (use-package visual-fill-column
   :custom
   (visual-fill-column-width 50)
   (visual-fill-column-center-text t))
-#+end_src
 
-An opinionated pack of modern color-themes.
-
-#+begin_src emacs-lisp
 (use-package doom-themes
   :init (load-theme 'doom-material t))
-#+end_src
 
-A fancy and fast mode-line inspired by minimalism design.
-
-#+begin_src emacs-lisp
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :custom
@@ -90,64 +52,34 @@ A fancy and fast mode-line inspired by minimalism design.
   (doom-modeline-buffer-file-name-style 'truncate-except-project)
   :config
   (setq doom-modeline-icon t))
-#+end_src
 
-A minor-mode menu for the mode line.
-
-#+begin_src emacs-lisp
 (use-package minions
   :hook (doom-modeline-mode . minions-mode))
-#+end_src
 
-A utility package to collect various Icon Fonts and propertize them within Emacs.
-
-#+begin_src emacs-lisp
 (use-package all-the-icons)
-#+end_src
 
-* Completion
-
-VERTical Interactive COmpletion.
-
-#+begin_src emacs-lisp
 (use-package vertico
   :hook
   (after-init . vertico-mode))
-#+end_src
 
-Simple but effective sorting and filtering for Emacs.
-
-#+begin_src emacs-lisp
 (use-package prescient
   :after vertico
   :config
   (prescient-persist-mode 1))
-#+end_src
 
-Emacs completion style that matches multiple regexps in any order.
-
-#+begin_src emacs-lisp
 (use-package orderless
   :init
   (setq completion-category-defaults nil)
   :custom
   (completion-styles '(orderless))
   (completion-category-overrides '((file (styles . (basic partial-completion))))))
-#+end_src
 
-Marginalia in the minibuffer.
-
-#+begin_src emacs-lisp
 (use-package marginalia
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :hook
   (vertico-mode . marginalia-mode))
-#+end_src
 
-Consulting completing-read.
-
-#+begin_src emacs-lisp
 (use-package consult
   :bind (("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
@@ -186,11 +118,7 @@ Consulting completing-read.
         (lambda ()
           (when-let (project (project-current))
             (car (project-roots project))))))
-#+end_src
 
-Emacs Mini-Buffer Actions Rooted in Keymaps.
-
-#+begin_src emacs-lisp
 (use-package embark
   :bind ("C-," . embark-act)
   :init
@@ -198,11 +126,7 @@ Emacs Mini-Buffer Actions Rooted in Keymaps.
 
 (use-package embark-consult
   :after (embark consult))
-#+end_src
 
-Dynamic abbreviation package.
-
-#+begin_src emacs-lisp
 (use-package dabbrev
   :straight (:type built-in)
   :custom
@@ -224,100 +148,48 @@ Dynamic abbreviation package.
       (dabbrev-completion 16)))
   :bind
   ("C-." . dabbrev-expand-or-completion))
-#+end_src
 
-Save minibuffer history.
-
-#+begin_src emacs-lisp
 (use-package savehist
   :straight (:type built-in)
   :init (savehist-mode))
-#+end_src
 
-* Project
-
-Operations on the current project.
-
-#+begin_src emacs-lisp
 (use-package project)
-#+end_src
 
-* Files
-
-Dired, the Directory Editor.
-
-#+begin_src emacs-lisp
 (use-package dired
   :straight (:type built-in)
   :commands (dired dired-jump)
   :bind (("C-x C-j" . dired-jump))
   :custom ((dired-listing-switches "-aghov --group-directories-first")))
-#+end_src
 
-Reuse the current dired buffer to visit a directory.
-
-#+begin_src emacs-lisp
 (use-package dired-single
   :after dired
   :bind
   (:map dired-mode-map
         ([remap dired-find-file] . dired-single-buffer)
         ([remap dired-up-directory] . dired-single-up-directory)))
-#+end_src
 
-* Buffers
-
-Operate on buffers like dired.
-
-#+begin_src emacs-lisp
 (use-package ibuffer
   :straight (:type built-in)
   :bind
   (("C-x C-b" . ibuffer)
    ("C-x k" . kill-this-buffer)))
-#+end_src
 
-* Windows
-
-Quickly switch windows in Emacs.
-
-#+begin_src emacs-lisp
 (use-package ace-window
   :bind ("C-x o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-#+end_src
 
-* Searching/Jumping
-
-An Emacs frontend to The Silver Searcher.
-
-#+begin_src emacs-lisp
 (use-package ag
   :commands ag)
-#+end_src
 
-Emacs search tool based on ripgrep.
-
-#+begin_src emacs-lisp
 (use-package rg
   :commands rg)
-#+end_src
 
-An Emacs "jump to definition" package for 40+ languages.
-
-#+begin_src emacs-lisp
 (use-package dumb-jump
   :config
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-#+end_src
 
-* Version Control
-
-It's Magit! A Git porcelain inside Emacs.
-
-#+begin_src emacs-lisp
 (use-package magit
   :commands (magit-status magit-get-current-branch)
   :custom
@@ -332,24 +204,10 @@ It's Magit! A Git porcelain inside Emacs.
             #'(lambda ()
                 (setq fill-column 72)
                 (setq-local comment-auto-fill-only-comments nil))))
-#+end_src
 
-Work with Git forges from the comfort of Magit.
-
-#+begin_src emacs-lisp
 (use-package forge
   :after magit)
-#+end_src
 
-Example of ~/.authinfo for github.
-
-#+begin_example conf
-machine api.github.com login claha^forge password TOKEN
-#+end_example
-
-GnuPG Pinentry server implementation.
-
-#+begin_src emacs-lisp
 (unless (eq system-type 'windows-nt)
   (use-package pinentry
     :custom
@@ -357,11 +215,7 @@ GnuPG Pinentry server implementation.
     :init
     (setenv "INSIDE_EMACS" (format "%s,comint" emacs-version))
     (pinentry-start)))
-#+end_src
 
-Emacs package for highlighting uncommitted changes.
-
-#+begin_src emacs-lisp
 (use-package diff-hl
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
@@ -369,46 +223,24 @@ Emacs package for highlighting uncommitted changes.
          (dired-mode . diff-hl-dired-mode))
   :custom
   (diff-hl-side 'right))
-#+end_src
 
-* Editing
-
-Convert the region to lower or upper case.
-
-#+begin_src emacs-lisp
 (use-package emacs
   :config
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil))
-#+end_src
 
-Restrict editing in this buffer to the current region.
-
-#+begin_src emacs-lisp
 (use-package emacs
   :config
   (put 'narrow-to-region 'disabled nil))
-#+end_src
 
-Enables hungry deletion in all modes.
-
-#+begin_src emacs-lisp
 (use-package hungry-delete
   :custom
   (hungry-delete-join-reluctantly t)
   :hook
   (after-init . global-hungry-delete-mode))
-#+end_src
 
-Writable grep buffer and apply the changes to files.
-
-#+begin_src emacs-lisp
 (use-package wgrep)
-#+end_src
 
-* Programming
-
-#+begin_src emacs-lisp
 (use-package yaml-mode
   :defer t)
 
@@ -423,110 +255,58 @@ Writable grep buffer and apply the changes to files.
 
 (use-package flycheck
   :defer t)
-#+end_src
 
-** General
-
-Tabs are evil, use 4 spaces as default.
-
-#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq-default indent-tabs-mode nil)
   (setq-default tab-width 4))
-#+end_src
 
-Run compiler as inferior of Emacs, parse error messages.
-
-#+begin_src emacs-lisp
 (use-package compile
   :straight (:type built-in)
   :custom
   (compilation-ask-about-save nil)
   (compilation-always-kill t)
   (compilation-scroll-output 'first-error))
-#+end_src
 
-Translate ANSI escape sequences into faces.
-
-#+begin_src emacs-lisp
 (use-package ansi-color
   :straight (:type built-in)
   :hook (compilation-filter . colorize-compilation-buffer)
   :config
   (defun colorize-compilation-buffer ()
     (ansi-color-apply-on-region compilation-filter-start (point))))
-#+end_src
 
-Highlight matching paren.
-
-#+begin_src emacs-lisp
 (use-package paren
   :straight (:type built-in)
   :init
   (show-paren-mode 1)
   :custom
   (show-paren-delay 0.0))
-#+end_src
 
-Toggle automatic parens pairing.
-
-#+begin_src emacs-lisp
 (use-package electric-pair
   :straight (:type built-in)
   :hook (prog-mode . electric-pair-mode))
-#+end_src
 
-** Docker
-
-Manage docker from Emacs.
-
-#+begin_src emacs-lisp
 (use-package docker
   :commands docker)
-#+end_src
 
-An emacs mode for handling Dockerfiles.
-
-#+begin_src emacs-lisp
 (use-package dockerfile-mode)
-#+end_src
 
-TRAMP integration for docker containers.
-
-#+begin_src emacs-lisp
 (use-package docker-tramp
   :custom
   (docker-tramp-use-names t))
-#+end_src
 
-** Python
-
-Python virtual environment interface for Emacs.
-
-#+begin_src emacs-lisp
 (use-package pyvenv
   :hook (python-mode . pyvenv-mode)
   :bind
   (:map python-mode-map
         ("C-c C-a" . pyvenv-activate)))
-#+end_src
 
-Python Black for Emacs.
-
-#+begin_src emacs-lisp
 (use-package blacken
   :after python
   :bind
   (:map python-mode-map
         ("C-c C-b" . blacken-buffer)))
-#+end_src
 
-** C/C++
-
-Major mode for editing C and similar languages.
-
-#+begin_src emacs-lisp
 (use-package cc-mode
   :straight (:type built-in)
   :defer t
@@ -535,13 +315,7 @@ Major mode for editing C and similar languages.
   (c-basic-offset 2)
   :config
   (c-set-offset 'case-label '+))
-#+end_src
 
-* Shell/Terminal
-
-Hide line numbers in terminals and shells.
-
-#+begin_src emacs-lisp
 (use-package shell
   :straight (:type built-in)
   :commands shell
@@ -585,13 +359,7 @@ Hide line numbers in terminals and shells.
   :commands term
   :config
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
-#+end_src
 
-* Org mode
-
-Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system.
-
-#+begin_src emacs-lisp
 (use-package org
   :straight (:type built-in)
   :config
@@ -602,21 +370,13 @@ Org mode is for keeping notes, maintaining TODO lists, planning projects, and au
   (setq org-ellipsis " ▾")
   (setq org-hide-emphasis-markers t)
   :hook (org-mode . org-mode-setup))
-#+end_src
 
-UTF-8 bullets for org-mode.
-
-#+begin_src emacs-lisp
 (use-package org-bullets
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-#+end_src
 
-Configure org source code blocks.
-
-#+begin_src emacs-lisp
 (use-package org-src
   :straight (:type built-in)
   :after org
@@ -625,11 +385,7 @@ Configure org source code blocks.
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
   (setq org-src-tab-acts-natively t))
-#+end_src
 
-Ultra-minimalist presentation minor-mode for Emacs org-mode.
-
-#+begin_src emacs-lisp
 (use-package org-present
   :after org
   :config
@@ -662,13 +418,7 @@ Ultra-minimalist presentation minor-mode for Emacs org-mode.
   (setq org-present-after-navigate-functions 'org-present-prepare)
   :hook ((org-present-mode . org-present-hook)
          (org-present-mode-quit . org-present-quit-hook)))
-#+end_src
 
-* Help
-
-A better Emacs *help* buffer.
-
-#+begin_src emacs-lisp
 (use-package helpful
   :bind
   ([remap describe-command] . helpful-command)
@@ -676,37 +426,19 @@ A better Emacs *help* buffer.
   ([remap describe-key] . helpful-key)
   ([remap describe-symbol] . helpful-symbol)
   ([remap describe-variable] . helpful-variable))
-#+end_src
 
-tldr client for Emacs.
-
-#+begin_src emacs-lisp
 (use-package tldr
   :commands tldr)
-#+end_src
 
-* Miscellaneous
-
-Miscellaneous packages.
-
-#+begin_src emacs-lisp
 (use-package hydra
   :defer t)
-#+end_src
 
-Use qutebrowser to browse.
-
-#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq browse-url-browser-function
         '(("." . browse-url-generic)))
   (setq browse-url-generic-program "qutebrowser"))
-#+end_src
 
-Random stuff...
-
-#+begin_src emacs-lisp
 (use-package emacs
   :config
   (setq use-short-answers t)
@@ -721,16 +453,9 @@ Random stuff...
   :custom
   (minibuffer-prompt-properties
    '(read-only t cursor-intangible t face minibuffer-prompt)))
-#+end_src
 
-* Local
-
-Load local file if it exists and is readable.
-
-#+begin_src emacs-lisp
 (use-package emacs
   :config
   (let ((local-file (expand-file-name "local.el" user-emacs-directory)))
     (if (file-readable-p local-file)
         (load-file local-file))))
-#+end_src
