@@ -322,38 +322,6 @@
   :config
   (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
 
-(use-package eshell
-  :straight (:type built-in)
-  :commands eshell
-  :custom
-  (eshell-banner-message "")
-  (eshell-highlight-prompt t)
-  (eshell-prompt-function 'eshell-prompt)
-  (eshell-prompt-regexp "^$ ")
-  :config
-  (add-hook 'eshell-mode-hook (lambda () (display-line-numbers-mode 0)))
-  (defun get-prompt-path ()
-    (let* ((current-path (eshell/pwd))
-           (git-output (shell-command-to-string "git rev-parse --show-toplevel"))
-           (has-path (not (string-match "^fatal" git-output))))
-      (if (not has-path)
-          (abbreviate-file-name current-path)
-        (string-remove-prefix (file-name-directory git-output) current-path))))
-  (defun eshell-prompt ()
-    (let ((current-branch (magit-get-current-branch)))
-      (concat
-       (propertize (get-prompt-path) 'face `(:foreground "cyan"))
-       (when current-branch
-         (concat
-          (propertize " • " 'face `(:foreground "white"))
-          (propertize (concat " " current-branch) 'face `(:foreground "violet"))))
-       (propertize " • " 'face `(:foreground "white"))
-       (propertize (format-time-string "%I:%M:%S %p") 'face `(:foreground "teal"))
-       (if (= (user-uid) 0)
-           (propertize "\n#" 'face `(:foreground "red"))
-         (propertize "\n$" 'face `(:foreground "green")))
-       (propertize " " 'face `(:foreground "white"))))))
-
 (use-package term
   :straight (:type built-in)
   :commands term
