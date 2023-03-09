@@ -60,6 +60,11 @@ repos:
           - --extend-ignore=E203
           - --noqa-require-code
 
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.254
+    hooks:
+      - id: ruff
+
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.2
     hooks:
