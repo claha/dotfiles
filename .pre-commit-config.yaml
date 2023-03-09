@@ -79,6 +79,11 @@ repos:
           - package-latest
           - latest[git]
 
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.4
+    hooks:
+      - id: codespell
+
   - repo: https://github.com/jorisroovers/gitlint
     rev: v0.19.0
     hooks:
