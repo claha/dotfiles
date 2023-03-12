@@ -8,6 +8,8 @@ alias ls='exa'
 alias ll='ls -la'
 alias e='emacsclient -n'
 alias enw='emacs --no-window-system'
+alias g='git'
+alias d='docker'
 
 # Export
 export PATH="$HOME/.local/bin:$PATH"
