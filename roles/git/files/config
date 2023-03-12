@@ -27,7 +27,7 @@
     linenumber = bold blue
 
 [core]
-    editor = emacs
+    editor = emacs --no-window-system
 
 [fetch]
     prune = true
