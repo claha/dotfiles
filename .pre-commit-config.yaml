@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.21.0
+    rev: 0.22.0
     hooks:
       - id: check-github-workflows
       - id: check-jsonschema
@@ -71,7 +71,7 @@ repos:
       - id: shellcheck
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v6.14.1
+    rev: v6.14.2
     hooks:
       - id: ansible-lint
         args:
@@ -85,7 +85,7 @@ repos:
       - id: codespell
 
   - repo: https://github.com/jorisroovers/gitlint
-    rev: v0.19.0
+    rev: v0.19.1
     hooks:
       - id: gitlint
         args:
