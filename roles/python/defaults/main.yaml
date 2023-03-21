@@ -5,6 +5,7 @@ python_packages:
 python_pip_packages:
   - pipx
 python_pipx_packages:
+  - ansible
   - black
   - flake8
   - isort
