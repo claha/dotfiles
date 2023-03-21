@@ -25,5 +25,6 @@
     - role: mimeapps
     - role: gnupg
     - role: ssh
+    - role: bitwarden
     - role: python
     - role: docker
