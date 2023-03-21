@@ -11,6 +11,7 @@
   ansible.builtin.git:
     repo: "https://aur.archlinux.org/{{ item }}"
     dest: "/tmp/{{ item }}"
+  changed_when: false
   loop: "{{ aur_packages }}"
 
 - name: Install aur package
