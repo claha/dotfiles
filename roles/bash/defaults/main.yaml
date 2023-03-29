@@ -3,6 +3,8 @@ bash_packages:
   - bash
   - exa
   - fzf
+  - jq
+  - just
   - pass
   - the_silver_searcher
   - tldr
