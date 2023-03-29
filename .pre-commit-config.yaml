@@ -32,7 +32,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.29.0
+    rev: v1.30.0
     hooks:
       - id: yamllint
         args:
@@ -44,7 +44,7 @@ repos:
       - id: markdownlint
 
   - repo: https://github.com/psf/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
 
@@ -61,7 +61,7 @@ repos:
           - --noqa-require-code
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.254
+    rev: v0.0.259
     hooks:
       - id: ruff
 
@@ -71,7 +71,7 @@ repos:
       - id: shellcheck
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v6.14.2
+    rev: v6.14.3
     hooks:
       - id: ansible-lint
         args:
