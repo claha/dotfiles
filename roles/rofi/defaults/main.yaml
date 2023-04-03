@@ -4,7 +4,6 @@ rofi_packages:
   - rofi-pass
 rofi_packages_aur:
   - pinentry-rofi
-rofi_config_dir: ~/.config/rofi
 rofi_config_files:
-  - config.rasi
-  - theme.rasi
+  - ~/.config/rofi/config.rasi
+  - ~/.config/rofi/theme.rasi

@@ -11,7 +11,6 @@ i3_packages:
   - xbindkeys
 i3_packages_aur:
   - i3lock-color
-i3_config_dir: ~/.config/i3
 i3_config_files:
-  - config
-  - i3status.conf
+  - ~/.config/i3/config
+  - ~/.config/i3/i3status.conf

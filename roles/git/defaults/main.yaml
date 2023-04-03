@@ -3,6 +3,5 @@ git_packages:
   - git
 git_packages_aur:
   - git-completion
-git_config_dir: ~/.config/git
 git_config_files:
-  - config
+  - ~/.config/git/config

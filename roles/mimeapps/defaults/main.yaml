@@ -1,4 +1,3 @@
 ---
-mimeapps_config_dir: ~/.config/
 mimeapps_config_files:
-  - mimeapps.list
+  - ~/.config/mimeapps.list

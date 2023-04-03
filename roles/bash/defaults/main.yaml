@@ -11,6 +11,5 @@ bash_packages:
   - unzip
   - vim
   - xclip
-bash_config_dir: ~/
 bash_config_files:
-  - .bashrc
+  - ~/.bashrc

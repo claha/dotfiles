@@ -1,6 +1,5 @@
 ---
 alacritty_packages:
   - alacritty
-alacritty_config_dir: ~/.config/alacritty
 alacritty_config_files:
-  - alacritty.yml
+  - ~/.config/alacritty/alacritty.yml

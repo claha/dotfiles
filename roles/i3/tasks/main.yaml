@@ -12,19 +12,8 @@
   vars:
     aur_packages: "{{ i3_packages_aur }}"
 
-- name: Create directory
-  become: false
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: "0755"
-  loop:
-    - "{{ i3_config_dir }}"
-
-- name: Create link
-  become: false
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ i3_config_dir }}/{{ item }}"
-    state: link
-  loop: "{{ i3_config_files }}"
+- name: Link config files
+  ansible.builtin.include_role:
+    name: link_config
+  vars:
+    config_files: "{{ i3_config_files}}"

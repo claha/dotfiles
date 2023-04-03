@@ -12,19 +12,8 @@
   vars:
     aur_packages: "{{ git_packages_aur }}"
 
-- name: Create directory
-  become: false
-  ansible.builtin.file:
-    path: "{{ item }}"
-    state: directory
-    mode: "0755"
-  loop:
-    - "{{ git_config_dir }}"
-
-- name: Create link
-  become: false
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ git_config_dir }}/{{ item }}"
-    state: link
-  loop: "{{ git_config_files }}"
+- name: Link config files
+  ansible.builtin.include_role:
+    name: link_config
+  vars:
+    config_files: "{{ git_config_files}}"
