@@ -1,5 +1,0 @@
----
-volumeicon_packages:
-  - volumeicon
-volumeicon_config_files:
-  - ~/.config/volumeicon/volumeicon

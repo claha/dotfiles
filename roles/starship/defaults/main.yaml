@@ -1,5 +1,0 @@
----
-starship_packages:
-  - starship
-starship_config_files:
-  - ~/.config/starship.toml

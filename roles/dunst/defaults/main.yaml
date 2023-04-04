@@ -1,5 +1,0 @@
----
-dunst_packages:
-  - dunst
-dunst_config_files:
-  - ~/.config/dunst/dunstrc

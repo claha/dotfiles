@@ -3,10 +3,12 @@ i3_packages:
   - i3-wm
   - i3status
   - blueman
+  - dunst
   - feh
   - network-manager-applet
   - picom
   - unclutter
+  - volumeicon
   - xautolock
   - xbindkeys
 i3_packages_aur:
@@ -14,3 +16,5 @@ i3_packages_aur:
 i3_config_files:
   - ~/.config/i3/config
   - ~/.config/i3/i3status.conf
+  - ~/.config/dunst/dunstrc
+  - ~/.config/volumeicon/volumeicon

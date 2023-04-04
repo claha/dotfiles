@@ -11,12 +11,9 @@
   roles:
     - role: bash
     - role: alacritty
-    - role: starship
     - role: git
     - role: i3
     - role: lightdm
-    - role: dunst
-    - role: volumeicon
     - role: bluetooth
     - role: rofi
     - role: emacs

@@ -6,6 +6,7 @@ bash_packages:
   - jq
   - just
   - pass
+  - starship
   - the_silver_searcher
   - tldr
   - unzip
@@ -13,3 +14,4 @@ bash_packages:
   - xclip
 bash_config_files:
   - ~/.bashrc
+  - ~/.config/starship.toml
