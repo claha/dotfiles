@@ -3,6 +3,7 @@ bluetooth_packages:
   - alsa-utils
   - bluez
   - bluez-utils
+  - pulseaudio
   - pulseaudio-bluetooth
 bluetooth_services:
   - bluetooth
