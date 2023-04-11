@@ -3,7 +3,7 @@
 Documentation:
     qute://help/configuring.html
     qute://help/settings.html
-"""
+"""  # noqa: INP001
 c = c  # noqa: F821
 config = config  # noqa: F821
 
@@ -63,4 +63,4 @@ c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
 c.url.start_pages = ["https://start.duckduckgo.com"]
 
 # Do not load the autoconfig file
-config.load_autoconfig(False)
+config.load_autoconfig(load_config=False)

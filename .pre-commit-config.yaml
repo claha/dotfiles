@@ -54,16 +54,19 @@ repos:
       - id: flake8
         additional_dependencies:
           - flake8-docstrings==1.7.0
-          - flake8-noqa==1.3.0
         args:
           - --max-line-length=88
           - --extend-ignore=E203
-          - --noqa-require-code
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.259
+    rev: v0.0.261
     hooks:
       - id: ruff
+        args:
+          - --select
+          - ALL
+          - --fix
+          - --quiet
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.2
