@@ -38,6 +38,9 @@
 [rebase]
     autosquash = true
 
+[commit]
+    verbose = true
+
 [user]
     email = hallstrom.claes@gmail.com
     name = Claes Hallström
