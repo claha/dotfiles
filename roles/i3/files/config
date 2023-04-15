@@ -228,4 +228,4 @@ bar {
 }
 
 # Load local config
-include local.conf
+include ~/.config/i3/local.conf
