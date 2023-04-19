@@ -204,9 +204,6 @@ exec qutebrowser
 # Start volumeicon
 exec volumeicon
 
-# Start network manager applet
-exec nm-applet
-
 # Start bluetooth manager applet
 exec blueman-applet
 
