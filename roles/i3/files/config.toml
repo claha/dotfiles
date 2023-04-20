@@ -24,6 +24,15 @@ block = "battery"
 format = " $icon $percentage "
 
 [[block]]
+block = "sound"
+driver = "alsa"
+show_volume_when_muted = true
+format = " $icon $volume "
+[[block.click]]
+button = "left"
+cmd = "alacritty -e alsamixer"
+
+[[block]]
 block = "time"
 interval = 5
 format = " $icon $timestamp.datetime(f:'%Y-%d-%m %R') "

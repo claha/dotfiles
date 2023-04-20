@@ -7,7 +7,6 @@ i3_packages:
   - feh
   - picom
   - unclutter
-  - volumeicon
   - xautolock
   - xbindkeys
 i3_packages_aur:
@@ -17,4 +16,3 @@ i3_config_files:
   - ~/.config/i3status-rust/config.toml
   - ~/.config/dunst/dunstrc
   - ~/.config/picom/picom.conf
-  - ~/.config/volumeicon/volumeicon
