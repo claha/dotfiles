@@ -1,7 +1,7 @@
 ---
 i3_packages:
   - i3-wm
-  - i3status
+  - i3status-rust
   - blueman
   - dunst
   - feh
@@ -14,7 +14,7 @@ i3_packages_aur:
   - i3lock-color
 i3_config_files:
   - ~/.config/i3/config
-  - ~/.config/i3/i3status.conf
+  - ~/.config/i3status-rust/config.toml
   - ~/.config/dunst/dunstrc
   - ~/.config/picom/picom.conf
   - ~/.config/volumeicon/volumeicon
