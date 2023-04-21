@@ -2,7 +2,6 @@
 i3_packages:
   - i3-wm
   - i3status-rust
-  - blueman
   - dunst
   - feh
   - picom

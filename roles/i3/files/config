@@ -201,9 +201,6 @@ exec "emacs --daemon && emacsclient --create-frame"
 # Start qutebrowser
 exec qutebrowser
 
-# Start bluetooth manager applet
-exec blueman-applet
-
 # Start xbindkeys
 exec xbindkeys
 
