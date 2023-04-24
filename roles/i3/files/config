@@ -1,9 +1,6 @@
 # Set mod key to Mod4 (<Super>)
 set $mod Mod4
 
-# Set font for window titles and status bar.
-font pango:monospace 8
-
 # Configure border style
 default_border none
 
@@ -216,7 +213,7 @@ bar {
     position top
     status_command i3status-rs
     strip_workspace_numbers yes
-    font pango:monospace 12
+    font pango:Terminess 14
     colors {
         background #00000080
         statusline #FFFFFFFF

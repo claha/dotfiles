@@ -2,7 +2,9 @@
 theme = "semi-native"
 
 [icons]
-icons = "awesome4"
+icons = "material-nf"
+[icons.overrides]
+cpu = "\uf799"
 
 [[block]]
 block = "cpu"
