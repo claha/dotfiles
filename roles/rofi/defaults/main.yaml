@@ -5,6 +5,7 @@ rofi_packages:
 rofi_packages_aur:
   - pinentry-rofi
   - rofi-bluetooth-git
+  - rofi-power-menu-git
 rofi_config_files:
   - ~/.config/rofi/config.rasi
   - ~/.config/rofi/theme.rasi
