@@ -7,21 +7,9 @@
 alias ls='exa'
 alias ll='ls -la'
 alias e='emacsclient -n'
+alias enw='emacs --no-window-system'
 alias g='git'
 alias d='docker'
-
-# Function for starting emacs without X combind with fzf
-function enw() {
-    if [[ -f $1 ]]; then
-        emacs --no-window-system "$1"
-    else
-        path="$(fzf --select-1 --query "${1:-""}")"
-        if [[ -z $path ]]; then
-            path=$1
-        fi
-        emacs --no-window-system "$path"
-    fi
-}
 
 # Export
 export PATH="$HOME/.local/bin:$PATH"
@@ -29,8 +17,13 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # Configure fzf
+# shellcheck source=/dev/null
+source /usr/share/fzf/completion.bash
+# shellcheck source=/dev/null
+source /usr/share/fzf/key-bindings.bash
 export FZF_DEFAULT_COMMAND="ag --hidden --follow --ignore .git --filename-pattern ''"
 export FZF_DEFAULT_OPTS="--height 25% --border sharp --no-scrollbar --layout reverse --cycle"
+_fzf_setup_completion path e enw
 
 # Configure prompt
 eval "$(starship init bash)"
