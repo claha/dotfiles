@@ -11,7 +11,7 @@ window:
 # Font configuration
 font:
   normal:
-    family: TerminessTTFNerdFontMono
+    family: TerminessNerdFontMono
   size: 12.0
 
 # If `true`, bold text is drawn using the bright color variants.

@@ -3,7 +3,7 @@ configuration {
     combi-modes: "run,drun";
     combi-hide-mode-prefix: true;
     display-combi: "run";
-    font: "TerminessTTFNerdFontMono 12";
+    font: "TerminessNerdFontMono 14";
     fixed-num-lines: true;
     terminal: "alacritty";
     disable-history: false;

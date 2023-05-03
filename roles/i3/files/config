@@ -213,7 +213,7 @@ bar {
     position top
     status_command i3status-rs
     strip_workspace_numbers yes
-    font pango:Terminess 14
+    font pango:TerminessNerdFontMono 16
     colors {
         background #00000080
         statusline #FFFFFFFF

@@ -1,7 +1,7 @@
 [global]
     frame_width = 1
     frame_color = "#285577"
-    font = TerminessTTFNerdFontMono
+    font = TerminessNerdFontMono
 
     # Allow a small subset of html markup:
     #   <b>bold</b>

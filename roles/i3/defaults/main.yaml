@@ -8,6 +8,7 @@ i3_packages:
   - unclutter
   - xautolock
   - xbindkeys
+  - ttf-terminus-nerd
 i3_packages_aur:
   - i3lock-color
 i3_config_files:

@@ -3,8 +3,6 @@ theme = "semi-native"
 
 [icons]
 icons = "material-nf"
-[icons.overrides]
-cpu = "\uf799"
 
 [[block]]
 block = "cpu"
