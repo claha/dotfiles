@@ -13,6 +13,7 @@
     enabled: true
     state: started
   loop: "{{ docker_services }}"
+  when: ansible_facts.virtualization_type != "docker"
 
 - name: Add to group
   become: true

@@ -1,0 +1,25 @@
+---
+name: Run bootstrap script
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - run: |
+          pacman --sync --refresh --noconfirm python sudo
+          useradd ansible --create-home
+          passwd --delete ansible
+          echo 'ansible ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+          rm --force /home/ansible/.bashrc
+          mkdir --parents /usr/share/backgrounds
+          sudo --user ansible ./bootstrap.sh

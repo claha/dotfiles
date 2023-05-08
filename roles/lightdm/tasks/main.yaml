@@ -12,6 +12,7 @@
     enabled: true
     state: started
   loop: "{{ lightdm_services }}"
+  when: ansible_facts.virtualization_type != "docker"
 
 - name: Use lightdm slick greeter
   ansible.builtin.lineinfile:
