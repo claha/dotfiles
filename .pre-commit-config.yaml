@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.22.0
+    rev: 0.23.0
     hooks:
       - id: check-github-workflows
       - id: check-jsonschema
@@ -32,14 +32,14 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.30.0
+    rev: v1.32.0
     hooks:
       - id: yamllint
         args:
           - --strict
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.33.0
+    rev: v0.34.0
     hooks:
       - id: markdownlint
 
@@ -64,7 +64,7 @@ repos:
           - --extend-ignore=E203
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.261
+    rev: v0.0.269
     hooks:
       - id: ruff
         args:
@@ -79,7 +79,7 @@ repos:
       - id: shellcheck
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v6.14.3
+    rev: v6.16.1
     hooks:
       - id: ansible-lint
         args:
