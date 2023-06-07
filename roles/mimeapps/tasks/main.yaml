@@ -3,4 +3,4 @@
   ansible.builtin.include_role:
     name: link_config
   vars:
-    config_files: "{{ mimeapps_config_files }}"
+    link_config_files: "{{ mimeapps_config_files }}"

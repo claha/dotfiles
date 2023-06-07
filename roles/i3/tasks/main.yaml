@@ -10,10 +10,10 @@
   ansible.builtin.include_role:
     name: aur_package
   vars:
-    aur_packages: "{{ i3_packages_aur }}"
+    aur_package_names: "{{ i3_packages_aur }}"
 
 - name: Link config files
   ansible.builtin.include_role:
     name: link_config
   vars:
-    config_files: "{{ i3_config_files}}"
+    link_config_files: "{{ i3_config_files }}"

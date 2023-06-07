@@ -10,10 +10,10 @@
   ansible.builtin.include_role:
     name: aur_package
   vars:
-    aur_packages: "{{ git_packages_aur }}"
+    aur_package_names: "{{ git_packages_aur }}"
 
 - name: Link config files
   ansible.builtin.include_role:
     name: link_config
   vars:
-    config_files: "{{ git_config_files}}"
+    link_config_files: "{{ git_config_files }}"

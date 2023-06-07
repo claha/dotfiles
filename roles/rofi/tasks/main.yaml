@@ -10,10 +10,10 @@
   ansible.builtin.include_role:
     name: aur_package
   vars:
-    aur_packages: "{{ rofi_packages_aur }}"
+    aur_package_names: "{{ rofi_packages_aur }}"
 
 - name: Link config files
   ansible.builtin.include_role:
     name: link_config
   vars:
-    config_files: "{{ rofi_config_files }}"
+    link_config_files: "{{ rofi_config_files }}"

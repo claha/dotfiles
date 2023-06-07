@@ -23,7 +23,7 @@
 - name: Create link
   become: true
   ansible.builtin.file:
-    src: "{{ role_path}}/files/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ lightdm_config_dir }}/{{ item }}"
     state: link
   loop: "{{ lightdm_config_files }}"
@@ -31,7 +31,7 @@
 - name: Create link
   become: true
   ansible.builtin.file:
-    src: "{{ role_path}}/files/{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "/usr/share/backgrounds/{{ item }}"
     state: link
   loop: "{{ lightdm_backgrounds }}"

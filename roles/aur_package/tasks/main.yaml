@@ -12,13 +12,13 @@
     repo: "https://aur.archlinux.org/{{ item }}"
     dest: "/tmp/{{ item }}"
   changed_when: false
-  loop: "{{ aur_packages }}"
+  loop: "{{ aur_package_names }}"
 
 - name: Install aur package
   become: false
   ansible.builtin.command:
     cmd: makepkg --install --needed --syncdeps --noconfirm
     chdir: "/tmp/{{ item }}"
-  register: result
-  changed_when: "'there is nothing to do' not in result.stdout"
-  loop: "{{ aur_packages }}"
+  register: aur_package_install
+  changed_when: "'there is nothing to do' not in aur_package_install.stdout"
+  loop: "{{ aur_package_names }}"

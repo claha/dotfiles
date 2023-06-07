@@ -1,0 +1,9 @@
+---
+skip_list:
+  - package-latest
+  - latest[git]
+
+mock_modules:
+  - community.crypto.openssh_keypair
+  - community.general.pacman
+  - community.general.pipx
