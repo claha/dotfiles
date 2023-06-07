@@ -244,6 +244,9 @@
 (use-package yaml-mode
   :defer t)
 
+(use-package jinja2-mode
+  :defer t)
+
 (use-package cmake-mode
   :defer t)
 
