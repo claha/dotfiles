@@ -35,4 +35,4 @@ cmd = "alacritty -e alsamixer"
 [[block]]
 block = "time"
 interval = 5
-format = " $icon $timestamp.datetime(f:'%Y-%d-%m %R') "
+format = " $icon $timestamp.datetime(f:'%Y-%m-%d %R') "
