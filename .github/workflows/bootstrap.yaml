@@ -21,5 +21,4 @@ jobs:
           passwd --delete ansible
           echo 'ansible ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
           rm --force /home/ansible/.bashrc
-          mkdir --parents /usr/share/backgrounds
           sudo --user ansible ./bootstrap.sh

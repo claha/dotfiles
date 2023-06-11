@@ -28,7 +28,16 @@
     state: link
   loop: "{{ lightdm_config_files }}"
 
-- name: Create link
+- name: Create backgrounds dir
+  become: true
+  ansible.builtin.file:
+    path: "/usr/share/backgrounds"
+    state: directory
+    mode: "0755"
+    owner: root
+    group: root
+
+- name: Add backgrounds
   become: true
   ansible.builtin.file:
     src: "{{ role_path }}/files/{{ item }}"
