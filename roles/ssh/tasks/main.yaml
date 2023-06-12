@@ -18,6 +18,7 @@
 - name: Create ssh key
   become: false
   community.crypto.openssh_keypair:
+    backend: "cryptography"
     path: "{{ ssh_config_dir }}/id_rsa"
     type: rsa
     size: 4096
