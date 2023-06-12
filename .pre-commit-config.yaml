@@ -104,11 +104,4 @@ repos:
     rev: v0.19.1
     hooks:
       - id: gitlint
-        args:
-          - --ignore=body-is-missing
-          - --msg-filename
       - id: gitlint-ci
-        args:
-          - --commits
-          - main
-          - --ignore=body-is-missing

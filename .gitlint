@@ -1,0 +1,6 @@
+[general]
+ignore=body-is-missing
+
+[ignore-by-author-name]
+regex=(.*)dependabot(.*)
+ignore=all
