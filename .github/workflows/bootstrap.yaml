@@ -14,7 +14,7 @@ jobs:
       image: archlinux:latest
       options: --privileged
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.5.3
       - run: |
           pacman --sync --refresh --noconfirm python sudo
           useradd ansible --create-home
