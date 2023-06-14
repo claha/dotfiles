@@ -1,7 +1,6 @@
 ---
 - name: Setup dotfiles
   hosts: localhost
-  connection: local
   become: true
 
   pre_tasks:
