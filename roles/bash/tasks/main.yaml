@@ -11,3 +11,4 @@
     name: link_config
   vars:
     link_config_files: "{{ bash_config_files }}"
+    link_config_file_force: true

@@ -20,5 +20,4 @@ jobs:
           useradd ansible --create-home
           passwd --delete ansible
           echo 'ansible ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-          rm --force /home/ansible/.bashrc
           sudo --user ansible ./bootstrap.sh
