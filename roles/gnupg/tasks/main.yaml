@@ -7,7 +7,6 @@
   loop: "{{ gnupg_packages }}"
 
 - name: Create directory
-  become: false
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -16,7 +15,6 @@
     - "{{ gnupg_config_dir }}"
 
 - name: Create link
-  become: false
   ansible.builtin.file:
     src: "{{ role_path }}/files/{{ item }}"
     dest: "{{ gnupg_config_dir }}/{{ item }}"

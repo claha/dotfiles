@@ -1,10 +1,10 @@
 ---
 - name: Setup dotfiles
   hosts: localhost
-  become: true
 
   pre_tasks:
     - name: Sync and refresh
+      become: true
       community.general.pacman:
         update_cache: true
 

@@ -7,6 +7,7 @@
   loop: "{{ lightdm_packages }}"
 
 - name: Enable and start service
+  become: true
   ansible.builtin.service:
     name: "{{ item }}"
     enabled: true
@@ -15,6 +16,7 @@
   when: ansible_facts.virtualization_type != "docker"
 
 - name: Use lightdm slick greeter
+  become: true
   ansible.builtin.lineinfile:
     path: "{{ lightdm_config_dir }}/lightdm.conf"
     regexp: "^[#]?greeter-session="

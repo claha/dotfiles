@@ -7,7 +7,6 @@
   loop: "{{ aur_package_packages }}"
 
 - name: Clone aur package
-  become: false
   ansible.builtin.git:
     repo: "https://aur.archlinux.org/{{ item }}"
     dest: "/tmp/{{ item }}"
@@ -15,7 +14,6 @@
   loop: "{{ aur_package_names }}"
 
 - name: Install aur package
-  become: false
   ansible.builtin.command:
     cmd: makepkg --install --needed --syncdeps --noconfirm
     chdir: "/tmp/{{ item }}"

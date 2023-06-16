@@ -7,7 +7,6 @@
   loop: "{{ ssh_packages }}"
 
 - name: Create directory
-  become: false
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
@@ -16,7 +15,6 @@
     - "{{ ssh_config_dir }}"
 
 - name: Create ssh key
-  become: false
   community.crypto.openssh_keypair:
     backend: "cryptography"
     path: "{{ ssh_config_dir }}/id_rsa"

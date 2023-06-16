@@ -1,6 +1,5 @@
 ---
 - name: Create directory
-  become: false
   ansible.builtin.file:
     path: "{{ item | ansible.builtin.dirname }}"
     state: directory
@@ -8,7 +7,6 @@
   loop: "{{ link_config_files }}"
 
 - name: Create link
-  become: false
   ansible.builtin.file:
     src: "{{ ansible_parent_role_paths[0] }}/files//{{ item | ansible.builtin.basename }}"  # yamllint disable-line rule:line-length
     dest: "{{ item }}"
