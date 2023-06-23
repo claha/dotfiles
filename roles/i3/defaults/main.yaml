@@ -9,6 +9,7 @@ i3_packages:
   - xautolock
   - xbindkeys
   - ttf-terminus-nerd
+  - xorg
 i3_packages_aur:
   - i3lock-color
 i3_config_files:
