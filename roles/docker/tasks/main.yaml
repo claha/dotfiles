@@ -6,6 +6,14 @@
     state: latest
   loop: "{{ docker_packages }}"
 
+- name: Add to group
+  become: true
+  ansible.builtin.user:
+    name: claes
+    groups: docker
+    append: true
+  when: false
+
 - name: Enable and start service
   become: true
   ansible.builtin.service:
@@ -14,11 +22,3 @@
     state: started
   loop: "{{ docker_services }}"
   when: ansible_facts.virtualization_type != "docker"
-
-- name: Add to group
-  become: true
-  ansible.builtin.user:
-    name: claes
-    groups: docker
-    append: true
-  when: false

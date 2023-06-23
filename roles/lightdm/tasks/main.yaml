@@ -6,15 +6,6 @@
     state: latest
   loop: "{{ lightdm_packages }}"
 
-- name: Enable and start service
-  become: true
-  ansible.builtin.service:
-    name: "{{ item }}"
-    enabled: true
-    state: started
-  loop: "{{ lightdm_services }}"
-  when: ansible_facts.virtualization_type != "docker"
-
 - name: Use lightdm slick greeter
   become: true
   ansible.builtin.lineinfile:
@@ -46,3 +37,12 @@
     dest: "/usr/share/backgrounds/{{ item }}"
     state: link
   loop: "{{ lightdm_backgrounds }}"
+
+- name: Enable and start service
+  become: true
+  ansible.builtin.service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  loop: "{{ lightdm_services }}"
+  when: ansible_facts.virtualization_type != "docker"
