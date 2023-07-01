@@ -9,6 +9,7 @@
   ansible.builtin.git:
     repo: "https://aur.archlinux.org/{{ item }}"
     dest: "/tmp/{{ item }}"
+    force: true
   changed_when: false
   loop: "{{ aur_package_names }}"
 
