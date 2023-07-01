@@ -12,30 +12,12 @@
     regexp: "^[#]?greeter-session="
     line: "greeter-session=lightdm-slick-greeter"
 
-- name: Create link
+- name: Create slick greeter config
   become: true
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "{{ lightdm_config_dir }}/{{ item }}"
-    state: link
-  loop: "{{ lightdm_config_files }}"
-
-- name: Create backgrounds dir
-  become: true
-  ansible.builtin.file:
-    path: "/usr/share/backgrounds"
-    state: directory
-    mode: "0755"
-    owner: root
-    group: root
-
-- name: Add backgrounds
-  become: true
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/{{ item }}"
-    dest: "/usr/share/backgrounds/{{ item }}"
-    state: link
-  loop: "{{ lightdm_backgrounds }}"
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/slick-greeter.conf.j2"
+    dest: "{{ lightdm_config_dir }}/slick-greeter.conf"
+    mode: "0644"
 
 - name: Enable and start service
   become: true

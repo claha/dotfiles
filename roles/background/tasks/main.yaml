@@ -1,0 +1,16 @@
+---
+- name: Create directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ background_path }}"
+    state: directory
+    mode: "0755"
+    owner: root
+    group: root
+
+- name: Add images
+  become: true
+  ansible.builtin.copy:
+    src: "files/"
+    dest: "{{ background_path }}"
+    mode: "0644"

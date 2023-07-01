@@ -5,7 +5,3 @@ lightdm_packages:
 lightdm_services:
   - lightdm
 lightdm_config_dir: /etc/lightdm
-lightdm_config_files:
-  - slick-greeter.conf
-lightdm_backgrounds:
-  - brac.jpg
