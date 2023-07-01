@@ -2,9 +2,8 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ lightdm_packages }}"
     state: latest
-  loop: "{{ lightdm_packages }}"
 
 - name: Use lightdm slick greeter
   become: true

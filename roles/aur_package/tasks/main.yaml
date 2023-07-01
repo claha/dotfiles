@@ -2,9 +2,8 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ aur_package_packages }}"
     state: latest
-  loop: "{{ aur_package_packages }}"
 
 - name: Clone aur package
   ansible.builtin.git:

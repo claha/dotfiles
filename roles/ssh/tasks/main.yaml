@@ -2,17 +2,14 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ ssh_packages }}"
     state: latest
-  loop: "{{ ssh_packages }}"
 
 - name: Create directory
   ansible.builtin.file:
-    path: "{{ item }}"
+    path: "{{ ssh_config_dir }}"
     state: directory
     mode: "0700"
-  loop:
-    - "{{ ssh_config_dir }}"
 
 - name: Create ssh key
   community.crypto.openssh_keypair:

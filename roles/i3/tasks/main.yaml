@@ -2,9 +2,8 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ i3_packages }}"
     state: latest
-  loop: "{{ i3_packages }}"
 
 - name: Install aur package
   ansible.builtin.include_role:

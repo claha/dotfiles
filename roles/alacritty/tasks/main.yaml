@@ -2,9 +2,8 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ alacritty_packages }}"
     state: latest
-  loop: "{{ alacritty_packages }}"
 
 - name: Link config files
   ansible.builtin.include_role:

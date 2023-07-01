@@ -2,9 +2,8 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ emacs_packages }}"
     state: latest
-  loop: "{{ emacs_packages }}"
 
 - name: Link config files
   ansible.builtin.include_role:

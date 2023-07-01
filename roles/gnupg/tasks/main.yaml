@@ -2,17 +2,14 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: "{{ gnupg_packages }}"
     state: latest
-  loop: "{{ gnupg_packages }}"
 
 - name: Create directory
   ansible.builtin.file:
-    path: "{{ item }}"
+    path: "{{ gnupg_config_dir }}"
     state: directory
     mode: "0700"
-  loop:
-    - "{{ gnupg_config_dir }}"
 
 - name: Create link
   ansible.builtin.file:
