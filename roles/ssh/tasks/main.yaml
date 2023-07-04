@@ -11,6 +11,19 @@
     state: directory
     mode: "0700"
 
+- name: Create config file if it does not exists
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ ssh_config_dir }}/config"
+    force: false
+    mode: "0600"
+
+- name: Include other config files
+  ansible.builtin.lineinfile:
+    path: "{{ ssh_config_dir }}/config"
+    regexp: "Include ./*.conf"
+    line: "Include ./*.conf"
+
 - name: Create ssh key
   community.crypto.openssh_keypair:
     backend: "cryptography"
