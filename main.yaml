@@ -10,18 +10,34 @@
 
   roles:
     - role: bash
+      tags: bash
     - role: alacritty
+      tags: alacritty
     - role: git
+      tags: git
     - role: i3
+      tags: i3
     - role: lightdm
+      tags: lightdm
     - role: bluetooth
+      tags: bluetooth
     - role: rofi
+      tags: rofi
     - role: emacs
+      tags: emacs
     - role: mpv
+      tags: mpv
     - role: qutebrowser
+      tags: qutebrowser
     - role: mimeapps
+      tags: mimeapps
     - role: gnupg
+      tags: gnupg
     - role: ssh
+      tags: ssh
     - role: bitwarden
+      tags: bitwarden
     - role: python
+      tags: python
     - role: docker
+      tags: docker
