@@ -1,0 +1,39 @@
+---
+- name: Packages
+  become: true
+  ansible.builtin.package:
+    name:
+      - sway
+      - wayland
+      - wlroots
+      - seatd
+      - xorg-xwayland
+      - swaybg
+      - swaylock
+    state: latest
+
+- name: Groups
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: seat
+    append: true
+
+- name: Services
+  become: true
+  ansible.builtin.service:
+    name: seatd
+    enabled: true
+    state: started
+
+- name: Config dir
+  ansible.builtin.file:
+    path: "~/.config/sway"
+    state: directory
+    mode: "0755"
+
+- name: Config file
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/config"
+    dest: "~/.config/sway/config"
+    state: link

@@ -1,0 +1,5 @@
+---
+dependencies:
+  - role: alacritty
+  - role: background
+  - role: font

@@ -15,6 +15,8 @@
       when: ansible_facts.os_family == "Debian" and can_become
 
   roles:
+    - role: sway
+      tags: never, sway
     - role: bash
       tags: bash
     - role: alacritty
