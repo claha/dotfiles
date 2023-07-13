@@ -2,5 +2,5 @@
 ignore=body-is-missing
 
 [ignore-by-author-name]
-regex=(.*)dependabot(.*)
+regex=(.*)(dependabot|renovate)(.*)
 ignore=all
