@@ -43,7 +43,7 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 repo_root_format = '[$before_root_path]($style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) '
 style = 'cyan bold'
 disabled = false
-read_only = '🔒'
+read_only = ' 󰌾'
 read_only_style = 'red'
 truncation_symbol = ''
 home_symbol = '~'
@@ -51,7 +51,7 @@ use_os_path_sep = true
 
 [git_branch]
 format = 'on [$symbol$branch(:$remote_branch)]($style) '
-symbol = ' '
+symbol = ' '
 style = 'bold purple'
 truncation_length = 9223372036854775807
 truncation_symbol = '…'
