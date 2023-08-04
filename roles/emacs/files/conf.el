@@ -400,9 +400,6 @@
 (use-package tldr
   :commands tldr)
 
-(use-package hydra
-  :defer t)
-
 (use-package emacs
   :config
   (setq browse-url-browser-function
