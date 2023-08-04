@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.3
       - run: |
-          pacman --sync --refresh --noconfirm python sudo
+          pacman --sync --refresh --noconfirm --sysupgrade python sudo
           useradd ansible --create-home
           passwd --delete ansible
           echo 'ansible ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
