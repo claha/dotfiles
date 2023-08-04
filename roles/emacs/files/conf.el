@@ -30,10 +30,29 @@
   (initial-scratch-message nil)
   (column-number-mode t)
   (visible-bell t)
+  (minibuffer-prompt-properties
+   '(read-only t cursor-intangible t face minibuffer-prompt))
   :config
   (set-window-scroll-bars (minibuffer-window) nil nil)
   (set-frame-parameter (selected-frame) 'alpha '(95 . 95))
-  (add-to-list 'default-frame-alist `(alpha . ,'(95 . 95))))
+  (add-to-list 'default-frame-alist `(alpha . ,'(95 . 95)))
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil)
+  (put 'narrow-to-region 'disabled nil)
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq browse-url-browser-function
+        '(("." . browse-url-generic)))
+  (setq browse-url-generic-program "qutebrowser")
+  (setq use-short-answers t)
+  (setq large-file-warning-threshold nil)
+  (setq vc-follow-symlinks t)
+  (global-unset-key (kbd "<C-down-mouse-1>"))
+  (global-unset-key (kbd "<C-down-mouse-2>"))
+  (global-unset-key (kbd "<C-down-mouse-3>"))
+  (global-unset-key (kbd "<S-down-mouse-1>"))
+  (global-unset-key (kbd "<S-down-mouse-2>"))
+  (global-unset-key (kbd "<S-down-mouse-3>")))
 
 (use-package visual-fill-column
   :custom
@@ -223,15 +242,6 @@
   :custom
   (diff-hl-side 'right))
 
-(use-package emacs
-  :config
-  (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled nil))
-
-(use-package emacs
-  :config
-  (put 'narrow-to-region 'disabled nil))
-
 (use-package hungry-delete
   :custom
   (hungry-delete-join-reluctantly t)
@@ -257,11 +267,6 @@
 
 (use-package flycheck
   :defer t)
-
-(use-package emacs
-  :config
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4))
 
 (use-package compile
   :straight (:type built-in)
@@ -400,29 +405,6 @@
 (use-package tldr
   :commands tldr)
 
-(use-package emacs
-  :config
-  (setq browse-url-browser-function
-        '(("." . browse-url-generic)))
-  (setq browse-url-generic-program "qutebrowser"))
-
-(use-package emacs
-  :config
-  (setq use-short-answers t)
-  (setq large-file-warning-threshold nil)
-  (setq vc-follow-symlinks t)
-  (global-unset-key (kbd "<C-down-mouse-1>"))
-  (global-unset-key (kbd "<C-down-mouse-2>"))
-  (global-unset-key (kbd "<C-down-mouse-3>"))
-  (global-unset-key (kbd "<S-down-mouse-1>"))
-  (global-unset-key (kbd "<S-down-mouse-2>"))
-  (global-unset-key (kbd "<S-down-mouse-3>"))
-  :custom
-  (minibuffer-prompt-properties
-   '(read-only t cursor-intangible t face minibuffer-prompt)))
-
-(use-package emacs
-  :config
-  (let ((local-file (expand-file-name "local.el" user-emacs-directory)))
-    (if (file-readable-p local-file)
-        (load-file local-file))))
+(let ((local-file (expand-file-name "local.el" user-emacs-directory)))
+  (if (file-readable-p local-file)
+      (load-file local-file)))
