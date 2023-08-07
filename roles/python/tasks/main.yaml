@@ -5,11 +5,8 @@
     name: "{{ python_packages }}"
     state: latest
 
-- name: Install python package
-  ansible.builtin.pip:
-    name: "{{ python_pip_packages }}"
-
 - name: Install python package (pipx)
   community.general.pipx:
     name: "{{ item }}"
+    executable: /usr/bin/pipx
   loop: "{{ python_pipx_packages }}"
