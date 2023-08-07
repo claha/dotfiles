@@ -4,8 +4,8 @@ Documentation:
     qute://help/configuring.html
     qute://help/settings.html
 """  # noqa: INP001
-c = c  # noqa: F821
-config = config  # noqa: F821
+c = c  # noqa: F821 PLW0127
+config = config  # noqa: F821 PLW0127
 
 # Always restore open sites when qutebrowser is reopened.
 c.auto_save.session = True
