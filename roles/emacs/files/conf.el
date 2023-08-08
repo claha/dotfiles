@@ -34,8 +34,11 @@
    '(read-only t cursor-intangible t face minibuffer-prompt))
   :config
   (set-window-scroll-bars (minibuffer-window) nil nil)
-  (set-frame-parameter (selected-frame) 'alpha '(95 . 95))
-  (add-to-list 'default-frame-alist `(alpha . ,'(95 . 95)))
+  (if (version< emacs-version "29")
+      (progn
+        (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+        (add-to-list 'default-frame-alist `(alpha . ,'(90 . 90))))
+    (add-to-list 'default-frame-alist '(alpha-background . 90)))
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (put 'narrow-to-region 'disabled nil)
@@ -298,9 +301,10 @@
 
 (use-package dockerfile-mode)
 
-(use-package docker-tramp
-  :custom
-  (docker-tramp-use-names t))
+(if (version< emacs-version "29")
+    (use-package docker-tramp
+      :custom
+      (docker-tramp-use-names t)))
 
 (use-package pyvenv
   :hook (python-mode . pyvenv-mode)
