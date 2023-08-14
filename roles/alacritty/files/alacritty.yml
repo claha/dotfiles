@@ -54,7 +54,7 @@ hints:
       binding:
         key: U
         mods: Control|Shift
-    - regex: "([[:alnum:]]|[[:punct:]])+(\\.)[[:alpha:]]+"
+    - regex: "([[:alnum:]]|[[:punct:]])+(\\.)[[:alnum:]]+"
       action: Paste
       post_processing: true
       mouse:
