@@ -72,7 +72,7 @@ repos:
           - --extend-ignore=E203
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.284
+    rev: v0.0.285
     hooks:
       - id: ruff
         args:
