@@ -1,7 +1,11 @@
 ---
 lightdm_packages:
-  - lightdm
-  - lightdm-slick-greeter
+  Archlinux:
+    - lightdm
+    - lightdm-slick-greeter
+  Debian:
+    - lightdm
+    - slick-greeter
 lightdm_services:
   - lightdm
 lightdm_config_dir: /etc/lightdm

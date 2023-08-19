@@ -2,7 +2,7 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ ssh_packages }}"
+    name: "{{ ssh_packages[ansible_facts.os_family] }}"
     state: latest
 
 - name: Create directory

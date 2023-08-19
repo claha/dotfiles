@@ -1,4 +1,8 @@
 ---
 ssh_packages:
-  - openssh
+  Archlinux:
+    - openssh
+  Debian:
+    - openssh-server
+    - openssh-client
 ssh_config_dir: ~/.ssh

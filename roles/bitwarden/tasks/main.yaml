@@ -4,3 +4,4 @@
   ansible.builtin.package:
     name: "{{ bitwarden_packages }}"
     state: latest
+  when: ansible_facts.os_family == "Archlinux"

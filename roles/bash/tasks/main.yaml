@@ -2,7 +2,7 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ bash_packages }}"
+    name: "{{ bash_packages[ansible_facts.os_family] }}"
     state: latest
 
 - name: Link config files

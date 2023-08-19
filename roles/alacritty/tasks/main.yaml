@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ alacritty_packages }}"
     state: latest
+  when: ansible_facts.os_family == "Archlinux"
 
 - name: Link config files
   ansible.builtin.include_role:
