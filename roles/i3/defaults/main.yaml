@@ -1,14 +1,25 @@
 ---
 i3_packages:
-  - i3-wm
-  - i3status-rust
-  - dunst
-  - feh
-  - picom
-  - unclutter
-  - xautolock
-  - xbindkeys
-  - xorg
+  Archlinux:
+    - i3-wm
+    - i3status-rust
+    - dunst
+    - feh
+    - picom
+    - unclutter
+    - xautolock
+    - xbindkeys
+    - xorg
+  Debian:
+    - i3-wm
+    # - i3status-rust
+    - dunst
+    - feh
+    - picom
+    - unclutter
+    - xautolock
+    - xbindkeys
+    - xorg
 i3_packages_aur:
   - i3lock-color
 i3_config_files:

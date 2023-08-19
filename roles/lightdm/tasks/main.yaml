@@ -2,7 +2,7 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ lightdm_packages }}"
+    name: "{{ lightdm_packages[ansible_facts.os_family] }}"
     state: latest
 
 - name: Use lightdm slick greeter
@@ -11,6 +11,7 @@
     path: "{{ lightdm_config_dir }}/lightdm.conf"
     regexp: "^[#]?greeter-session="
     line: "greeter-session=lightdm-slick-greeter"
+  when: ansible_facts.os_family == "Archlinux"
 
 - name: Create slick greeter config
   become: true

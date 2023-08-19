@@ -7,6 +7,12 @@
       become: true
       community.general.pacman:
         update_cache: true
+      when: ansible_facts.os_family == "Archlinux"
+    - name: Update list of available packages
+      become: true
+      ansible.builtin.apt:
+        update_cache: true
+      when: ansible_facts.os_family == "Debian"
 
   roles:
     - role: bash

@@ -1,9 +1,15 @@
 ---
 bluetooth_packages:
-  - alsa-utils
-  - bluez
-  - bluez-utils
-  - pulseaudio
-  - pulseaudio-bluetooth
+  Archlinux:
+    - alsa-utils
+    - bluez
+    - bluez-utils
+    - pulseaudio
+    - pulseaudio-bluetooth
+  Debian:
+    - alsa-utils
+    - bluez
+    - pulseaudio
+    - pulseaudio-module-bluetooth
 bluetooth_services:
   - bluetooth

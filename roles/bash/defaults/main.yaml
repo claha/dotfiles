@@ -1,17 +1,31 @@
 ---
 bash_packages:
-  - bash
-  - exa
-  - fzf
-  - jq
-  - just
-  - pass
-  - starship
-  - the_silver_searcher
-  - tldr
-  - unzip
-  - vim
-  - xclip
+  Archlinux:
+    - bash
+    - exa
+    - fzf
+    - jq
+    - just
+    - pass
+    - starship
+    - the_silver_searcher
+    - tldr
+    - unzip
+    - vim
+    - xclip
+  Debian:
+    - bash
+    - exa
+    - fzf
+    - jq
+    # - just
+    - pass
+    # - starship
+    - silversearcher-ag
+    - tldr
+    - unzip
+    - vim
+    - xclip
 bash_config_files:
   - ~/.bashrc
   - ~/.config/starship.toml

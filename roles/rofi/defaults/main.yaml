@@ -1,7 +1,11 @@
 ---
 rofi_packages:
-  - rofi
-  - rofi-pass
+  Archlinux:
+    - rofi
+    - rofi-pass
+  Debian:
+    - rofi
+    # - rofi-pass
 rofi_packages_aur:
   - pinentry-rofi
   - rofi-bluetooth-git
