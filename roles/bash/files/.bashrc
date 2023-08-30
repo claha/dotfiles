@@ -11,6 +11,12 @@ alias enw='emacs --no-window-system'
 alias g='git'
 alias d='docker'
 
+# Docker/Docker Compose aliases
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\\t{{.Status}}\t{{.Names}}"'
+alias dup='docker compose up --detach --force-recreate'
+alias dlogs='docker compose logs --follow --tail 100'
+alias dclean='docker system prune --all --volumes'
+
 # Export
 export PATH="$HOME/.local/bin:$PATH"
 GPG_TTY=$(tty)
