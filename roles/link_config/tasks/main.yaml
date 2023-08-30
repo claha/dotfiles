@@ -8,7 +8,7 @@
 
 - name: Create link
   ansible.builtin.file:
-    src: "{{ ansible_parent_role_paths[0] }}/files//{{ item | ansible.builtin.basename }}"  # yamllint disable-line rule:line-length
+    src: "{{ ansible_parent_role_paths[0] }}/files//{{ item | ansible.builtin.basename | regex_replace('^\\.', '') }}"  # yamllint disable-line rule:line-length
     dest: "{{ item }}"
     state: link
     force: "{{ link_config_file_force }}"
