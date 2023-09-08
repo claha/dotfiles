@@ -17,3 +17,23 @@
     dest: "{{ gnupg_config_dir }}/{{ item }}"
     state: link
   loop: "{{ gnupg_config_files }}"
+
+- name: Export private key
+  ansible.builtin.command:
+    cmd: "gpg --output /tmp/private.key --export-secret-keys {{ gpg_key_id }}"
+  changed_when: true
+  register: secret_key
+  tags: never, gpg_export
+
+- name: Export public key
+  ansible.builtin.command:
+    cmd: "gpg  --output /tmp/public.key --armor --export {{ gpg_key_id }}"
+  changed_when: true
+  register: secret_key
+  tags: never, gpg_export
+
+- name: Import private key
+  ansible.builtin.command:
+    cmd: "gpg --import /tmp/private.key"
+  changed_when: true
+  tags: never, gpg_import
