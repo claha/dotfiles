@@ -296,6 +296,9 @@
   :straight (:type built-in)
   :hook (prog-mode . electric-pair-mode))
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package docker
   :commands docker)
 
