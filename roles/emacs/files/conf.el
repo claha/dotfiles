@@ -95,6 +95,17 @@
   (completion-styles '(orderless))
   (completion-category-overrides '((file (styles . (basic partial-completion))))))
 
+(use-package corfu
+  :custom
+  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-auto t)                 ;; Enable auto completion
+  :init
+  (global-corfu-mode))
+
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
+
 (use-package marginalia
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
