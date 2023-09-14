@@ -5,6 +5,29 @@
     name: "{{ bash_packages[ansible_facts.os_family] }}"
     state: latest
 
+- name: Install starship
+  when: ansible_facts.os_family == "Debian"
+  block:
+    - name: Check if starship is already installed
+      ansible.builtin.command: which starship
+      failed_when: false
+      changed_when: false
+      check_mode: false
+      register: bash_which_starship
+
+    - name: Download starship install script
+      ansible.builtin.get_url:
+        url: https://starship.rs/install.sh
+        dest: /tmp/install.sh
+        mode: "0775"
+      when: bash_which_starship.rc == 1
+
+    - name: Run starship install script
+      become: true
+      ansible.builtin.command: /tmp/install.sh --force
+      changed_when: true
+      when: bash_which_starship.rc == 1
+
 - name: Link config files
   ansible.builtin.include_role:
     name: link_config

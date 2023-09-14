@@ -2,6 +2,7 @@
 bash_packages:
   Archlinux:
     - bash
+    - curl
     - exa
     - fzf
     - jq
@@ -12,19 +13,21 @@ bash_packages:
     - tldr
     - unzip
     - vim
+    - wget
     - xclip
   Debian:
     - bash
+    - curl
     - exa
     - fzf
     - jq
     # - just
     - pass
-    # - starship
     - silversearcher-ag
     - tldr
     - unzip
     - vim
+    - wget
     - xclip
 bash_config_files:
   - ~/.bashrc
