@@ -1,4 +1,7 @@
 ---
 font_packages:
-  - ttf-terminus-nerd
-  - ttf-font-awesome
+  Archlinux:
+    - ttf-terminus-nerd
+    - ttf-font-awesome
+  Debian:
+    - fonts-font-awesome

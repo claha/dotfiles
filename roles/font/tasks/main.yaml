@@ -2,6 +2,5 @@
 - name: Install package
   become: true
   ansible.builtin.package:
-    name: "{{ font_packages }}"
+    name: "{{ font_packages[ansible_facts.os_family] }}"
     state: latest
-  when: ansible_facts.os_family == "Archlinux"
