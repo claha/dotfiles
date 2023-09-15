@@ -31,4 +31,5 @@ bash_packages:
     - xclip
 bash_config_files:
   - ~/.bashrc
+  - ~/.vimrc
   - ~/.config/starship.toml
