@@ -5,3 +5,4 @@ font_packages:
     - ttf-font-awesome
   Debian:
     - fonts-font-awesome
+font_dir: "~/.local/share/fonts"

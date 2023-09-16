@@ -4,3 +4,18 @@
   ansible.builtin.package:
     name: "{{ font_packages[ansible_facts.os_family] }}"
     state: latest
+
+- name: Install fonts
+  when: ansible_facts.os_family == "Debian"
+  block:
+    - name: Create fonts directory
+      ansible.builtin.file:
+        path: "{{ font_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Download font
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Terminus.tar.xz  # yamllint disable-line rule:line-length
+        dest: "{{ font_dir }}"
+        remote_src: true

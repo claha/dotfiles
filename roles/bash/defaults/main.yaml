@@ -9,12 +9,14 @@ bash_packages:
     - just
     - pass
     - starship
+    - tar
     - the_silver_searcher
     - tldr
     - unzip
     - vim
     - wget
     - xclip
+    - xz
   Debian:
     - bash
     - curl
@@ -24,11 +26,13 @@ bash_packages:
     # - just
     - pass
     - silversearcher-ag
+    - tar
     - tldr
     - unzip
     - vim
     - wget
     - xclip
+    - xz-utils
 bash_config_files:
   - ~/.bashrc
   - ~/.vimrc
