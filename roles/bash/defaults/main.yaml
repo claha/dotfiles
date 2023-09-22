@@ -3,6 +3,7 @@ bash_packages:
   Archlinux:
     - bash
     - curl
+    - direnv
     - exa
     - fzf
     - jq
@@ -20,6 +21,7 @@ bash_packages:
   Debian:
     - bash
     - curl
+    - direnv
     - exa
     - fzf
     - jq
