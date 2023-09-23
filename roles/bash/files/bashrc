@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 
 # Setup aliases
-alias ls='exa'
+alias ls='exa --icons --group-directories-first'
 alias ll='ls -la'
 alias e='emacsclient -n'
 alias enw='emacs --no-window-system'
