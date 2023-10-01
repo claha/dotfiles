@@ -75,6 +75,10 @@
 
 (use-package all-the-icons)
 
+(use-package nerd-icons
+  :custom
+  (nerd-icons-font-family "Symbols Nerd Font Mono"))
+
 (use-package vertico
   :hook
   (after-init . vertico-mode))

@@ -3,6 +3,7 @@ font_packages:
   Archlinux:
     - ttf-terminus-nerd
     - ttf-font-awesome
+    - ttf-nerd-fonts-symbols-mono
   Debian:
     - fonts-font-awesome
 font_dir: "~/.local/share/fonts"

@@ -14,8 +14,14 @@
         state: directory
         mode: "0755"
 
-    - name: Download font
+    - name: Download Terminus font
       ansible.builtin.unarchive:
         src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Terminus.tar.xz  # yamllint disable-line rule:line-length
+        dest: "{{ font_dir }}"
+        remote_src: true
+
+    - name: Download Symbols font
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.tar.xz  # yamllint disable-line rule:line-length
         dest: "{{ font_dir }}"
         remote_src: true
