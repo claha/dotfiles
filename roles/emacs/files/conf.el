@@ -228,13 +228,12 @@
 (use-package forge
   :after magit)
 
-(unless (eq system-type 'windows-nt)
-  (use-package pinentry
-    :custom
-    (epg-pinentry-mode 'loopback)
-    :init
-    (setenv "INSIDE_EMACS" (format "%s,comint" emacs-version))
-    (pinentry-start)))
+(use-package pinentry
+  :custom
+  (epg-pinentry-mode 'loopback)
+  :init
+  (setenv "INSIDE_EMACS" (format "%s,comint" emacs-version))
+  (pinentry-start))
 
 (use-package diff-hl
   :hook ((prog-mode . diff-hl-mode)
