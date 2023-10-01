@@ -205,9 +205,6 @@
 (use-package ag
   :commands ag)
 
-(use-package rg
-  :commands rg)
-
 (use-package dumb-jump
   :config
   (setq dumb-jump-force-searcher 'ag)
