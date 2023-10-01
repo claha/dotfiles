@@ -302,6 +302,9 @@
 
 (use-package dockerfile-mode)
 
+(use-package envrc
+  :init (envrc-global-mode))
+
 (use-package pyvenv
   :hook (python-mode . pyvenv-mode)
   :bind
