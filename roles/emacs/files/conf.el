@@ -93,14 +93,23 @@
 
 (use-package corfu
   :custom
-  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-  (corfu-auto t)                 ;; Enable auto completion
+  (corfu-cycle t)
+  (corfu-auto t)
+  :bind
+  (:map corfu-map
+        ("<escape>" . corfu-quit)
+        ("TAB" . corfu-next)
+        ([tab] . corfu-next)
+        ("S-TAB" . corfu-previous)
+        ([backtab] . corfu-previous))
   :init
   (global-corfu-mode))
 
 (use-package cape
   :init
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  :bind
+  ("C-." . cape-dabbrev))
 
 (use-package marginalia
   :custom
@@ -159,23 +168,9 @@
   :straight (:type built-in)
   :custom
   (dabbrev-case-replace nil)
-  (dabbrev-backward-only nil)
   (dabbrev-case-distinction nil)
   (dabbrev-case-fold-search t)
-  (dabbrev-check-all-buffers t)
-  (dabbrev-abbrev-char-regexp nil)
-  (dabbrev-eliminate-newlines nil)
-  (dabbrev-check-other-buffers t)
-  (dabbrev-upcase-means-case-search t)
-  :config
-  (defun dabbrev-expand-or-completion ()
-    (interactive)
-    (if (not (eq 'dabbrev-expand-or-completion last-command))
-        (dabbrev-expand nil)
-      (undo)  ;; Undo dabbrev-expand from last time
-      (dabbrev-completion 16)))
-  :bind
-  ("C-." . dabbrev-expand-or-completion))
+  (dabbrev-upcase-means-case-search t))
 
 (use-package savehist
   :straight (:type built-in)
