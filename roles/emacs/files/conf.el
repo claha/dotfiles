@@ -412,6 +412,9 @@
 (use-package tldr
   :commands tldr)
 
+(use-package restclient
+  :commands restclient-mode)
+
 (let ((local-file (expand-file-name "local.el" user-emacs-directory)))
   (if (file-readable-p local-file)
       (load-file local-file)))
