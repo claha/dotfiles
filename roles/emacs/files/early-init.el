@@ -12,5 +12,5 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 
-;; Do not make installed packages available at startup.
-(setq package-enable-at-startup nil)
+;; Initialize installed packages.
+(setq package-enable-at-startup t)

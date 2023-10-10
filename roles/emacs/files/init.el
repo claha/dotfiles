@@ -8,25 +8,26 @@
             (message "Emacs loaded in %s." (emacs-init-time))
             (setq gc-cons-threshold default-gc-cons-threshold)))
 
-;; Load configuration
-(setq straight-check-for-modifications '(check-on-save find-when-checking))
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 6))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; Configure package management
+(require 'package)
 
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
+(setq package-install-upgrade-built-in t
+      package-archives
+      '(("gnu-elpa" . "https://elpa.gnu.org/packages/")
+        ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+        ("melpa" . "https://melpa.org/packages/"))
+      package-archive-priorities
+      '(("gnu-elpa" . 3)
+        ("melpa" . 2)
+        ("nongnu" . 1)))
 
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents t))
+
+;; Install and configure packages
 (use-package no-littering
+  :ensure t
   :config
   (no-littering-theme-backups)
   (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
@@ -65,15 +66,20 @@
   (global-unset-key (kbd "<S-down-mouse-3>")))
 
 (use-package visual-fill-column
+  :ensure t
   :custom
   (visual-fill-column-width 50)
   (visual-fill-column-center-text t))
 
 (use-package doom-themes
-  :init (load-theme 'doom-material t))
+  :ensure t
+  :init
+  (load-theme 'doom-material t))
 
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode)
+  :ensure t
+  :hook
+  (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-buffer-encoding nil)
   (doom-modeline-minor-modes t)
@@ -82,24 +88,31 @@
   (setq doom-modeline-icon t))
 
 (use-package minions
-  :hook (doom-modeline-mode . minions-mode))
+  :ensure t
+  :hook
+  (doom-modeline-mode . minions-mode))
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure t)
 
 (use-package nerd-icons
+  :ensure t
   :custom
   (nerd-icons-font-family "Symbols Nerd Font Mono"))
 
 (use-package vertico
+  :ensure t
   :hook
   (after-init . vertico-mode))
 
 (use-package prescient
+  :ensure t
   :after vertico
   :config
   (prescient-persist-mode 1))
 
 (use-package orderless
+  :ensure t
   :init
   (setq completion-category-defaults nil)
   :custom
@@ -107,6 +120,7 @@
   (completion-category-overrides '((file (styles . (basic partial-completion))))))
 
 (use-package corfu
+  :ensure t
   :custom
   (corfu-cycle t)
   (corfu-auto t)
@@ -121,18 +135,21 @@
   (global-corfu-mode))
 
 (use-package cape
+  :ensure t
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   :bind
   ("C-." . cape-dabbrev))
 
 (use-package marginalia
+  :ensure t
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :hook
   (vertico-mode . marginalia-mode))
 
 (use-package consult
+  :ensure t
   :bind (("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
@@ -172,15 +189,17 @@
             (car (project-roots project))))))
 
 (use-package embark
-  :bind ("C-," . embark-act)
+  :ensure t
+  :bind
+  ("C-," . embark-act)
   :init
   (setq prefix-help-command #'embark-prefix-help-command))
 
 (use-package embark-consult
+  :ensure t
   :after (embark consult))
 
 (use-package dabbrev
-  :straight (:type built-in)
   :custom
   (dabbrev-case-replace nil)
   (dabbrev-case-distinction nil)
@@ -188,18 +207,20 @@
   (dabbrev-upcase-means-case-search t))
 
 (use-package savehist
-  :straight (:type built-in)
-  :init (savehist-mode))
+  :init
+  (savehist-mode))
 
 (use-package project)
 
 (use-package dired
-  :straight (:type built-in)
   :commands (dired dired-jump)
-  :bind (("C-x C-j" . dired-jump))
-  :custom ((dired-listing-switches "-aghov --group-directories-first")))
+  :bind
+  ("C-x C-j" . dired-jump)
+  :custom
+  (dired-listing-switches "-aghov --group-directories-first"))
 
 (use-package dired-single
+  :ensure t
   :after dired
   :bind
   (:map dired-mode-map
@@ -207,31 +228,36 @@
         ([remap dired-up-directory] . dired-single-up-directory)))
 
 (use-package ibuffer
-  :straight (:type built-in)
   :bind
   (("C-x C-b" . ibuffer)
    ("C-x k" . kill-this-buffer)))
 
 (use-package ace-window
-  :bind ("C-x o" . ace-window)
+  :ensure t
+  :bind
+  ("C-x o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package ag
+  :ensure t
   :commands ag)
 
 (use-package dumb-jump
+  :ensure t
   :config
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package magit
+  :ensure t
   :commands (magit-status magit-get-current-branch)
   :custom
   (magit-display-buffer-function
    #'magit-display-buffer-fullframe-status-v1))
 
 (use-package git-commit
+  :ensure t
   :after magit
   :config
   (setq git-commit-summary-max-length 50)
@@ -241,9 +267,11 @@
                 (setq-local comment-auto-fill-only-comments nil))))
 
 (use-package forge
+  :ensure t
   :after magit)
 
 (use-package pinentry
+  :ensure t
   :custom
   (epg-pinentry-mode 'loopback)
   :init
@@ -251,6 +279,7 @@
   (pinentry-start))
 
 (use-package diff-hl
+  :ensure t
   :hook ((prog-mode . diff-hl-mode)
          (org-mode . diff-hl-mode)
          (text-mode . diff-hl-mode)
@@ -259,12 +288,14 @@
   (diff-hl-side 'right))
 
 (use-package hungry-delete
+  :ensure t
   :custom
   (hungry-delete-join-reluctantly t)
   :hook
   (after-init . global-hungry-delete-mode))
 
-(use-package wgrep)
+(use-package wgrep
+    :ensure t)
 
 (use-package yaml-mode
   :defer t)
@@ -285,55 +316,58 @@
   :defer t)
 
 (use-package compile
-  :straight (:type built-in)
   :custom
   (compilation-ask-about-save nil)
   (compilation-always-kill t)
   (compilation-scroll-output 'first-error))
 
 (use-package ansi-color
-  :straight (:type built-in)
-  :hook (compilation-filter . colorize-compilation-buffer)
+  :hook
+  (compilation-filter . colorize-compilation-buffer)
   :config
   (defun colorize-compilation-buffer ()
     (ansi-color-apply-on-region compilation-filter-start (point))))
 
 (use-package paren
-  :straight (:type built-in)
   :init
   (show-paren-mode 1)
   :custom
   (show-paren-delay 0.0))
 
 (use-package electric-pair
-  :straight (:type built-in)
-  :hook (prog-mode . electric-pair-mode))
+  :hook
+  (prog-mode . electric-pair-mode))
 
 (use-package rainbow-delimiters
+  :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package docker
+  :ensure t
   :commands docker)
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+    :ensure t)
 
 (use-package envrc
+  :ensure t
   :init (envrc-global-mode))
 
 (use-package pyvenv
+  :ensure t
   :hook (python-mode . pyvenv-mode)
   :bind
   (:map python-mode-map
         ("C-c C-a" . pyvenv-activate)))
 
 (use-package blacken
+  :ensure t
   :after python
   :bind
   (:map python-mode-map
         ("C-c C-b" . blacken-buffer)))
 
 (use-package cc-mode
-  :straight (:type built-in)
   :defer t
   :custom
   (c-default-style "linux")
@@ -342,19 +376,16 @@
   (c-set-offset 'case-label '+))
 
 (use-package shell
-  :straight (:type built-in)
   :commands shell
   :config
   (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 (use-package term
-  :straight (:type built-in)
   :commands term
   :config
   (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 (use-package org
-  :straight (:type built-in)
   :config
   (defun org-mode-setup ()
     (display-line-numbers-mode 0)
@@ -365,13 +396,13 @@
   :hook (org-mode . org-mode-setup))
 
 (use-package org-bullets
+  :ensure t
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (use-package org-src
-  :straight (:type built-in)
   :after org
   :config
   (setq org-src-window-setup 'current-window)
@@ -380,6 +411,7 @@
   (setq org-src-tab-acts-natively t))
 
 (use-package org-present
+  :ensure t
   :after org
   :config
   (defun org-present-hook ()
@@ -409,10 +441,12 @@
     (org-show-entry)
     (org-show-children))
   (setq org-present-after-navigate-functions 'org-present-prepare)
-  :hook ((org-present-mode . org-present-hook)
-         (org-present-mode-quit . org-present-quit-hook)))
+  :hook
+  ((org-present-mode . org-present-hook)
+   (org-present-mode-quit . org-present-quit-hook)))
 
 (use-package helpful
+  :ensure t
   :bind
   ([remap describe-command] . helpful-command)
   ([remap describe-function] . helpful-callable)
@@ -421,9 +455,11 @@
   ([remap describe-variable] . helpful-variable))
 
 (use-package tldr
+  :ensure t
   :commands tldr)
 
 (use-package restclient
+  :ensure t
   :commands restclient-mode)
 
 (let ((local-file (expand-file-name "local.el" user-emacs-directory)))
