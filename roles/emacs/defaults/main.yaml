@@ -2,6 +2,5 @@
 emacs_packages:
   - emacs
 emacs_config_files:
-  - ~/.config/emacs/conf.el
   - ~/.config/emacs/early-init.el
   - ~/.config/emacs/init.el

@@ -1,11 +1,16 @@
-;; Do not make installed packages available at startup.
-(setq package-enable-at-startup nil)
-
 ;; Hide/Skip GUI stuff early.
-(setq frame-inhibit-implied-resize t)
-(tool-bar-mode -1)
+(setq frame-resize-pixelwise t
+      frame-inhibit-implied-resize t
+      use-dialog-box nil
+      use-file-dialog nil
+      inhibit-splash-screen t
+      inhibit-startup-screen t
+      inhibit-x-resources t
+      inhibit-startup-buffer-menu t)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
+(tool-bar-mode -1)
 (tooltip-mode -1)
-(setq inhibit-startup-screen t)
-(setq use-file-dialog nil)
+
+;; Do not make installed packages available at startup.
+(setq package-enable-at-startup nil)
