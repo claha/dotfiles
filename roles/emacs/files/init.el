@@ -373,16 +373,6 @@
   :config
   (c-set-offset 'case-label '+))
 
-(use-package shell
-  :commands shell
-  :config
-  (add-hook 'shell-mode-hook (lambda () (display-line-numbers-mode 0))))
-
-(use-package term
-  :commands term
-  :config
-  (add-hook 'term-mode-hook (lambda () (display-line-numbers-mode 0))))
-
 (use-package org
   :config
   (defun org-mode-setup ()
