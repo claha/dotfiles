@@ -30,9 +30,7 @@
   :ensure t
   :config
   (no-littering-theme-backups)
-  (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
-  (when (file-exists-p custom-file)
-    (load-file custom-file)))
+  (setq custom-file (make-temp-file "custom.el")))
 
 (use-package emacs
   :init
