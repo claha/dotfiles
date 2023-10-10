@@ -351,20 +351,6 @@
   :ensure t
   :init (envrc-global-mode))
 
-(use-package pyvenv
-  :ensure t
-  :hook (python-mode . pyvenv-mode)
-  :bind
-  (:map python-mode-map
-        ("C-c C-a" . pyvenv-activate)))
-
-(use-package blacken
-  :ensure t
-  :after python
-  :bind
-  (:map python-mode-map
-        ("C-c C-b" . blacken-buffer)))
-
 (use-package cc-mode
   :defer t
   :custom
