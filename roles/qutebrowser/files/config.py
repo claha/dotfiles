@@ -20,6 +20,10 @@ c.colors.webpage.darkmode.enabled = True
 # Which images to apply dark mode to.
 c.colors.webpage.darkmode.policy.images = "never"
 
+# Fonts
+c.fonts.default_family = "TerminessNerdFontMono"
+c.fonts.default_size = "20px"
+
 # Require a confirmation before quitting the application.
 c.confirm_quit = ["downloads"]
 
