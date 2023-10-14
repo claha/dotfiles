@@ -2,6 +2,6 @@
 python -m venv /tmp/venv --prompt ansible
 # shellcheck source=/dev/null
 source /tmp/venv/bin/activate
-pip install --upgrade pip ansible==8.5.0 --quiet
+pip install --upgrade --quiet --requirement requirements.txt
 
 ansible-playbook main.yaml
