@@ -4,3 +4,10 @@ emacs_packages:
 emacs_config_files:
   - ~/.config/emacs/early-init.el
   - ~/.config/emacs/init.el
+  - ~/.config/emacs/package-management.el
+  - ~/.config/emacs/user-interface.el
+  - ~/.config/emacs/completion.el
+  - ~/.config/emacs/version-control.el
+  - ~/.config/emacs/software-development.el
+  - ~/.config/emacs/org.el
+  - ~/.config/emacs/misc.el
