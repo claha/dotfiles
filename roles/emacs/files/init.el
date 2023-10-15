@@ -69,10 +69,10 @@
   (visual-fill-column-width 50)
   (visual-fill-column-center-text t))
 
-(use-package doom-themes
+(use-package ef-themes
   :ensure t
   :init
-  (load-theme 'doom-material t))
+  (load-theme 'ef-maris-dark t))
 
 (use-package doom-modeline
   :ensure t
