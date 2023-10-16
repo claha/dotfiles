@@ -1,6 +1,6 @@
 [global]
     frame_width = 1
-    frame_color = "#285577"
+    frame_color = "#eaedef"
     font = TerminessNerdFontMono
 
     # Allow a small subset of html markup:
@@ -131,7 +131,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = "#285577"
+    separator_color = "frame"
 
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -176,18 +176,18 @@
     context = ctrl+mod1+c
 
 [urgency_low]
-    background = "#263238"
-    foreground = "#556064"
+    background = "#104420"
+    foreground = "#eaedef"
     timeout = 5
 
 [urgency_normal]
-    background = "#263238"
-    foreground = "#F9FAF9"
+    background = "#403f20"
+    foreground = "#eaedef"
     timeout = 5
 
 [urgency_critical]
-    background = "#D62929"
-    foreground = "#F9FAF9"
+    background = "#551525"
+    foreground = "#eaedef"
     timeout = 0
 
 # Every section that isn't one of the above is interpreted as a rules to
