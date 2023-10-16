@@ -6,7 +6,7 @@ window:
   padding:
     x: 2
     y: 2
-  opacity: 0.95
+  opacity: 0.90
 
 # Font configuration
 font:
@@ -20,8 +20,8 @@ draw_bold_text_with_bright_colors: true
 # Colors
 colors:
   primary:
-    background: '#263238'
-    foreground: '#EEFFFF'
+    background: '#000000'
+    foreground: '#FFFFFF'
 
 # Bell
 bell:
