@@ -1,37 +1,37 @@
 * {
-    red:                         rgba ( 220, 50, 47, 100 % );
+    red:                         #ff6f6f;
     selected-active-foreground:  var(background);
-    lightfg:                     rgba ( 191, 199, 213, 100 % );
+    lightfg:                     #969faf;
     separatorcolor:              var(foreground);
     urgent-foreground:           var(red);
     alternate-urgent-background: var(lightbg);
-    lightbg:                     rgba ( 28, 38, 43, 100 % );
+    lightbg:                     #1d2c39;
     background-color:            rgba ( 0, 0, 0, 0 % );
     border-color:                var(foreground);
     normal-background:           var(background);
     selected-urgent-background:  var(red);
     alternate-active-background: var(lightbg);
     spacing:                     2;
-    blue:                        rgba ( 38, 139, 210, 100 % );
+    blue:                        #57b0ff;
     alternate-normal-foreground: var(foreground);
     urgent-background:           var(background);
     selected-normal-foreground:  var(lightbg);
     active-foreground:           var(blue);
-    background:                  rgba ( 38, 50, 56, 100 % );
+    background:                  #131c2b;
     selected-active-background:  var(blue);
     active-background:           var(background);
     selected-normal-background:  var(lightfg);
     alternate-normal-background: var(lightbg);
-    foreground:                  rgba ( 238, 255, 255, 100 % );
+    foreground:                  #eaedef;
     selected-urgent-foreground:  var(background);
     normal-foreground:           var(foreground);
     alternate-urgent-foreground: var(red);
     alternate-active-foreground: var(blue);
 }
 element {
-    padding: 1px ;
+    padding: 1px;
     cursor:  pointer;
-    spacing: 5px ;
+    spacing: 5px;
     border:  0;
 }
 element normal.normal {
@@ -71,14 +71,12 @@ element alternate.active {
     text-color:       var(alternate-active-foreground);
 }
 element-text {
-    background-color: rgba ( 0, 0, 0, 0 % );
     cursor:           inherit;
     highlight:        inherit;
     text-color:       inherit;
 }
 element-icon {
-    background-color: rgba ( 0, 0, 0, 0 % );
-    size:             1.0000em ;
+    size:             1.0000em;
     cursor:           inherit;
     text-color:       inherit;
 }
@@ -92,31 +90,31 @@ mainbox {
     border:  0;
 }
 message {
-    padding:      1px ;
+    padding:      1px;
     border-color: var(separatorcolor);
-    border:       2px dash 0px 0px ;
+    border:       2px dash 0px 0px;
 }
 textbox {
     text-color: var(foreground);
 }
 listview {
-    padding:      2px 0px 0px ;
+    padding:      2px 0px 0px;
     scrollbar:    false;
     border-color: var(separatorcolor);
-    spacing:      2px ;
+    spacing:      2px;
     fixed-height: 0;
-    border:       2px dash 0px 0px ;
+    border:       2px dash 0px 0px;
 }
 scrollbar {
-    width:        4px ;
+    width:        4px;
     padding:      0;
-    handle-width: 8px ;
+    handle-width: 8px;
     border:       0;
     handle-color: var(normal-foreground);
 }
 sidebar {
     border-color: var(separatorcolor);
-    border:       2px dash 0px 0px ;
+    border:       2px dash 0px 0px;
 }
 button {
     cursor:     pointer;
@@ -129,20 +127,20 @@ button selected {
 }
 num-filtered-rows {
     expand:     false;
-    text-color: rgba ( 128, 128, 128, 100 % );
+    text-color: var(lightfg);
 }
 num-rows {
     expand:     false;
-    text-color: rgba ( 128, 128, 128, 100 % );
+    text-color: var(lightfg);
 }
 textbox-num-sep {
     expand:     false;
     str:        "/";
-    text-color: rgba ( 128, 128, 128, 100 % );
+    text-color: var(lightfg);
 }
 inputbar {
-    padding:    1px ;
-    spacing:    0px ;
+    padding:    1px;
+    spacing:    0px;
     text-color: var(normal-foreground);
     children:   [ prompt,textbox-prompt-colon,entry,num-filtered-rows,textbox-num-sep,num-rows,case-indicator ];
 }
@@ -154,7 +152,7 @@ entry {
     text-color:        var(normal-foreground);
     cursor:            text;
     spacing:           0;
-    placeholder-color: rgba ( 128, 128, 128, 100 % );
+    placeholder-color: var(lightfg);
     placeholder:       "Type to filter";
 }
 prompt {
@@ -162,7 +160,7 @@ prompt {
     text-color: var(normal-foreground);
 }
 textbox-prompt-colon {
-    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    margin:     0px 0.3000em 0.0000em 0.0000em;
     expand:     false;
     str:        ":";
     text-color: inherit;
