@@ -5,7 +5,6 @@ rofi_packages:
     - rofi-pass
   Debian:
     - rofi
-    # - rofi-pass
 rofi_packages_aur:
   - pinentry-rofi
   - rofi-bluetooth-git
