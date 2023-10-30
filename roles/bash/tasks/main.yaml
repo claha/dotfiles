@@ -28,6 +28,12 @@
       changed_when: true
       when: bash_which_starship.rc == 1
 
+- name: Create .local/bin folder
+  ansible.builtin.file:
+    path: "~/.local/bin"
+    state: directory
+    mode: "0755"
+
 - name: Link config files
   ansible.builtin.include_role:
     name: link_config
