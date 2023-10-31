@@ -19,6 +19,20 @@
     mode: "0775"
   when: ansible_facts.os_family == "Debian"
 
+- name: Download rofi-bluetooth
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/nickclyde/rofi-bluetooth/master/rofi-bluetooth  # yamllint disable-line rule:line-length
+    dest: ~/.local/bin
+    mode: "0775"
+  when: ansible_facts.os_family == "Debian"
+
+- name: Download rofi-power-menu
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/jluttine/rofi-power-menu/master/rofi-power-menu  # yamllint disable-line rule:line-length
+    dest: ~/.local/bin
+    mode: "0775"
+  when: ansible_facts.os_family == "Debian"
+
 - name: Link config files
   ansible.builtin.include_role:
     name: link_config
