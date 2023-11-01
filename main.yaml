@@ -41,8 +41,6 @@
       tags: gnupg
     - role: ssh
       tags: ssh
-    - role: bitwarden
-      tags: bitwarden
     - role: python
       tags: python
     - role: docker

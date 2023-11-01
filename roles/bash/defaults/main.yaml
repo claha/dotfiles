@@ -2,6 +2,7 @@
 bash_packages:
   Archlinux:
     - bash
+    - bitwarden-cli
     - curl
     - direnv
     - eza
