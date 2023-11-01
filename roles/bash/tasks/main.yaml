@@ -24,13 +24,13 @@
     - name: Download starship install script
       ansible.builtin.get_url:
         url: https://starship.rs/install.sh
-        dest: /tmp/install.sh
+        dest: /tmp/install-starship.sh
         mode: "0775"
       when: bash_which_starship.rc == 1
 
     - name: Run starship install script
       become: true
-      ansible.builtin.command: /tmp/install.sh --force
+      ansible.builtin.command: /tmp/install-starship.sh --force
       changed_when: true
       when: bash_which_starship.rc == 1
 
@@ -40,6 +40,25 @@
         dest: "~/.local/bin"
         mode: "0755"
         remote_src: true
+
+    - name: Check if just is already installed
+      ansible.builtin.command: which just
+      failed_when: false
+      changed_when: false
+      check_mode: false
+      register: bash_which_just
+
+    - name: Download just install script
+      ansible.builtin.get_url:
+        url: https://just.systems/install.sh
+        dest: /tmp/install-just.sh
+        mode: "0775"
+      when: bash_which_just.rc == 1
+
+    - name: Run just install script
+      ansible.builtin.command: /tmp/install-just.sh --to ~/.local/bin
+      changed_when: true
+      when: bash_which_just.rc == 1
 
 - name: Link config files
   ansible.builtin.include_role:

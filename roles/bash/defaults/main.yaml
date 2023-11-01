@@ -26,7 +26,6 @@ bash_packages:
     - exa
     - fzf
     - jq
-    # - just
     - pass
     - silversearcher-ag
     - tar
