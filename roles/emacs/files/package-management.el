@@ -15,9 +15,13 @@
 (unless package-archive-contents
   (package-refresh-contents t))
 
+(use-package use-package-ensure
+  :ensure t
+  :custom
+  (use-package-always-ensure t))
+
 ;; Install this first to keep it clean
 (use-package no-littering
-  :ensure t
   :config
   (no-littering-theme-backups)
   (setq custom-file (make-temp-file "custom.el")))

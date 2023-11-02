@@ -33,14 +33,11 @@
     (ansi-color-apply-on-region compilation-filter-start (point))))
 
 (use-package docker
-  :ensure t
   :commands docker)
 
-(use-package dockerfile-mode
-    :ensure t)
+(use-package dockerfile-mode)
 
 (use-package envrc
-  :ensure t
   :init (envrc-global-mode))
 
 (use-package cc-mode
@@ -52,5 +49,4 @@
   (c-set-offset 'case-label '+))
 
 (use-package restclient
-  :ensure t
   :commands restclient-mode)

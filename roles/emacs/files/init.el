@@ -33,7 +33,6 @@
   (setq large-file-warning-threshold nil))
 
 (use-package visual-fill-column
-  :ensure t
   :custom
   (visual-fill-column-width 50)
   (visual-fill-column-center-text t))
@@ -44,20 +43,14 @@
 
 (use-package project)
 
-(use-package dired
-  :commands (dired dired-jump)
-  :bind
-  ("C-x C-j" . dired-jump)
-  :custom
-  (dired-listing-switches "-aghov --group-directories-first"))
-
 (use-package dired-single
-  :ensure t
   :after dired
   :bind
   (:map dired-mode-map
         ([remap dired-find-file] . dired-single-buffer)
-        ([remap dired-up-directory] . dired-single-up-directory)))
+        ([remap dired-up-directory] . dired-single-up-directory))
+  :custom
+  (dired-listing-switches "-aghov --group-directories-first"))
 
 (use-package ibuffer
   :bind
@@ -65,31 +58,26 @@
    ("C-x k" . kill-this-buffer)))
 
 (use-package ace-window
-  :ensure t
   :bind
   ("C-x o" . ace-window)
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package ag
-  :ensure t
   :commands ag)
 
 (use-package dumb-jump
-  :ensure t
   :config
   (setq dumb-jump-force-searcher 'ag)
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package hungry-delete
-  :ensure t
   :custom
   (hungry-delete-join-reluctantly t)
   :hook
   (after-init . global-hungry-delete-mode))
 
-(use-package wgrep
-  :ensure t)
+(use-package wgrep)
 
 (use-package paren
   :init
@@ -97,12 +85,9 @@
   :custom
   (show-paren-delay 0.0))
 
-(use-package electric-pair
-  :hook
-  (prog-mode . electric-pair-mode))
+(add-hook 'prog-mode-hook #'electric-pair-mode)
 
 (use-package rainbow-delimiters
-  :ensure t
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (let ((local-file (expand-file-name "local.el" user-emacs-directory)))

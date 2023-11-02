@@ -12,12 +12,10 @@
 (global-unset-key (kbd "<S-down-mouse-3>"))
 
 (use-package ef-themes
-  :ensure t
   :init
   (load-theme 'ef-maris-dark t))
 
 (use-package doom-modeline
-  :ensure t
   :hook
   (after-init . doom-modeline-mode)
   :custom
@@ -28,14 +26,11 @@
   (setq doom-modeline-icon t))
 
 (use-package minions
-  :ensure t
   :hook
   (doom-modeline-mode . minions-mode))
 
-(use-package all-the-icons
-  :ensure t)
+(use-package all-the-icons)
 
 (use-package nerd-icons
-  :ensure t
   :custom
   (nerd-icons-font-family "Symbols Nerd Font Mono"))

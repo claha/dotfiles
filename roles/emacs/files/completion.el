@@ -1,16 +1,13 @@
 (use-package vertico
-  :ensure t
   :hook
   (after-init . vertico-mode))
 
 (use-package prescient
-  :ensure t
   :after vertico
   :config
   (prescient-persist-mode 1))
 
 (use-package orderless
-  :ensure t
   :init
   (setq completion-category-defaults nil)
   :custom
@@ -18,7 +15,6 @@
   (completion-category-overrides '((file (styles . (basic partial-completion))))))
 
 (use-package corfu
-  :ensure t
   :custom
   (corfu-cycle t)
   (corfu-auto t)
@@ -33,21 +29,18 @@
   (global-corfu-mode))
 
 (use-package cape
-  :ensure t
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   :bind
   ("C-." . cape-dabbrev))
 
 (use-package marginalia
-  :ensure t
   :custom
   (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
   :hook
   (vertico-mode . marginalia-mode))
 
 (use-package consult
-  :ensure t
   :bind (("C-x b" . consult-buffer)
          ("C-x 4 b" . consult-buffer-other-window)
          ("C-x 5 b" . consult-buffer-other-frame)
@@ -87,14 +80,12 @@
             (car (project-roots project))))))
 
 (use-package embark
-  :ensure t
   :bind
   ("C-," . embark-act)
   :init
   (setq prefix-help-command #'embark-prefix-help-command))
 
 (use-package embark-consult
-  :ensure t
   :after (embark consult))
 
 (use-package dabbrev

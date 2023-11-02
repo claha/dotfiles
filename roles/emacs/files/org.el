@@ -6,25 +6,19 @@
     (org-indent-mode))
   (setq org-ellipsis " ▾")
   (setq org-hide-emphasis-markers t)
+  (setq org-src-window-setup 'current-window)
+  (setq org-src-fontify-natively t)
+  (setq org-src-preserve-indentation t)
+  (setq org-src-tab-acts-natively t)
   :hook (org-mode . org-mode-setup))
 
 (use-package org-bullets
-  :ensure t
   :after org
   :hook (org-mode . org-bullets-mode)
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-(use-package org-src
-  :after org
-  :config
-  (setq org-src-window-setup 'current-window)
-  (setq org-src-fontify-natively t)
-  (setq org-src-preserve-indentation t)
-  (setq org-src-tab-acts-natively t))
-
 (use-package org-present
-  :ensure t
   :after org
   :config
   (defun org-present-hook ()
