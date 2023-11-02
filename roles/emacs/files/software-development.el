@@ -1,19 +1,15 @@
 (customize-set-variable 'indent-tabs-mode nil)
 (customize-set-variable 'tab-width 4)
 
+(add-to-list 'auto-mode-alist '("\\CMakeLists.txt\\'" . cmake-ts-mode))
+(add-to-list 'auto-mode-alist '("\\Dockerfile\\'" . dockerfile-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+
 (use-package yaml-mode
   :defer t)
 
 (use-package jinja2-mode
-  :defer t)
-
-(use-package cmake-mode
-  :defer t)
-
-(use-package rust-mode
-  :defer t)
-
-(use-package go-mode
   :defer t)
 
 (use-package flycheck
@@ -34,8 +30,6 @@
 
 (use-package docker
   :commands docker)
-
-(use-package dockerfile-mode)
 
 (use-package envrc
   :init (envrc-global-mode))
