@@ -1,2 +1,6 @@
+{% if ansible_facts.os_family == "Debian" %}
+[Seat:*]
+greeter-session=slick-greeter
+{% endif %}
 [Greeter]
 background={{ background_path }}/brac.jpg

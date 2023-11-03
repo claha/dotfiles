@@ -19,6 +19,15 @@
     src: "{{ role_path }}/templates/slick-greeter.conf.j2"
     dest: "{{ lightdm_config_dir }}/slick-greeter.conf"
     mode: "0644"
+  when: ansible_facts.os_family == "Archlinux"
+
+- name: Configure lightdm slick greeter
+  become: true
+  ansible.builtin.template:
+    src: "{{ role_path }}/templates/slick-greeter.conf.j2"
+    dest: "/usr/share/lightdm/lightdm.conf.d/99-slick-greeter.conf"
+    mode: "0644"
+  when: ansible_facts.os_family == "Debian"
 
 - name: Enable and start service
   become: true
