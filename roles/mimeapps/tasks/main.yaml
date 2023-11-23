@@ -1,6 +1,0 @@
----
-- name: Link config files
-  ansible.builtin.include_role:
-    name: link_config
-  vars:
-    link_config_files: "{{ mimeapps_config_files }}"

@@ -4,3 +4,4 @@ qutebrowser_packages:
 qutebrowser_config_files:
   - ~/.config/qutebrowser/config.py
   - ~/.config/qutebrowser/quickmarks
+  - ~/.config/mimeapps.list

@@ -35,8 +35,6 @@
       tags: mpv
     - role: qutebrowser
       tags: qutebrowser
-    - role: mimeapps
-      tags: mimeapps
     - role: gnupg
       tags: gnupg
     - role: ssh
