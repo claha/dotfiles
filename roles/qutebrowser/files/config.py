@@ -58,13 +58,13 @@ c.tabs.last_close = "default-page"
 c.tabs.show = "never"
 
 # Page to open if :open -t/-b/-w is used without URL.
-c.url.default_page = "https://start.duckduckgo.com/"
+c.url.default_page = "https://search.brave.com"
 
 # Search engines which can be used via the address bar.
-c.url.searchengines = {"DEFAULT": "https://duckduckgo.com/?q={}"}
+c.url.searchengines = {"DEFAULT": "https://search.brave.com/search?q={}"}
 
 # Page(s) to open at the start.
-c.url.start_pages = ["https://start.duckduckgo.com"]
+c.url.start_pages = [c.url.default_page]
 
 # Do not load the autoconfig file
 config.load_autoconfig(load_config=False)
