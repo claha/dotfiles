@@ -5,8 +5,8 @@
     name: "{{ emacs_packages }}"
     state: latest
 
-- name: Link config files
+- name: Add config
   ansible.builtin.include_role:
-    name: link_config
+    name: add_config
   vars:
-    link_config_files: "{{ emacs_config_files }}"
+    add_config_files: "{{ emacs_config_files }}"

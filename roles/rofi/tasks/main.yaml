@@ -33,8 +33,8 @@
     mode: "0775"
   when: ansible_facts.os_family == "Debian"
 
-- name: Link config files
+- name: Add config
   ansible.builtin.include_role:
-    name: link_config
+    name: add_config
   vars:
-    link_config_files: "{{ rofi_config_files }}"
+    add_config_files: "{{ rofi_config_files }}"

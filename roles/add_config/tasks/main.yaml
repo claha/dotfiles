@@ -4,12 +4,12 @@
     path: "{{ item | ansible.builtin.dirname }}"
     state: directory
     mode: "0755"
-  loop: "{{ link_config_files }}"
+  loop: "{{ add_config_files }}"
 
 - name: Create link
   ansible.builtin.file:
     src: "{{ ansible_parent_role_paths[0] }}/files//{{ item | ansible.builtin.basename | regex_replace('^\\.', '') }}"  # yamllint disable-line rule:line-length
     dest: "{{ item }}"
     state: link
-    force: "{{ link_config_file_force }}"
-  loop: "{{ link_config_files }}"
+    force: "{{ add_config_file_force }}"
+  loop: "{{ add_config_files }}"
