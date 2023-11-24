@@ -16,4 +16,4 @@
   ansible.builtin.include_role:
     name: add_config
   vars:
-    add_config_files: "{{ git_config_files }}"
+    add_config_templates: "{{ git_config_templates }}"
