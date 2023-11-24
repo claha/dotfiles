@@ -29,8 +29,7 @@
       when: bash_which_starship.rc == 1
 
     - name: Run starship install script
-      become: true
-      ansible.builtin.command: /tmp/install-starship.sh --force
+      ansible.builtin.command: /tmp/install-starship.sh --force --bin-dir ~/.local/bin  # yamllint disable-line rule:line-length
       changed_when: true
       when: bash_which_starship.rc == 1
 
