@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ rofi_packages[ansible_facts.os_family] }}"
     state: latest
+  when: can_become
 
 - name: Install aur package
   ansible.builtin.include_role:

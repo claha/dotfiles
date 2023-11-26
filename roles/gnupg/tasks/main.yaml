@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ gnupg_packages }}"
     state: latest
+  when: can_become
 
 - name: Create directory
   ansible.builtin.file:

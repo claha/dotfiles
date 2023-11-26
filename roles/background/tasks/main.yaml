@@ -7,6 +7,7 @@
     mode: "0755"
     owner: root
     group: root
+  when: can_become
 
 - name: Add images
   become: true
@@ -14,3 +15,4 @@
     src: "files/"
     dest: "{{ background_path }}"
     mode: "0644"
+  when: can_become

@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ lightdm_packages[ansible_facts.os_family] }}"
     state: latest
+  when: can_become
 
 - name: Use lightdm slick greeter
   become: true
@@ -11,7 +12,7 @@
     path: "{{ lightdm_config_dir }}/lightdm.conf"
     regexp: "^[#]?greeter-session="
     line: "greeter-session=lightdm-slick-greeter"
-  when: ansible_facts.os_family == "Archlinux"
+  when: ansible_facts.os_family == "Archlinux" and can_become
 
 - name: Create slick greeter config
   become: true
@@ -19,7 +20,7 @@
     src: "{{ role_path }}/templates/slick-greeter.conf.j2"
     dest: "{{ lightdm_config_dir }}/slick-greeter.conf"
     mode: "0644"
-  when: ansible_facts.os_family == "Archlinux"
+  when: ansible_facts.os_family == "Archlinux" and can_become
 
 - name: Configure lightdm slick greeter
   become: true
@@ -27,7 +28,7 @@
     src: "{{ role_path }}/templates/slick-greeter.conf.j2"
     dest: "/usr/share/lightdm/lightdm.conf.d/99-slick-greeter.conf"
     mode: "0644"
-  when: ansible_facts.os_family == "Debian"
+  when: ansible_facts.os_family == "Debian" and can_become
 
 - name: Enable and start service
   become: true
@@ -36,4 +37,4 @@
     enabled: true
     state: started
   loop: "{{ lightdm_services }}"
-  when: ansible_facts.virtualization_type != "docker"
+  when: ansible_facts.virtualization_type != "docker" and can_become

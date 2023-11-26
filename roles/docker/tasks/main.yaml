@@ -4,14 +4,7 @@
   ansible.builtin.package:
     name: "{{ docker_packages }}"
     state: latest
-
-- name: Add to group
-  become: true
-  ansible.builtin.user:
-    name: claes
-    groups: docker
-    append: true
-  when: false
+  when: can_become
 
 - name: Enable and start service
   become: true
@@ -20,4 +13,4 @@
     enabled: true
     state: started
   loop: "{{ docker_services }}"
-  when: ansible_facts.virtualization_type != "docker"
+  when: ansible_facts.virtualization_type != "docker" and can_become

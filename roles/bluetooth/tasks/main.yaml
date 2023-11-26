@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ bluetooth_packages[ansible_facts.os_family] }}"
     state: latest
+  when: can_become
 
 - name: Enable and start service
   become: true
@@ -12,4 +13,4 @@
     enabled: true
     state: started
   loop: "{{ bluetooth_services }}"
-  when: ansible_facts.virtualization_type != "docker"
+  when: ansible_facts.virtualization_type != "docker" and can_become

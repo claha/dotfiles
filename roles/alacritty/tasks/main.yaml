@@ -4,7 +4,7 @@
   ansible.builtin.package:
     name: "{{ alacritty_packages }}"
     state: latest
-  when: ansible_facts.os_family == "Archlinux"
+  when: ansible_facts.os_family == "Archlinux" and can_become
 
 - name: Add config
   ansible.builtin.include_role:

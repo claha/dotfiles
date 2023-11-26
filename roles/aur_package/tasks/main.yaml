@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ aur_package_packages }}"
     state: latest
+  when: can_become
 
 - name: Clone aur package
   ansible.builtin.git:
@@ -12,6 +13,7 @@
     force: true
   changed_when: false
   loop: "{{ aur_package_names }}"
+  when: can_become
 
 - name: Install aur package
   ansible.builtin.command:
@@ -20,3 +22,4 @@
   register: aur_package_install
   changed_when: "'there is nothing to do' not in aur_package_install.stdout"
   loop: "{{ aur_package_names }}"
+  when: can_become

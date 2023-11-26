@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ bash_packages[ansible_facts.os_family] }}"
     state: latest
+  when: can_become
 
 - name: Create .local/bin folder
   ansible.builtin.file:

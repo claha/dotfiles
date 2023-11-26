@@ -4,6 +4,7 @@
   ansible.builtin.package:
     name: "{{ qutebrowser_packages }}"
     state: latest
+  when: can_become
 
 - name: Add config
   ansible.builtin.include_role:
