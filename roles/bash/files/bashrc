@@ -41,3 +41,8 @@ source /usr/local/share/bash-completion/completions/git
 # Active direnv
 eval "$(direnv hook bash)"
 export DIRENV_LOG_FORMAT=""
+
+# Load local bashrc if it exists
+if [ -e $HOME/.bashrc.local ]; then
+  source $HOME/.bashrc.local
+fi
