@@ -3,7 +3,7 @@
 (column-number-mode t)
 (customize-set-variable 'visible-bell t)
 (set-window-scroll-bars (minibuffer-window) nil nil)
-(add-to-list 'default-frame-alist '(alpha-background . 90))
+(add-to-list 'default-frame-alist '(alpha-background . 70))
 (global-unset-key (kbd "<C-down-mouse-1>"))
 (global-unset-key (kbd "<C-down-mouse-2>"))
 (global-unset-key (kbd "<C-down-mouse-3>"))
