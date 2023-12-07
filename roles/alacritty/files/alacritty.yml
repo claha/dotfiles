@@ -63,3 +63,7 @@ hints:
       binding:
         key: P
         mods: Control|Shift
+
+# Import local config
+import:
+  - ~/.config/alacritty/local.yml
