@@ -5,5 +5,6 @@ skip_list:
 
 mock_modules:
   - community.crypto.openssh_keypair
+  - community.general.docker_container
   - community.general.pacman
   - community.general.pipx
