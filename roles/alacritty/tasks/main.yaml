@@ -6,6 +6,32 @@
     state: latest
   when: ansible_facts.os_family == "Archlinux" and can_become
 
+- name: Build alacritty
+  when: ansible_facts.os_family == "Debian" and ansible_facts.virtualization_type != "docker"  # yamllint disable-line rule:line-length
+  block:
+    - name: Create temporary directory
+      ansible.builtin.file:
+        path: /tmp/docker-rust
+        state: directory
+        mode: "0755"
+
+    - name: Build alacritty inside docker container
+      community.general.docker_container:
+        name: alacritty_installer
+        image: rust
+        command: cargo install alacritty --target-dir /tmp
+        cleanup: true
+        detach: false
+        volumes:
+          - /tmp/docker-rust/:/tmp/release
+
+    - name: Copy alacritty binary to ~/.local/bin
+      ansible.builtin.copy:
+        src: /tmp/docker-rust/alacritty
+        dest: ~/.local/bin/
+        remote_src: true
+        mode: "0755"
+
 - name: Add config
   ansible.builtin.include_role:
     name: add_config
