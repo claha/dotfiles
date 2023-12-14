@@ -4,7 +4,12 @@
   ansible.builtin.package:
     name: "{{ docker_packages }}"
     state: latest
-  when: can_become
+  when: ansible_facts.os_family == "Archlinux" and can_become
+
+- name: Install docker
+  ansible.builtin.include_role:
+    name: geerlingguy.docker
+  when: ansible_facts.os_family == "Debian" and can_become and ansible_facts.virtualization_type != "docker"  # yamllint disable-line rule:line-length
 
 - name: Enable and start service
   become: true

@@ -4,4 +4,5 @@ python -m venv /tmp/venv --prompt ansible
 source /tmp/venv/bin/activate
 pip install --upgrade --quiet --requirement requirements.txt
 
+ansible-galaxy install -r requirements.yaml
 ansible-playbook main.yaml

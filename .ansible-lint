@@ -3,6 +3,9 @@ skip_list:
   - package-latest
   - latest[git]
 
+mock_roles:
+  - geerlingguy.docker
+
 mock_modules:
   - community.crypto.openssh_keypair
   - community.general.docker_container

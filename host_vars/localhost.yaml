@@ -1,3 +1,5 @@
 ---
 can_become: true
 gpg_key_id: 957A412F3C40DFCA
+docker_install_compose_plugin: true
+docker_install_compose: false
