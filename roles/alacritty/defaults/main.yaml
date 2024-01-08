@@ -2,4 +2,4 @@
 alacritty_packages:
   - alacritty
 alacritty_config_files:
-  - ~/.config/alacritty/alacritty.yml
+  - ~/.config/alacritty/alacritty.toml
