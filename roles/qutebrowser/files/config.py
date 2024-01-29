@@ -4,6 +4,7 @@ Documentation:
     qute://help/configuring.html
     qute://help/settings.html
 """  # noqa: INP001
+
 c = c  # noqa: F821 PLW0127
 config = config  # noqa: F821 PLW0127
 
