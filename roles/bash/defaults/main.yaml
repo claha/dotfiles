@@ -19,6 +19,7 @@ bash_packages:
     - wget
     - xclip
     - xz
+    - zoxide
   Debian:
     - bash
     - curl
@@ -35,6 +36,7 @@ bash_packages:
     - wget
     - xclip
     - xz-utils
+    - zoxide
 bash_config_files:
   - ~/.bashrc
   - ~/.vimrc
