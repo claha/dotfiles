@@ -15,10 +15,8 @@
 (unless package-archive-contents
   (package-refresh-contents t))
 
-(use-package use-package-ensure
-  :ensure t
-  :custom
-  (use-package-always-ensure t))
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 ;; Install this first to keep it clean
 (use-package no-littering
