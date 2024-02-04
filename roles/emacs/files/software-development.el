@@ -45,3 +45,6 @@
 
 (use-package restclient
   :commands restclient-mode)
+
+(use-package nix-mode
+  :defer t)
