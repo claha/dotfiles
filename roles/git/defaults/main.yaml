@@ -2,10 +2,12 @@
 git_packages:
   Archlinux:
     - git
+    - git-delta
   Debian:
     - git
     - git-completion
 git_packages_aur:
   - git-completion
+  - diffr
 git_config_templates:
   - ~/.config/git/config
