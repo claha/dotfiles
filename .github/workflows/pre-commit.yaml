@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install virtualenv==v20.24.5  # temp fix for gitlint
-      - uses: pre-commit/action@v3.0.0
-      - uses: pre-commit/action@v3.0.0
+      - uses: pre-commit/action@v3.0.1
+      - uses: pre-commit/action@v3.0.1
         with:
           extra_args: --hook-stage manual gitlint-ci
