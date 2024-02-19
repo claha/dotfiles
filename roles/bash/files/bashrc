@@ -43,7 +43,7 @@ eval "$(direnv hook bash)"
 export DIRENV_LOG_FORMAT=""
 
 # Setup zoxide
-eval "$(zoxide init bash)"
+eval "$(zoxide init --cmd cd bash)"
 
 # Load local bashrc if it exists
 if [ -e $HOME/.bashrc.local ]; then
