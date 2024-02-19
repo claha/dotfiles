@@ -125,3 +125,6 @@
   (dabbrev-case-distinction nil)
   (dabbrev-case-fold-search t)
   (dabbrev-upcase-means-case-search t))
+
+(use-package zoxide
+  :bind (("C-x C-z" . zoxide-find-file)))
