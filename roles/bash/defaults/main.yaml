@@ -16,6 +16,7 @@ bash_packages:
     - tar
     - the_silver_searcher
     - tldr
+    - tmux
     - unzip
     - vim
     - wget
@@ -34,6 +35,7 @@ bash_packages:
     - silversearcher-ag
     - tar
     - tldr
+    - tmux
     - unzip
     - vim
     - wget
@@ -43,4 +45,5 @@ bash_packages:
 bash_config_files:
   - ~/.bashrc
   - ~/.vimrc
+  - ~/.tmux.conf
   - ~/.config/starship.toml
