@@ -18,7 +18,7 @@ jobs:
       image: archlinux:latest
       options: --privileged
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.2
       - run: |
           pacman --sync --refresh --noconfirm --sysupgrade python sudo
           useradd ansible --create-home
@@ -32,7 +32,7 @@ jobs:
       image: ubuntu:latest
       options: --privileged
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v4.1.2
       - run: |
           apt update
           apt upgrade --yes
