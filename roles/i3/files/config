@@ -8,7 +8,7 @@ default_border none
 hide_edge_borders both
 
 # Configure gaps
-gaps inner 3px
+gaps inner 6px
 gaps outer 0px
 smart_gaps off
 
