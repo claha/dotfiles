@@ -59,10 +59,10 @@ c.tabs.last_close = "default-page"
 c.tabs.show = "never"
 
 # Page to open if :open -t/-b/-w is used without URL.
-c.url.default_page = "https://search.brave.com"
+c.url.default_page = "https://startpage.com"
 
 # Search engines which can be used via the address bar.
-c.url.searchengines = {"DEFAULT": "https://search.brave.com/search?q={}"}
+c.url.searchengines = {"DEFAULT": "https://startpage.com/sp/search?q={}"}
 
 # Page(s) to open at the start.
 c.url.start_pages = [c.url.default_page]
