@@ -58,7 +58,7 @@ repos:
       - id: add-trailing-comma
 
   - repo: https://github.com/psf/black
-    rev: 24.4.1
+    rev: 24.4.2
     hooks:
       - id: black
 
