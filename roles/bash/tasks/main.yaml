@@ -6,6 +6,13 @@
     state: latest
   when: can_become
 
+- name: Install aur package
+  ansible.builtin.include_role:
+    name: aur_package
+  vars:
+    aur_package_names: "{{ bash_packages_aur }}"
+  when: ansible_facts.os_family == "Archlinux"
+
 - name: Create .local/bin folder
   ansible.builtin.file:
     path: "~/.local/bin"

@@ -45,6 +45,9 @@ export DIRENV_LOG_FORMAT=""
 # Setup zoxide
 eval "$(zoxide init --cmd cd bash)"
 
+# Setup atuin
+eval "$(atuin init bash --disable-up-arrow --disable-ctrl-r)"
+
 # Load local bashrc if it exists
 if [ -e $HOME/.bashrc.local ]; then
   source $HOME/.bashrc.local

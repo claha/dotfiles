@@ -1,6 +1,7 @@
 ---
 bash_packages:
   Archlinux:
+    - atuin
     - bash
     - bitwarden-cli
     - curl
@@ -43,6 +44,8 @@ bash_packages:
     - xclip
     - xz-utils
     - zoxide
+bash_packages_aur:
+  - blesh
 bash_config_files:
   - ~/.bashrc
   - ~/.vimrc
