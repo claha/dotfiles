@@ -1,4 +1,5 @@
 ---
 aur_package_packages:
   - base-devel
+  - git
   - cmake
