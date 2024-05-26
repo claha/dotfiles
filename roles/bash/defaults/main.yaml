@@ -30,7 +30,7 @@ bash_packages:
     - curl
     - direnv
     - duf
-    - exa
+    - eza
     - fzf
     - jq
     - pass
