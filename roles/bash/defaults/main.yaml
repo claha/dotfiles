@@ -3,6 +3,7 @@ bash_packages:
   Archlinux:
     - atuin
     - bash
+    - bash-preexec
     - bitwarden-cli
     - curl
     - direnv

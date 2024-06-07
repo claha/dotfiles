@@ -46,6 +46,7 @@ export DIRENV_LOG_FORMAT=""
 eval "$(zoxide init --cmd cd bash)"
 
 # Setup atuin
+[[ -f /usr/share/bash-preexec/bash-preexec.sh ]] && source /usr/share/bash-preexec/bash-preexec.sh
 eval "$(atuin init bash --disable-up-arrow --disable-ctrl-r)"
 
 # Load local bashrc if it exists
