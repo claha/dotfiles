@@ -50,7 +50,7 @@ home_symbol = '~'
 use_os_path_sep = true
 
 [git_branch]
-format = 'on [$symbol$branch(:$remote_branch)]($style) '
+format = '[$symbol$branch(:$remote_branch)]($style) '
 symbol = ' '
 style = 'bold purple'
 truncation_length = 9223372036854775807
@@ -85,7 +85,7 @@ disabled = false
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style) )'
 style = 'red bold'
-stashed = '\$'
+stashed = ''
 ahead = '⇡'
 behind = '⇣'
 up_to_date = ''
