@@ -4,7 +4,7 @@ configuration {
     combi-hide-mode-prefix: true;
     display-combi: "run";
     font: "TerminessNerdFontMono 14";
-    fixed-num-lines: true;
+    fixed-num-lines: false;
     terminal: "alacritty";
     disable-history: false;
     matching: "fuzzy";
