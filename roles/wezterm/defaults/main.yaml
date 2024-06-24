@@ -1,0 +1,5 @@
+---
+wezterm_packages:
+  - wezterm
+wezterm_config_files:
+  - ~/.config/wezterm/wezterm.lua

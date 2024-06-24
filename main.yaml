@@ -19,6 +19,8 @@
       tags: bash
     - role: alacritty
       tags: alacritty
+    - role: wezterm
+      tags: wezterm
     - role: git
       tags: git
     - role: i3
