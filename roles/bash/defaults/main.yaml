@@ -52,3 +52,4 @@ bash_config_files:
   - ~/.vimrc
   - ~/.tmux.conf
   - ~/.config/starship.toml
+  - ~/.config/zellij/config.kdl
