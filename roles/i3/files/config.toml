@@ -30,7 +30,7 @@ show_volume_when_muted = true
 format = " $icon $volume "
 [[block.click]]
 button = "left"
-cmd = "alacritty -e alsamixer"
+cmd = "wezterm -e alsamixer"
 
 [[block]]
 block = "time"

@@ -1,5 +1,0 @@
----
-alacritty_packages:
-  - alacritty
-alacritty_config_files:
-  - ~/.config/alacritty/alacritty.toml
