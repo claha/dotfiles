@@ -2,10 +2,11 @@
 set $mod Mod4
 
 # Configure border style
-default_border none
+default_border pixel 2
+smart_borders on
 
 # Hide borders adjacent to the screen.
-hide_edge_borders both
+# hide_edge_borders both
 
 # Configure gaps
 gaps inner 6px
@@ -227,6 +228,15 @@ bar {
     # top, right, bottom, left
     padding 5px 0px 5px 5px
 }
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #FFFFFF #FFFFFF #FFFFFF #000000   #FF8C00
+client.focused_inactive #FFFFFF #FFFFFF #FFFFFF #000000   #7F4600
+client.unfocused        #FFFFFF #FFFFFF #FFFFFF #000000   #7F4600
+client.urgent           #FFFFFF #FFFFFF #FFFFFF #000000   #FF0000
+client.placeholder      #FFFFFF #FFFFFF #FFFFFF #000000   #7F4600
+
+client.background       #ffffff
 
 # Load local config
 include ~/.config/i3/local.conf
