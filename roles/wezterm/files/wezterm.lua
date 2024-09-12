@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = {}
 
 config.font = wezterm.font("Terminess Nerd Font Mono")
-config.font_size = 16.0
+config.font_size = 20.0
 
 config.background = {
 	{
@@ -16,9 +16,17 @@ config.background = {
 }
 
 config.enable_tab_bar = false
+config.window_padding = {
+	left = 1,
+	right = 1,
+	top = 1,
+	bottom = 1,
+}
 
 config.default_prog = {
 	"/usr/bin/bash",
 }
+
+config.window_close_confirmation = "NeverPrompt"
 
 return config
