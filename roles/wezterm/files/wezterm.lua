@@ -29,4 +29,16 @@ config.default_prog = {
 
 config.window_close_confirmation = "NeverPrompt"
 
+config.keys = {
+	{
+		key = "S",
+		mods = "CTRL",
+		action = wezterm.action.QuickSelectArgs({
+			patterns = {
+				"[0-9a-f]{7,40}",
+			},
+		}),
+	},
+}
+
 return config
