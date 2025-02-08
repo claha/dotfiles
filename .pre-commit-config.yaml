@@ -84,7 +84,7 @@ repos:
           - "2"
 
   - repo: https://github.com/ansible/ansible-lint
-    rev: v25.1.1
+    rev: v25.1.2
     hooks:
       - id: ansible-lint
 
