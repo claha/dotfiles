@@ -1,0 +1,13 @@
+---
+neovim_packages:
+  Archlinux:
+    - neovim
+  Debian:
+    - neovim
+neovim_config_files:
+  - ~/.config/nvim/init.lua
+  - ~/.config/nvim/lua/config/init.lua
+  - ~/.config/nvim/lua/config/options.lua
+  - ~/.config/nvim/lua/config/lazy.lua
+  - ~/.config/nvim/lua/plugins/fzf-lua.lua
+  - ~/.config/nvim/lua/plugins/lualine.lua

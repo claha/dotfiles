@@ -1,0 +1,13 @@
+---
+- name: Install package
+  become: true
+  ansible.builtin.package:
+    name: "{{ neovim_packages[ansible_facts.os_family] }}"
+    state: latest
+  when: can_become
+
+- name: Add config
+  ansible.builtin.include_role:
+    name: add_config
+  vars:
+    add_config_files: "{{ neovim_config_files }}"

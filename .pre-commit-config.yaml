@@ -77,6 +77,11 @@ repos:
     rev: v2.0.2
     hooks:
       - id: stylua
+        args:
+          - --indent-type
+          - Spaces
+          - --indent-width
+          - "2"
 
   - repo: https://github.com/ansible/ansible-lint
     rev: v25.1.1

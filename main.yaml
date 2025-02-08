@@ -33,6 +33,8 @@
       tags: emacs
     - role: mpv
       tags: mpv
+    - role: neovim
+      tags: neovim
     - role: qutebrowser
       tags: qutebrowser
     - role: gnupg
