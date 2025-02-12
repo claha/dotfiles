@@ -4,7 +4,6 @@ repos:
     rev: 0.31.1
     hooks:
       - id: check-github-workflows
-      - id: check-dependabot
       - id: check-jsonschema
         name: check starship configuration
         files: starship
