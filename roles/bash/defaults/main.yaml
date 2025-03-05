@@ -10,6 +10,7 @@ bash_packages:
     - eza
     - dua-cli
     - duf
+    - fd
     - fzf
     - jq
     - just
@@ -32,6 +33,7 @@ bash_packages:
     - direnv
     - duf
     - eza
+    - fd-find
     - fzf
     - jq
     - pass
