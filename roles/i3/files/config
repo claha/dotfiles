@@ -184,6 +184,9 @@ for_window [class="mpv$"] floating enable
 # Use Caps Lock as an additional Control key
 exec setxkbmap -option ctrl:nocaps
 
+# Run kanata
+exec kanata
+
 # Hide the mouse cursor after a second
 exec unclutter -idle 1 -noevents
 
