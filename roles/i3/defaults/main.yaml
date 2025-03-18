@@ -22,8 +22,10 @@ i3_packages:
     - xorg
 i3_packages_aur:
   - i3lock-color
+  - kanata
 i3_config_files:
   - ~/.config/i3/config
   - ~/.config/i3status-rust/config.toml
   - ~/.config/dunst/dunstrc
   - ~/.config/picom/picom.conf
+  - ~/.config/kanata/kanata.kbd
