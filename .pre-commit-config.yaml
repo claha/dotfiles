@@ -90,7 +90,7 @@ repos:
           - ansible
 
   - repo: https://github.com/semaphor-dk/dansabel
-    rev: 1.6.0
+    rev: 1.7.0
     hooks:
       - id: dansabel
 
