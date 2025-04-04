@@ -17,10 +17,10 @@ config.background = {
 
 config.enable_tab_bar = false
 config.window_padding = {
-  left = 1,
-  right = 1,
-  top = 1,
-  bottom = 1,
+  left = 5,
+  right = 5,
+  top = 5,
+  bottom = 5,
 }
 
 config.default_prog = {
