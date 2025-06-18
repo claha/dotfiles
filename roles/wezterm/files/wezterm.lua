@@ -3,6 +3,7 @@ local config = {}
 
 config.font = wezterm.font("Terminess Nerd Font Mono")
 config.font_size = 20.0
+config.warn_about_missing_glyphs = false
 
 config.background = {
   {
